@@ -11,7 +11,7 @@ o.expandtab = true
 o.autoindent = true
 o.breakindent = true
 
-o.mouse = "a"
+o.mouse = ""
 o.termguicolors = true
 
 o.clipboard = "unnamedplus"
