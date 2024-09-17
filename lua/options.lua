@@ -48,3 +48,5 @@ end
 
 vim.cmd.colorscheme "catppuccin"
 
+vim.g.transparent_enabled = true
+
