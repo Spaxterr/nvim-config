@@ -4,6 +4,8 @@ require "nvchad.options"
 local is_wsl = vim.fn.has("wsl") == 1
 local o = vim.o
 
+vim.g.mapleader = " "
+
 o.number = true
 o.tabstop = 4
 o.shiftwidth = 4
@@ -47,6 +49,4 @@ if is_wsl then
 end
 
 vim.cmd.colorscheme "catppuccin"
-
-vim.g.transparent_enabled = true
 

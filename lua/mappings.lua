@@ -18,3 +18,5 @@ map("n", "<C-d>", "<C-d>zz", { desc = "Move down half a page and re-center", rem
 -- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
 
 map("n", "<Leader>cd", ":lua require('neogen').generate()<CR>", { noremap = true, silent = true, desc = "Generate docstring" })
+
+vim.api.nvim_set_keymap('', '<Space>', '<Nop>', { noremap = true, silent = true })
