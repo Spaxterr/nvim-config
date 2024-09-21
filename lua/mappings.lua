@@ -17,6 +17,13 @@ map("n", "<C-d>", "<C-d>zz", { desc = "Move down half a page and re-center", rem
 
 -- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
 
-map("n", "<Leader>cd", ":lua require('neogen').generate()<CR>", { noremap = true, silent = true, desc = "Generate docstring" })
+-- Neogen keybinds
+map("n", "<Leader>cdf", ":lua require('neogen').generate({ type = 'func' })<CR>", { noremap = true, silent = true, desc = "Generate function docstring" })
+map("n", "<Leader>cdc", ":lua require('neogen').generate({ type = 'class' })<CR>", { noremap = true, silent = true, desc = "Generate class docstring" })
+map("n", "<Leader>cdt", ":lua require('neogen').generate({ type = 'type' })<CR>", { noremap = true, silent = true, desc = "Generate type docstring" })
 
+-- Disable spacebar moving cursor as it is used as leader key
 vim.api.nvim_set_keymap('', '<Space>', '<Nop>', { noremap = true, silent = true })
+
+map('v', '<Leader>ff', vim.lsp.buf.format, { desc = "Format selection" })
+
