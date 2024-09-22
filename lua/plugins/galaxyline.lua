@@ -1,9 +1,10 @@
 return {
     {
-        "NTBBloodbath/galaxyline.nvim",
-        config = function()
-            require("galaxyline.themes.eviline")
+        'nvim-lualine/lualine.nvim',
+        lazy = false,
+        config = function ()
+            require('lualine').setup()
         end,
-        requires = { "kyazdani42/nvim-web-devicons", opt = true }
+        dependencies = { 'nvim-tree/nvim-web-devicons' }
     }
 }

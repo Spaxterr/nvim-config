@@ -14,4 +14,8 @@ M.base46 = {
 	-- },
 }
 
+M.ui = {
+    theme = "catppuccin",
+}
+
 return M
