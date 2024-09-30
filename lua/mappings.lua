@@ -25,5 +25,19 @@ map("n", "<Leader>cdt", ":lua require('neogen').generate({ type = 'type' })<CR>"
 -- Disable spacebar moving cursor as it is used as leader key
 vim.api.nvim_set_keymap('', '<Space>', '<Nop>', { noremap = true, silent = true })
 
+-- Add keybind to close all tabs
+vim.api.nvim_set_keymap('n', '<leader>bc', ':bufdo bd<CR>', { noremap = true, silent = true, desc = "Close all tabs" })
+
 map('v', '<Leader>ff', vim.lsp.buf.format, { desc = "Format selection" })
+
+local function quickfix()
+    vim.lsp.buf.code_action({
+        filter = function(a) return a.isPreferred end,
+        apply = true
+    })
+end
+
+map({ 'n', 'v' }, '<leader>cq', quickfix, { noremap = true, silent = true, desc = "Quickfix" })
+
+map('n', '<leader>fw', "<CMD>lua require('telescope.builtin').live_grep({ debounce = 250 })<CR>", { noremap = true, silent = true, desc = "telescope live grep" })
 
