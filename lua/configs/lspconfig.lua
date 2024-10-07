@@ -16,6 +16,13 @@ for _, lsp in ipairs(servers) do
   }
 end
 
+lspconfig.svelte.setup({
+    cmd = {
+        "svelteserver",
+        "--stdio"
+    }
+})
+
 lspconfig.jdtls.setup {
   cmd = { "/usr/bin/java", "-Declipse.application=org.eclipse.jdt.ls.core.id1",
           "-Dosgi.bundles.defaultStartLevel=4",
