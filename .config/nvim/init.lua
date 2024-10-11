@@ -45,3 +45,4 @@ vim.api.nvim_create_autocmd({ "BufWritePost", "InsertLeave", "BufEnter" }, {
 vim.schedule(function()
     require "mappings"
 end)
+

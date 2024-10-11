@@ -50,3 +50,10 @@ map('n', '<leader>fw', "<CMD>lua require('telescope.builtin').live_grep({ deboun
 vim.keymap.set("n", "K", require("hover").hover, {desc = "hover.nvim"})
 vim.keymap.set("n", "gK", require("hover").hover_select, {desc = "hover.nvim (select)"})
 
+-- Git Conflict
+vim.keymap.set("n", "<leader>gco", 'GitConflictChooseOurs<CR>', { desc = "Git Conflict - Select current changes", noremap = true, silent = true })
+vim.keymap.set("n", "<leader>gct", 'GitConflictChooseTheirs<CR>', { desc = "Git Conflict - Select incoming changes", noremap = true, silent = true })
+vim.keymap.set("n", "<leader>gcb", 'GitConflictChooseBoth<CR>', { desc = "Git Conflict - Select both changes", noremap = true, silent = true })
+vim.keymap.set("n", "<leader>gcn", 'GitConflictNextConflict<CR>', { desc = "Git Conflict - Move to next conflict", noremap = true, silent = true })
+vim.keymap.set("n", "<leader>gcp", 'GitConflictPrevConflict<CR>', { desc = "Git Conflict - Move to previous conflict", noremap = true, silent = true })
+
