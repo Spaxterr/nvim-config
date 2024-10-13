@@ -12,9 +12,9 @@ return {
                 sections = {
                     lualine_a = { 'mode' },
                     lualine_b = { 'branch', 'diff', 'diagnostics' },
-                    lualine_c = { 'filename' },
+                    lualine_c = { 'filename',  },
                     lualine_x = { 'filesize' },
-                    lualine_y = { 'filetype' },
+                    lualine_y = { 'g:coc_status', 'filetype' },
                     lualine_z = { 'location' },
                 },
                 globalstatus = true,

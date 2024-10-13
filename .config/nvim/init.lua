@@ -44,6 +44,7 @@ vim.api.nvim_create_autocmd({ "BufWritePost", "InsertLeave", "BufEnter" }, {
 
 vim.g.coc_global_extensions = {
     "coc-json",
+    "coc-python",
     "coc-lua",
     "coc-tsserver",
     "coc-html",
@@ -59,13 +60,13 @@ vim.api.nvim_create_autocmd("User", {
     end,
 })
 
-vim.api.nvim_create_autocmd("User", {
-    pattern = "CocStatusChange",
-    callback = function()
-        local status = vim.g.coc_status or ""
-        vim.notify("Language server:" .. status, vim.log.levels.INFO)
-    end,
-})
+-- vim.api.nvim_create_autocmd("User", {
+--     pattern = "CocStatusChange",
+--     callback = function()
+--         local status = vim.g.coc_status or ""
+--         vim.notify("Language server:" .. status, vim.log.levels.INFO)
+--     end,
+-- })
 
 vim.schedule(function()
     require "mappings"
