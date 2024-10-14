@@ -8,7 +8,8 @@ vim.g.mapleader = " "
 
 vim.opt.list = true
 vim.opt.listchars = { trail = '·' }
-
+vim.g.tabufline_enabled = false
+vim.g.loaded_tabufline = 1
 o.number = true
 o.tabstop = 4
 o.shiftwidth = 4
@@ -50,6 +51,8 @@ if is_wsl then
         cache_enabled = 0,
     }
 end
+
+vim.opt.completeopt = "menuone,noselect"
 
 vim.cmd.colorscheme "catppuccin"
 

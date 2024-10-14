@@ -51,6 +51,8 @@ vim.g.coc_global_extensions = {
     "coc-css",
     "coc-pyright",
     "coc-java",
+    "coc-snippets",
+    "coc-pairs"
 }
 
 vim.api.nvim_create_autocmd("User", {
@@ -59,14 +61,6 @@ vim.api.nvim_create_autocmd("User", {
         vim.notify("coc.nvim initialized", vim.log.levels.INFO)
     end,
 })
-
--- vim.api.nvim_create_autocmd("User", {
---     pattern = "CocStatusChange",
---     callback = function()
---         local status = vim.g.coc_status or ""
---         vim.notify("Language server:" .. status, vim.log.levels.INFO)
---     end,
--- })
 
 vim.schedule(function()
     require "mappings"
