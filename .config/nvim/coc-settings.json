@@ -4,6 +4,5 @@
     "acceptSuggestionOnEnter": "always",
     "java.jdt.ls": {
         "java.home": "/home/developer/.jenv/shims/java"
-    },
-    "snippets.ultisnips.pythonPrompt": false
+    }
 }

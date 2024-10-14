@@ -16,10 +16,6 @@ M.base46 = {
 
 M.ui = {
     theme = "catppuccin",
-    tabufline = {
-        enabled = true,
-        lazyload = false,
-    }
 }
 
 return M

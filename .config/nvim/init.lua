@@ -48,6 +48,17 @@ vim.api.nvim_create_autocmd({ "BufWritePost", "InsertLeave", "BufEnter" }, {
     end,
 })
 
+vim.g.coc_global_extensions = {
+    "coc-json",
+    "coc-python",
+    "coc-lua",
+    "coc-tsserver",
+    "coc-html",
+    "coc-css",
+    "coc-pyright",
+    "coc-java",
+}
+
 vim.api.nvim_create_autocmd("User", {
     pattern = "CocNvimInit",
     callback = function()
