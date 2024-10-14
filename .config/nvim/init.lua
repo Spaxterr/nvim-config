@@ -36,24 +36,17 @@ dofile(vim.g.base46_cache .. "statusline")
 require "options"
 require "nvchad.autocmds"
 
+local cmp = require('cmp')
+
+cmp.setup({
+    enabled = false,  -- Disable nvim-cmp
+})
+
 vim.api.nvim_create_autocmd({ "BufWritePost", "InsertLeave", "BufEnter" }, {
     callback = function()
         require("lint").try_lint()
     end,
 })
-
-vim.g.coc_global_extensions = {
-    "coc-json",
-    "coc-python",
-    "coc-lua",
-    "coc-tsserver",
-    "coc-html",
-    "coc-css",
-    "coc-pyright",
-    "coc-java",
-    "coc-snippets",
-    "coc-pairs"
-}
 
 vim.api.nvim_create_autocmd("User", {
     pattern = "CocNvimInit",

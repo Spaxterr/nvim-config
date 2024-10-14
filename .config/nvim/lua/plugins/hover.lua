@@ -1,9 +1,9 @@
 return {
     {
         "lewis6991/hover.nvim",
-        config = function ()
+        config = function()
             require("hover").setup {
-                init = function ()
+                init = function()
                     require('hover.providers.lsp')
                 end,
                 preview_opts = {

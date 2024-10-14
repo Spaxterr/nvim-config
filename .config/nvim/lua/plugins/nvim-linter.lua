@@ -1,9 +1,12 @@
 return {
     {
         'mfussenegger/nvim-lint',
-        config = function ()
+        config = function()
             require('lint').linters_by_ft = {
-                javascript = {'eslint'},
+                javascript = { 'eslint' },
+                java = { 'checkstyle' },
+                python = { 'flake8' },
+                html = { 'tidy' },
             }
         end
     }

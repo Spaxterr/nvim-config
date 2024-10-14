@@ -2,7 +2,7 @@ return {
     {
         "NvChad/ui",
         lazy = false,
-        config = function ()
+        config = function()
             vim.opt.statusline = ""
         end
     }

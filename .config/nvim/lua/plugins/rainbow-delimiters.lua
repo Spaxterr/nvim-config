@@ -2,7 +2,7 @@ return {
     {
         "HiPhish/rainbow-delimiters.nvim",
         lazy = false,
-        config = function ()
+        config = function()
             require('rainbow-delimiters.setup').setup()
         end
     }

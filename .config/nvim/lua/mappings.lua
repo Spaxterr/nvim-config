@@ -27,14 +27,12 @@ map("n", "<Leader>cdt", ":lua require('neogen').generate({ type = 'type' })<CR>"
 vim.api.nvim_set_keymap('', '<Space>', '<Nop>', opts)
 
 -- Formatter
-map('v', '<Leader>ff', vim.lsp.buf.format, { desc = "Format selection" })
+map('v', '<Leader>ff', '<Plug>(coc-format-selected)', { desc = "Format selection" })
 
 -- Clear whitespaces
 map({'v', 'n'}, '<Leader>cw', [[:<C-u>'<,'>s/\s\+$//<CR>]], { noremap = true, silent = true, desc = "Remove trailing whitespaces" });
 -- Add keybind to close all tabs
 vim.api.nvim_set_keymap('n', '<leader>bc', ':bufdo bd<CR>', { noremap = true, silent = true, desc = "Close all tabs" })
-
-map('v', '<Leader>ff', vim.lsp.buf.format, { desc = "Format selection" })
 
 local function quickfix()
     vim.lsp.buf.code_action({
