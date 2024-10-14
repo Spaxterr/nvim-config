@@ -55,3 +55,8 @@ map("i", "<CR>", [[coc#pum#visible() ? coc#pum#confirm() : "\<CR>"]], { noremap 
 map("i", "<Tab>", 'coc#pum#visible() ? coc#pum#next(1) : v:lua.check_back_space() ? "<Tab>" : coc#refresh()', { noremap = true, expr = true, silent = true })
 map("i", "<S-Tab>", 'coc#pum#visible() ? coc#pum#prev(1) : "<C-h>"', { noremap = true, expr = true, silent = true })
 
+-- Barbar
+map('n', '<Tab>', '<Cmd>BufferNext<CR>', { noremap = true, silent = true })
+map('n', '<S-Tab>', '<Cmd>BufferPrevious<CR>', { noremap = true, silent = true })
+map('n', '<space>x', '<Cmd>BufferClose<CR>', { noremap = true, silent = true, desc = "Close file" })
+
