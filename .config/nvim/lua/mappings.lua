@@ -52,7 +52,7 @@ map("n", "gi", "<Plug>(coc-implementation)", opts)
 map("n", "gr", "<Plug>(coc-references)", opts)
 map("n", "K", ":call CocActionAsync('doHover')<CR>", opts)
 map("i", "<CR>", [[coc#pum#visible() ? coc#pum#confirm() : "\<CR>"]], { noremap = true, silent = true, expr = true, })
-map("i", "<Tab>", 'coc#pum#visible() ? coc#pum#next(1) : v:lua.check_back_space() ? "<Tab>" : coc#refresh()', { noremap = true, expr = true, silent = true })
+map("i", "<Tab>", 'coc#pum#visible() ? coc#pum#next(1) : "<Tab>"', { noremap = true, expr = true, silent = true })
 map("i", "<S-Tab>", 'coc#pum#visible() ? coc#pum#prev(1) : "<C-h>"', { noremap = true, expr = true, silent = true })
 
 -- Barbar
