@@ -15,6 +15,7 @@ o.shiftwidth = 4
 o.expandtab = true
 o.autoindent = true
 o.breakindent = true
+o.wrap = false
 
 o.mouse = ""
 o.termguicolors = true
