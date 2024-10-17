@@ -5,5 +5,12 @@
     "java.jdt.ls": {
         "java.home": "/home/developer/.jenv/shims/java"
     },
-    "snippets.ultisnips.pythonPrompt": false
+    "snippets.ultisnips.pythonPrompt": false,
+    "prettier.enable": true,
+    "prettier.semi": true,
+    "prettier.useTabs": false,
+    "prettier.tabWidth": 4,
+    "prettier.printWidth": 110,
+    "prettier.trailingComma": "es5",
+    "prettier.singleQuote": true
 }
