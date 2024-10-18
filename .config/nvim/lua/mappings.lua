@@ -60,3 +60,8 @@ map('n', '<Tab>', '<Cmd>BufferNext<CR>', { noremap = true, silent = true })
 map('n', '<S-Tab>', '<Cmd>BufferPrevious<CR>', { noremap = true, silent = true })
 map('n', '<space>x', '<Cmd>BufferClose<CR>', { noremap = true, silent = true, desc = "Close file" })
 
+-- Git
+local gitsigns = require('gitsigns')
+map('n', '<Space>gb', function() gitsigns.blame_line{full=true} end, { noremap = true, silent = true, desc = "Git blame current line" })
+map('n', '<Space>gt', '<Cmd>GitBlameToggle<CR>', { noremap = true, silent = true, desc = "Toggle git blame" })
+
