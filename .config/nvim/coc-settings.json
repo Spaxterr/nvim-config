@@ -1,4 +1,4 @@
-{   
+{
     "suggest.noselect": false,
     "suggest.enablePreselect": true,
     "acceptSuggestionOnEnter": "always",
@@ -12,5 +12,11 @@
     "prettier.tabWidth": 4,
     "prettier.printWidth": 110,
     "prettier.trailingComma": "es5",
-    "prettier.singleQuote": true
+    "prettier.singleQuote": true,
+    "python.linting.pylintEnabled": false,
+    "python.linting.flake8Enabled": true,
+    "python.linting.enabled": true,
+    "python.analysis.autoImportCompletions": true,
+    "inlayHint.enable": true,
+    "Lua.workspace.checkThirdParty": false
 }

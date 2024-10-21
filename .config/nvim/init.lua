@@ -68,3 +68,5 @@ vim.schedule(function()
     require "mappings"
 end)
 
+vim.cmd [[highlight! link CocInlayHint LineNr ]]
+
