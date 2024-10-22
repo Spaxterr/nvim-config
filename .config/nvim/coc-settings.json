@@ -1,11 +1,20 @@
 {
     "suggest.noselect": false,
     "suggest.enablePreselect": true,
-    "acceptSuggestionOnEnter": "always",
-    "java.jdt.ls": {
-        "java.home": "/home/developer/.jenv/shims/java"
-    },
+
+    "java.jdt.ls.vmargs": "-Xms1g -Xmx8g -XX:+UseG1GC -XX:+UseStringDeduplication -XX:MaxGCPauseMillis=200",
+    "java.completion.enabled": true,
+    "java.sharedIndexes.enabled": "on",
+    "java.signatureHelp.enabled": true,
+    "java.codeGeneration.generateComments": false,
+    "java.referencesCodeLens.enabled": false,
+    "java.completion.postfix.enabled": false,
+    "java.completion.guessMethodArguments": false,
+    "java.completion.matchCase": "off",
+    "java.inlayHints.parameterNames.enabled": "none",
+
     "snippets.ultisnips.pythonPrompt": false,
+
     "prettier.enable": true,
     "prettier.semi": true,
     "prettier.useTabs": false,
