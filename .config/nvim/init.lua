@@ -56,7 +56,11 @@ vim.g.coc_global_extensions = {
     "coc-pairs",
     "coc-eslint",
     "coc-prettier",
+    "coc-svelte",
+    "coc-svelte-kit",
 }
+
+vim.g.svelte_preprocessors = {'typescript'}
 
 vim.api.nvim_create_autocmd({ "BufWritePost", "InsertLeave", "BufEnter" }, {
     callback = function()
