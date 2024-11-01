@@ -25,7 +25,6 @@
     "prettier.printWidth": 110,
     "prettier.trailingComma": "es5",
     "prettier.singleQuote": true,
-    "python.linting.pylintEnabled": false,
     "python.linting.flake8Enabled": true,
     "python.linting.enabled": true,
     "python.analysis.autoImportCompletions": true,
