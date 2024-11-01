@@ -12,8 +12,11 @@ vim.opt.listchars = { trail = '·' }
 o.number = true
 o.tabstop = 4
 o.shiftwidth = 4
+o.smartindent = true
+o.cmdheight = 2
 o.expandtab = true
 o.autoindent = true
+o.signcolumn = 'yes'
 o.breakindent = true
 o.wrap = false
 
@@ -36,6 +39,7 @@ o.visualbell = true
 o.timeoutlen = 50
 
 o.undofile = true
+o.updatetime = 200
 
 if is_wsl then
     vim.g.clipboard = {

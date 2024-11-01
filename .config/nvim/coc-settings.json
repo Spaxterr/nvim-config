@@ -1,6 +1,9 @@
 {
     "suggest.noselect": false,
-    "suggest.enablePreselect": true,
+    "suggest.enablePreselect": false,
+    "diagnostic.checkCurrentLine": true,
+    "diagnostic.virtualText": true,
+    "diagnostic.virtualTextCurrentLineOnly": false,
 
     "java.jdt.ls.vmargs": "-Xms1g -Xmx8g -XX:+UseG1GC -XX:+UseStringDeduplication -XX:MaxGCPauseMillis=200",
     "java.completion.enabled": true,
@@ -28,5 +31,13 @@
     "python.analysis.autoImportCompletions": true,
     "inlayHint.enable": true,
     "Lua.workspace.checkThirdParty": false,
-    "svelte.enable-ts-plugin": true
+
+    "svelte.enable-ts-plugin": true,
+    "svelte.plugin.css.enable": true,
+    "svelte.plugin.html.enable": true,
+    "svelte.plugin.typescript.enable": true,
+    "svelte.plugin.html.completions.enable": true,
+    "svelte.plugin.svelte.defaultScriptLanguage": "ts",
+    "typescript.inlayHints.variableTypes.enabled": true,
+    "svelte.ui.svelteKitFilesContextMenu.enable": "auto"
 }

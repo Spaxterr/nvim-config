@@ -38,28 +38,11 @@ require "options"
 require "nvchad.autocmds"
 
 local cmp = require('cmp')
-
 cmp.setup({
-    enabled = false,  -- Disable nvim-cmp
+    enabled = false,  -- Disable nvim-cmp since coc already has autocompletion
 })
 
-vim.g.coc_global_extensions = {
-    "coc-json",
-    "coc-python",
-    "coc-lua",
-    "coc-tsserver",
-    "coc-html",
-    "coc-css",
-    "coc-pyright",
-    "coc-java",
-    "coc-snippets",
-    "coc-pairs",
-    "coc-eslint",
-    "coc-prettier",
-    "coc-svelte",
-    "coc-svelte-kit",
-}
-
+vim.g.coc_global_extensions = require('configs.coc-languages')
 vim.g.svelte_preprocessors = {'typescript'}
 
 vim.api.nvim_create_autocmd({ "BufWritePost", "InsertLeave", "BufEnter" }, {
@@ -72,5 +55,6 @@ vim.schedule(function()
     require "mappings"
 end)
 
+-- Set inline hints to the same color as LineNr
 vim.cmd [[highlight! link CocInlayHint LineNr ]]
 
