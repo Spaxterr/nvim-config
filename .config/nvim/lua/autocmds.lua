@@ -1,20 +1,3 @@
-vim.api.nvim_create_autocmd("VimEnter", {
-    callback = function()
-        -- Open Alpha only if there are no files opened
-        if vim.fn.argc() == 0 then
-            require("alpha").start(true)
-        end
-    end
-})
-
-vim.api.nvim_create_autocmd("BufLeave", {
-    callback = function()
-        -- Open Alpha only if there are no files opened
-        if vim.fn.argc() == 0 then
-            require("alpha").start(true)
-        end
-    end
-})
 -- Automatically load last session and close unrelated files
 vim.api.nvim_create_autocmd("User", {
     pattern = "PersistedTelescopeLoadPre",
