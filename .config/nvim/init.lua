@@ -44,6 +44,7 @@ dofile(vim.g.base46_cache .. "statusline")
 
 require "options"
 require "nvchad.autocmds"
+require "lua.autocmds"
 
 vim.schedule(function()
   require "mappings"
@@ -51,3 +52,4 @@ end)
 
 -- Set inline hints to the same color as LineNr
 vim.cmd [[highlight! link CocInlayHint LineNr ]]
+
