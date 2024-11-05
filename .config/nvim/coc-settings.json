@@ -1,3 +1,14 @@
 {
-  "snippets.ultisnips.pythonPrompt": false
+  "Lua.workspace.checkThirdParty": false,
+  "suggest.noselect": false,
+  "suggest.enablePreselect": false,
+  "diagnostic.checkCurrentLine": true,
+  "snippets.ultisnips.pythonPrompt": false,
+  "svelte.enable-ts-plugin": false,
+  "eslint.enable": true,
+  "python.linting.flake8Enabled": true,
+  "python.linting.pylintEnabled": false,
+  "python.linting.enabled": true,
+  "python.analysis.autoImportCompletions": true,
+  "python.pythonPath": "python3"
 }
