@@ -1,3 +1,4 @@
+print("autocmds loaded")
 -- Automatically load last session and close unrelated files
 vim.api.nvim_create_autocmd("User", {
     pattern = "PersistedTelescopeLoadPre",
@@ -9,3 +10,5 @@ vim.api.nvim_create_autocmd("User", {
         vim.api.nvim_input("<ESC>:%bd!<CR>")
     end,
 })
+
+-- Set the highlight for trailing whitespace

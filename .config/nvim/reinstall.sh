@@ -5,3 +5,4 @@ sudo rm -r ~/.local/share/nvim/
 echo "Re-installing neovim..."
 sudo apt install neovim -y
 echo "NvChad installation cleaned!"
+nvim --headless "+Lazy! sync" +qa

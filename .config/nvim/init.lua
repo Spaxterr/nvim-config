@@ -47,9 +47,25 @@ require "nvchad.autocmds"
 require "autocmds"
 
 vim.schedule(function()
-  require "mappings"
+    require "mappings"
 end)
 
 -- Set inline hints to the same color as LineNr
 vim.cmd [[highlight! link CocInlayHint LineNr ]]
 
+
+local none_ls = require('null-ls')
+none_ls.setup({
+    sources = {
+        none_ls.builtins.diagnostics.trail_space.with({
+            command = "rgrep",
+            args = { "-nH", "\\s$" },
+            method = none_ls.methods.DIAGNOSTICS,
+            filetypes = { "lua", "python", "javascript", "markdown", "txt" },
+            diagnostics_format = "#{m}",
+            diagnostics_postprocess = function(diagnostic)
+                diagnostic.severity = 1
+            end,
+        }),
+    },
+})
