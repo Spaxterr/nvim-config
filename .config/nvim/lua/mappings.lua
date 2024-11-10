@@ -49,3 +49,9 @@ map('n', '<space>x', '<Cmd>BufferClose<CR>', { noremap = true, silent = true, de
 local gitsigns = require('gitsigns')
 map('n', '<Space>gb', function() gitsigns.blame_line{full=true} end, { noremap = true, silent = true, desc = "Git blame current line" })
 map('n', '<Space>gt', '<Cmd>GitBlameToggle<CR>', { noremap = true, silent = true, desc = "Toggle git blame" })
+
+-- tmux navigator
+map('n', '<C-h>', '<Cmd>TmuxNavigateLeft<CR>', { noremap = true, silent = true, desc = 'Window Left' })
+map('n', '<C-l>', '<Cmd>TmuxNavigateRight<CR>', { noremap = true, silent = true, desc = 'Window Right' })
+map('n', '<C-j>', '<Cmd>TmuxNavigateDown<CR>', { noremap = true, silent = true, desc = 'Window Down' })
+map('n', '<C-k>', '<Cmd>TmuxNavigateUp<CR>', { noremap = true, silent = true, desc = 'Window Up' })

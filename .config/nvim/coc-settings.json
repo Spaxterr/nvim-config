@@ -6,8 +6,15 @@
     "suggest.enablePreselect": false,
     "diagnostic.checkCurrentLine": true,
     "snippets.ultisnips.pythonPrompt": false,
-    "svelte.enable-ts-plugin": false,
+    "svelte.enable-ts-plugin": true,
     "eslint.enable": true,
+    "eslint.validate": [
+        "javascript",
+        "typescript",
+        "svelte",
+        "html"
+    ],
+    "eslint.experimental.useFlatConfig": true,
     "python.linting.flake8Enabled": true,
     "python.linting.pylintEnabled": false,
     "python.linting.enabled": true,
