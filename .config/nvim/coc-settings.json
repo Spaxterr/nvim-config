@@ -20,6 +20,14 @@
     "python.linting.enabled": true,
     "python.analysis.autoImportCompletions": true,
     "python.pythonPath": "python3",
-    "prettier.configPath": "~/.config/.prettierrc",
-    "prettier.requireConfig": true
+
+    "prettier.enable": true,
+    "prettier.semi": true,
+    "prettier.tabWidth": 4,
+    "prettier.printWidth": 110,
+    "prettier.quoteProps": "as-needed",
+    "prettier.arrowParens": "always",
+    "prettier.bracketSpacing": true,
+    "prettier.trailingComma": "es5",
+    "prettier.singleQuote": true
 }
