@@ -4,9 +4,12 @@ source $HOME/antigen/antigen.zsh
 # Standard Plugins
 antigen bundle git
 antigen bundle pip
+antigen bundle ssh
 antigen bundle command-not-found
 
 # Custom Plugins
+antigen bundle unixorn/fzf-zsh-plugin@main
+antigen bundle agkozak/zsh-z
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle liquidprompt/liquidprompt
 antigen bundle hlissner/zsh-autopair
