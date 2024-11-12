@@ -1,3 +1,4 @@
+bash -e $HOME/setup.sh
 source $HOME/antigen/antigen.zsh
 
 # Standard Plugins
