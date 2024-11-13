@@ -1,4 +1,6 @@
 {
+    "coc.preferences.bracketEnterImprove": true,
+    "coc.preferences.enableMessageDialog": false,
     "Lua.workspace.checkThirdParty": false,
     "inlayHint.enableParameter": false,
     "inlayHint.refreshOnInsertMode": true,
@@ -10,11 +12,16 @@
     "eslint.enable": true,
     "eslint.validate": [
         "javascript",
+        "javascriptreact",
         "typescript",
         "svelte",
         "html"
     ],
     "eslint.experimental.useFlatConfig": true,
+    "eslint.workingDirectories": [
+        { "mode": "auto" }
+    ],
+    "eslint.run": "onSave",
     "python.linting.flake8Enabled": true,
     "python.linting.pylintEnabled": false,
     "python.linting.enabled": true,
