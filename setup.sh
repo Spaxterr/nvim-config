@@ -12,9 +12,10 @@ if [ ! -d "$HOME/.oh-my-zsh" ]; then
 fi
 
 # Antigen
-if [ ! -f "$HOME/antigen.zsh" ]; then
+if [ ! -f "$HOME/antigen/antigen.zsh" ]; then
   echo "Antigen not found. Installing..."
-  curl -L git.io/antigen > "$HOME/antigen.zsh"
+  mkdir $HOME/antigen/
+  curl -L git.io/antigen > "$HOME/antigen/antigen.zsh"
 fi
 
 # NVM (Node Version Manager)

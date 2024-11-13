@@ -54,8 +54,13 @@ if grep -q "microsoft" /proc/version > /dev/null 2>&1; then
     fi
 fi
 
+[[ -e ~/.profile ]] && emulate sh -c 'source ~/.profile'
+export PATH="$HOME/.jenv/bin:$PATH"
+eval "$(jenv init -)"
+jenv enable-plugin export
+
 # Export root .env values
 set -a
-source .env
+source $HOME/.env
 set +a
 
