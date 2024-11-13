@@ -27,7 +27,8 @@ map({'v', 'n'}, '<Leader>cw', [[:<C-u>'<,'>s/\s\+$//<CR>]], { noremap = true, si
 map('n', '<leader>bc', ':bufdo bd<CR>', { noremap = true, silent = true, desc = "Close all tabs" })
 
 -- Bind telescope live grep to 'fw'
-map('n', '<leader>fw', "<CMD>lua require('telescope.builtin').live_grep()<CR>", { noremap = true, silent = true, desc = "Telescope live grep" })
+map('n', '<leader>fw', "<CMD>lua require('fzf-lua').live_grep()<CR>", { noremap = true, silent = true, desc = "Live grep" })
+map('n', '<leader>ff', "<CMD>lua require('fzf-lua').files()<CR>", { noremap = true, silent = true, desc = "Find files" })
 
 -- Coc bindings
 map({'v', 'x'}, '<Leader>ff', '<Plug>(coc-format-selected)', { desc = "Format selection" })
