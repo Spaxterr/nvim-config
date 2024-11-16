@@ -18,6 +18,13 @@ if [ ! -f "$HOME/antigen/antigen.zsh" ]; then
   curl -L git.io/antigen > "$HOME/antigen/antigen.zsh"
 fi
 
+# Antigen
+if [ ! -f "$HOME/liquidprompt/liquidprompt" ]; then
+  echo "Liquid prompt not found. Installing..."
+  mkdir $HOME/liquidprompt/
+  git clone https://github.com/nojhan/liquidprompt.git $HOME/liquidprompt
+fi
+
 # NVM (Node Version Manager)
 if [ ! -d "$HOME/.nvm" ]; then
   echo "nvm not found. Installing..."
