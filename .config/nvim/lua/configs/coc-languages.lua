@@ -1,6 +1,5 @@
 return {
     "coc-json",
-    "coc-python",
     "coc-lua",
     "coc-tsserver",
     "coc-html",
