@@ -18,6 +18,24 @@ return {
                     show_matches_only = false,
                     preview_layout = "vertical",
                 },
+                files = {
+                    actions = {
+                        ["default"] = function(selected)
+                            if not selected then return end
+
+                            vim.fn.setqflist({})
+
+                            for i, file in ipairs(selected) do
+                                if i == 1 then
+                                    vim.cmd('edit ' .. vim.fn.fnameescape(file))
+                                else
+                                    vim.cmd('badd ' .. vim.fn.fnameescape(file))
+                                    vim.cmd('buffer ' .. vim.fn.fnameescape(file))
+                                end
+                            end
+                        end
+                    },
+                },
                 winopts = {
                     height = 0.75,
                     width = 0.70,
