@@ -10,9 +10,10 @@ return {
                         command = "rgrep",
                         args = { "-nH", "\\s$" },
                         method = none_ls.methods.DIAGNOSTICS,
-                        filetypes = { "lua", "python", "java", "csharp", "javascript", "markdown", "txt" },
+                        -- filetypes = { "lua", "python", "java", "csharp", "javascript", "markdown", "txt", "*" },
                         diagnostics_postprocess = function(diagnostic)
                             diagnostic.severity = 4
+                            diagnostic.message = "Trailing whitespace"
                         end,
                     }),
                     none_ls.builtins.hover.dictionary,

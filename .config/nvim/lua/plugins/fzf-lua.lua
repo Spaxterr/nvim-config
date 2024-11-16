@@ -1,6 +1,7 @@
 return {
     {
         "ibhagwan/fzf-lua",
+        run = 'make',
         -- optional for icon support
         dependencies = { "nvim-tree/nvim-web-devicons" },
         lazy = false,
@@ -11,7 +12,7 @@ return {
                 grep_live = {
                     cmd = "rg",
                     rg_opts = "--hidden --column --line-number --no-heading --color=always --smart-case",
-                    previewer = "bat",
+                    previewer = "builtin",
                     preview_opts = "--style=numbers,changes --color always --highlight-line {2}",
                     grep_highlights = true,
                     show_matches_only = false,
