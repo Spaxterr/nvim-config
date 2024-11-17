@@ -15,6 +15,24 @@ jenv() {
   jenv "$@"
 }
 
+# Lazy load fzf
+fzf_config() {
+  export FZF_DEFAULT_COMMAND="rg --files --hidden --follow --glob '!.git'"
+  export FZF_DEFAULT_OPTS=" \
+    --color=bg+:#414559,bg:#303446,spinner:#f2d5cf,hl:#e78284 \
+    --color=fg:#c6d0f5,header:#e78284,info:#ca9ee6,pointer:#f2d5cf \
+    --color=marker:#babbf1,fg+:#c6d0f5,prompt:#ca9ee6,hl+:#e78284 \
+    --color=selected-bg:#51576d \
+    --multi"
+}
+
+fzf() {
+  unset -f fzf
+  [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+  fzf_config
+  fzf "$@"
+}
+
 # Load antigen
 source $HOME/antigen/antigen.zsh
 
@@ -33,29 +51,14 @@ antigen bundle zsh-users/zsh-autosuggestions
 
 [[ $- = *i* ]] && source ~/liquidprompt/liquidprompt
 
-source $HOME/.themes/powerline.theme
-lp_theme powerline
-
 antigen apply
 
-# FZF configuration (lazy loaded)
-fzf_config() {
-  export FZF_DEFAULT_COMMAND="rg --files --hidden --follow --glob '!.git'"
-  export FZF_DEFAULT_OPTS=" \
-    --color=bg+:#414559,bg:#303446,spinner:#f2d5cf,hl:#e78284 \
-    --color=fg:#c6d0f5,header:#e78284,info:#ca9ee6,pointer:#f2d5cf \
-    --color=marker:#babbf1,fg+:#c6d0f5,prompt:#ca9ee6,hl+:#e78284 \
-    --color=selected-bg:#51576d \
-    --multi"
-}
+# FZF configuration (only needed after loading fzf)
+fzf_config
 
-# Lazy load fzf
-fzf() {
-  unset -f fzf
-  [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-  fzf_config
-  fzf "$@"
-}
+# Powerline theme for liquidprompt
+source $HOME/.themes/powerline.theme
+lp_theme powerline
 
 # Basic configuration
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#555588"
