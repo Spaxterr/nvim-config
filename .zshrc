@@ -15,10 +15,26 @@ jenv() {
   jenv "$@"
 }
 
-# Lazy load fzf
+
+# fzf Options
+
 fzf_config() {
-  export FZF_DEFAULT_COMMAND="rg --files --hidden --follow --glob '!.git'"
-  export FZF_DEFAULT_OPTS=" \
+    setopt EXTENDED_HISTORY
+    setopt SHARE_HISTORY
+    setopt APPEND_HISTORY
+    setopt INC_APPEND_HISTORY
+    setopt HIST_EXPIRE_DUPS_FIRST
+    setopt HIST_FIND_NO_DUPS
+    setopt HIST_IGNORE_DUPS
+    setopt HIST_IGNORE_ALL_DUPS
+    setopt HIST_SAVE_NO_DUPS
+
+    HISTFILE=~/.zsh_history
+    HISTSIZE=100000   # In-memory history
+    SAVEHIST=100000   # Saved to file
+    export FZF_CTRL_R_OPTS="--preview 'echo {}' --preview-window down:3:wrap"
+    export FZF_DEFAULT_COMMAND="rg --files --hidden --follow --glob '!.git'"
+    export FZF_DEFAULT_OPTS=" \
     --color=bg+:#414559,bg:#303446,spinner:#f2d5cf,hl:#e78284 \
     --color=fg:#c6d0f5,header:#e78284,info:#ca9ee6,pointer:#f2d5cf \
     --color=marker:#babbf1,fg+:#c6d0f5,prompt:#ca9ee6,hl+:#e78284 \
@@ -26,12 +42,7 @@ fzf_config() {
     --multi"
 }
 
-fzf() {
-  unset -f fzf
-  [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-  fzf_config
-  fzf "$@"
-}
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # Load antigen
 source $HOME/antigen/antigen.zsh
