@@ -42,8 +42,6 @@ fzf_config() {
     --multi"
 }
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
 # Load antigen
 source $HOME/antigen/antigen.zsh
 
@@ -64,7 +62,8 @@ antigen bundle zsh-users/zsh-autosuggestions
 
 antigen apply
 
-# FZF configuration (only needed after loading fzf)
+# Load fzf
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 fzf_config
 
 # Powerline theme for liquidprompt
@@ -90,3 +89,6 @@ fi
 
 # Load environment variables
 [[ -f $HOME/.env ]] && source $HOME/.env
+
+bindkey "^[[1;5C" forward-word
+bindkey "^[[1;5D" backward-word
