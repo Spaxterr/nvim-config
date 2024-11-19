@@ -35,5 +35,15 @@
     "prettier.arrowParens": "always",
     "prettier.bracketSpacing": true,
     "prettier.trailingComma": "es5",
-    "prettier.singleQuote": true
+    "prettier.singleQuote": true,
+
+    "java.configuration.updateBuildConfiguration": "automatic",
+    "java.import.maven.enabled": true,
+    "java.maven.downloadSources": true,
+    "java.import.gradle.enabled": true,
+    "java.format.enabled": true,
+    "java.completion.enabled": true,
+    "java.progressReports.enabled": true,
+    "java.trace.server": "off",
+    "java.signatureHelp.enabled": false
 }
