@@ -27,6 +27,7 @@
     "python.analysis.autoImportCompletions": true,
     "python.pythonPath": "python3",
 
+    "prettier.formatterPriority": 1,
     "prettier.enable": true,
     "prettier.semi": true,
     "prettier.tabWidth": 4,
@@ -45,5 +46,9 @@
     "java.completion.enabled": true,
     "java.progressReports.enabled": true,
     "java.trace.server": "off",
-    "java.signatureHelp.enabled": false
+    "java.signatureHelp.enabled": false,
+
+    "svelte.plugin.typescript.enable": true,
+    "svelte.plugin.css.enable": true,
+    "svelte.plugin.svelte.format.enable": false
 }

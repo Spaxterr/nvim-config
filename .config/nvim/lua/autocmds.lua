@@ -11,4 +11,9 @@ vim.api.nvim_create_autocmd("User", {
     end,
 })
 
--- Set the highlight for trailing whitespace
+vim.api.nvim_create_autocmd({ "BufWritePost", "BufEnter", "InsertLeave" }, {
+  callback = function()
+    require("lint").try_lint()
+  end,
+})
+
