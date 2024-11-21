@@ -11,5 +11,4 @@ return {
     "coc-prettier",
     "coc-svelte",
     "@yaegassy/coc-tailwindcss3",
-    "coc-vue"
 }
