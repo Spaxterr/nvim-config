@@ -31,7 +31,8 @@ map("n", "<leader>fw", "<cmd>FzfLua live_grep<CR>", { noremap = true, silent = t
 map('n', '<leader>ff', "<CMD>lua require('fzf-lua').files()<CR>", { noremap = true, silent = true, desc = "Find files" })
 
 -- Coc bindings
-map('v', '<Leader>ff', '<Plug>(coc-format-selected)', { desc = "Format selection" })
+map('v', '<Leader>ff', '<Plug>(coc-format-selected)', { desc = "Format selection", silent = true, noremap = true })
+map('n', '<Leader>cf', ':CocCommand prettier.formatFile<CR>', { desc = "Format file", silent = true, noremap = true })
 map("n", "gd", "<Plug>(coc-definition)", { silent = true, desc = "Go to definition" })
 map("n", "gy", "<Plug>(coc-type-definition)", { silent = true, desc = "Go to type definition" })
 map("n", "gi", "<Plug>(coc-implementation)", { silent = true, desc = "Go to implementation" })
