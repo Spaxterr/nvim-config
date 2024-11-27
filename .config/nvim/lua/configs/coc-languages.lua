@@ -10,5 +10,6 @@ return {
     "coc-pairs",
     "coc-prettier",
     "coc-svelte",
+    "coc-csharp-ls",
     "@yaegassy/coc-tailwindcss3",
 }
