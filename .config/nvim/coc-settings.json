@@ -38,5 +38,13 @@
 
     "svelte.plugin.typescript.enable": true,
     "svelte.plugin.css.enable": true,
-    "svelte.plugin.svelte.format.enable": false
+    "svelte.plugin.svelte.format.enable": false,
+
+    "tailwindCSS.enable": true,
+    "tailwindCSS.suggestions": true,
+    "tailwindCSS.colorDecorators": true,
+    "tailwindCSS.includeLanguages": {
+        "svelte": "html"
+    },
+    "tailwindCSS.headwind.runOnSave": true
 }
