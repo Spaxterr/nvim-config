@@ -12,4 +12,5 @@ return {
     "coc-svelte",
     "coc-csharp-ls",
     "@yaegassy/coc-tailwindcss3",
+    "coc-rust-analyzer",
 }
