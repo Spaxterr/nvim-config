@@ -8,6 +8,21 @@ vim.g.mapleader = " "
 vim.opt.list = true
 vim.opt.listchars = { trail = '·' }
 
+vim.diagnostic.config({
+    virtual_text = {
+        prefix = "",
+        spacing = 4,
+    },
+    float = {
+        source = "always",
+        border = "rounded"
+    },
+    signs = true,
+    underline = true,
+    update_in_insert = false,
+    severity_sort = true,
+})
+
 o.number = true -- Show line numbers
 o.tabstop = 4
 o.shiftwidth = 4

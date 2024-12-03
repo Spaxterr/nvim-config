@@ -15,7 +15,7 @@
     "python.analysis.autoImportCompletions": true,
     "python.pythonPath": "python3",
 
-    "prettier.formatterPriority": 1,
+    "prettier.formatterPriority": -1,
     "prettier.enable": true,
     "prettier.semi": true,
     "prettier.tabWidth": 4,
