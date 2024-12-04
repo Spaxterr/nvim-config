@@ -46,5 +46,11 @@
     "tailwindCSS.includeLanguages": {
         "svelte": "html"
     },
-    "tailwindCSS.headwind.runOnSave": true
+    "tailwindCSS.headwind.runOnSave": true,
+
+    "rust-analyzer.cachePriming.enable": true,
+    "rust-analyzer.rustfmt.rangeFormatting.enable": true,
+    "rust-analyzer.typing.autoClosingAngleBrackets.enable": true,
+    "rust-analyzer.updates.checkOnStartup": true,
+    "rust-analyzer.inlayHints.typeHints.enable": true
 }
