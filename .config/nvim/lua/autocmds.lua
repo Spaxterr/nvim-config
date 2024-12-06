@@ -1,4 +1,3 @@
-print("autocmds loaded")
 -- Automatically load last session and close unrelated files
 vim.api.nvim_create_autocmd("User", {
     pattern = "PersistedTelescopeLoadPre",

@@ -10,7 +10,7 @@ return {
             configs.setup({
                 autotag = { enable = true },
                 rainbow = { enable = true, },
-                ensure_installed = { "lua", "vim", "javascript", "typescript", "html", "python", "jsdoc", "css", "java", "markdown", "svelte", "c_sharp" },
+                ensure_installed = { "lua", "vim", "javascript", "typescript", "html", "python", "jsdoc", "css", "java", "markdown", "svelte", "c_sharp", "rust" },
                 sync_install = false,
                 highlight = { enable = true },
                 indent = { enable = true },

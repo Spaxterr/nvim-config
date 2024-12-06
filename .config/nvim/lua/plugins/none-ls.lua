@@ -1,9 +1,9 @@
 return {
     {
         'nvimtools/none-ls.nvim',
+        version = 'master',
         config = function ()
             local none_ls = require('null-ls')
-            local utils = require('null-ls.utils')
             none_ls.setup({
                 sources = {
                     -- Custom trailing space detection
