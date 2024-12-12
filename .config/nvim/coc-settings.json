@@ -1,6 +1,8 @@
 {
     "coc.preferences.bracketEnterImprove": true,
     "coc.preferences.enableMessageDialog": false,
+    "coc.source.file.enable": true,
+    "coc.source.around.enable": true,
     "Lua.workspace.checkThirdParty": false,
     "inlayHint.enable": false,
     "suggest.noselect": false,
@@ -15,7 +17,7 @@
     "python.analysis.autoImportCompletions": true,
     "python.pythonPath": "python3",
 
-    "prettier.formatterPriority": -1,
+    "prettier.formatterPriority": 1,
     "prettier.enable": true,
     "prettier.semi": true,
     "prettier.tabWidth": 4,
@@ -46,7 +48,6 @@
     "tailwindCSS.includeLanguages": {
         "svelte": "html"
     },
-    "tailwindCSS.headwind.runOnSave": true,
 
     "rust-analyzer.cachePriming.enable": true,
     "rust-analyzer.rustfmt.rangeFormatting.enable": true,

@@ -12,10 +12,17 @@ vim.api.nvim_create_autocmd("User", {
 })
 
 vim.api.nvim_create_autocmd({ "BufWritePost", "BufEnter", "InsertLeave" }, {
-  callback = function()
-    local lint = require("lint")
-    lint.try_lint('trail_space')
-    lint.try_lint()
-  end,
+    callback = function()
+        local lint = require("lint")
+        lint.try_lint('trail_space')
+        lint.try_lint()
+    end,
 })
 
+vim.api.nvim_create_autocmd('FileType', {
+    pattern = 'svelte',
+    group = vim.api.nvim_create_augroup('svelte_only_keymaps', { clear = true }),
+    callback = function()
+        vim.keymap.set('n', '<Leader>cf', '<CMD>CocCommand prettier.formatFile<CR>', { desc = "Format file", silent = true, noremap = true })
+    end,
+})
