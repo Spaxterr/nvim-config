@@ -30,9 +30,10 @@ map({ 'v', 'n' }, '<Leader>cw', [[:<C-u>'<,'>s/\s\+$//<CR>]],
 -- Set 'b+c' to close all open tabs/buffers
 map('n', '<leader>bc', ':bufdo bd<CR>', { noremap = true, silent = true, desc = "Close all tabs" })
 
--- Bind telescope live grep to 'fw'
-map("n", "<leader>fw", "<cmd>FzfLua live_grep<CR>", { noremap = true, silent = true })
-map('n', '<leader>ff', "<CMD>lua require('fzf-lua').files()<CR>", { noremap = true, silent = true, desc = "Find files" })
+-- Fzf Lua
+local fzf = require('fzf-lua')
+map("n", "<leader>fw", fzf.live_grep, { noremap = true, silent = true, desc = "Live grep" })
+map('n', '<leader>ff', fzf.files, { noremap = true, silent = true, desc = "Find files" })
 
 -- Coc bindings
 map('v', '<Leader>ff', '<Plug>(coc-format-selected)', { desc = "Format selection", silent = true, noremap = true })
@@ -46,8 +47,8 @@ map({ "v", "n", "x" }, "<leader>cq", "<Plug>(coc-codeaction-cursor)", { silent =
 map("n", "K", ":call CocActionAsync('doHover')<CR>", { silent = true, desc = "Hover" })
 map("i", "<CR>", [[coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"]],
     { noremap = true, silent = true, expr = true })
--- map("i", "<Tab>", 'coc#pum#visible() ? coc#pum#next(1) : "<Tab>"', { noremap = true, expr = true, silent = true })
--- map("i", "<S-Tab>", 'coc#pum#visible() ? coc#pum#prev(1) : "<C-h>"', { noremap = true, expr = true, silent = true })
+map("i", "<C-j>", 'coc#pum#visible() ? coc#pum#next(1) : "<Tab>"', { noremap = true, expr = true, silent = true })
+map("i", "<C-k>", 'coc#pum#visible() ? coc#pum#prev(1) : "<C-h>"', { noremap = true, expr = true, silent = true })
 
 -- Barbar bindings
 map('n', '<Tab>', '<Cmd>BufferNext<CR>', { noremap = true, silent = true })

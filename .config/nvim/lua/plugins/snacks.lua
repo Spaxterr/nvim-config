@@ -14,5 +14,6 @@ return {
         terminal = { enabled = true },
         statuscolumn = { enabled = true },
         words = { enabled = true },
+        git = { enabled = true },
     },
 }
