@@ -3,6 +3,13 @@ return {
         'nvim-lualine/lualine.nvim',
         lazy = false,
         config = function()
+            local lint_progress = function()
+                local linters = require("lint").get_running()
+                if #linters == 0 then
+                    return "󰸞"
+                end
+                return "󰇘 " .. table.concat(linters, ", ")
+            end
             require('lualine').setup {
                 options = {
                     theme = 'auto',
@@ -11,9 +18,9 @@ return {
                 },
                 sections = {
                     lualine_a = { 'mode' },
-                    lualine_b = { 'branch', 'diff', 'diagnostics' },
+                    lualine_b = { 'branch', 'diff', lint_progress, 'diagnostics' },
                     lualine_c = { 'filename', },
-                    lualine_x = { 'filesize', 'g:coc_status' },
+                    lualine_x = { 'filesize', 'g:coc_status', },
                     lualine_y = { 'filetype' },
                     lualine_z = { 'location' },
                 },

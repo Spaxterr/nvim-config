@@ -36,17 +36,18 @@ map('n', '<leader>ff', "<CMD>lua require('fzf-lua').files()<CR>", { noremap = tr
 
 -- Coc bindings
 map('v', '<Leader>ff', '<Plug>(coc-format-selected)', { desc = "Format selection", silent = true, noremap = true })
-map('n', '<Leader>cf', '<cmd>call CocAction("format")<CR>', { desc = "Format file", silent = true, noremap = true })
+map('n', '<Leader>cf', ':call CocAction("format")<CR>', { desc = "Format file", silent = true, noremap = true })
+map('n', '<Leader>cr', '<Plug>(coc-codeaction-refactor)', { desc = "Refactor", silent = true, noremap = true })
 map("n", "gd", "<Plug>(coc-definition)", { silent = true, desc = "Go to definition" })
 map("n", "gy", "<Plug>(coc-type-definition)", { silent = true, desc = "Go to type definition" })
 map("n", "gi", "<Plug>(coc-implementation)", { silent = true, desc = "Go to implementation" })
 map("n", "gr", "<Plug>(coc-references)", { silent = true, desc = "Go to reference(s)" })
-map({ "v", "n", "x" }, "<leader>cq", "<Plug>(coc-codeaction)", { silent = true, desc = "Show code actions" })
+map({ "v", "n", "x" }, "<leader>cq", "<Plug>(coc-codeaction-cursor)", { silent = true, desc = "Show code actions" })
 map("n", "K", ":call CocActionAsync('doHover')<CR>", { silent = true, desc = "Hover" })
 map("i", "<CR>", [[coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"]],
     { noremap = true, silent = true, expr = true })
-map("i", "<Tab>", 'coc#pum#visible() ? coc#pum#next(1) : "<Tab>"', { noremap = true, expr = true, silent = true })
-map("i", "<S-Tab>", 'coc#pum#visible() ? coc#pum#prev(1) : "<C-h>"', { noremap = true, expr = true, silent = true })
+-- map("i", "<Tab>", 'coc#pum#visible() ? coc#pum#next(1) : "<Tab>"', { noremap = true, expr = true, silent = true })
+-- map("i", "<S-Tab>", 'coc#pum#visible() ? coc#pum#prev(1) : "<C-h>"', { noremap = true, expr = true, silent = true })
 
 -- Barbar bindings
 map('n', '<Tab>', '<Cmd>BufferNext<CR>', { noremap = true, silent = true })
