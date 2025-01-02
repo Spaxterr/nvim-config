@@ -1,8 +1,8 @@
 require "nvchad.options"
 
-local is_wsl = vim.fn.has("wsl") == 1
 local o = vim.o
 
+-- Map leader to '<Space>'
 vim.g.mapleader = " "
 
 vim.opt.list = true
@@ -23,38 +23,39 @@ vim.diagnostic.config({
     severity_sort = true,
 })
 
-o.number = true -- Show line numbers
-o.tabstop = 4
-o.shiftwidth = 4
-o.smartindent = true
-o.cmdheight = 2
-o.expandtab = true
-o.autoindent = true
-o.signcolumn = 'yes'
-o.breakindent = true
-o.wrap = false
+o.number = true             -- Show line numbers
+o.relativenumber = true     -- Enable relative line numbers
+o.tabstop = 4               -- Number of spaces a '<Tab>' displays as
+o.shiftwidth = 4            -- Number of spaces to use for each step of indendation when indenting lines with "Shift - >" or "Shift - <"
+o.smartindent = true        -- Use smart indenting when inserting new lines
+o.cmdheight = 2             -- Number of screen lines to use for the command-line
+o.expandtab = true          -- Use appropriate number of spaces when inserting a <Tab>
+o.autoindent = true         -- Copy indentation of current line when inserting a new line
+o.signcolumn = 'yes'        -- Display icons in the line number column for e.g. warnings or errors
+o.wrap = false              -- Disable line wrapping
 
-o.mouse = "" -- Disable mouse
-o.termguicolors = true
+o.mouse = ""                -- Disable mouse
+o.scrolloff = 10            -- Make sure at least 10 lines are always showing above and below the cursor
+o.termguicolors = true      -- Enable 24-bit colors
 
-o.clipboard = "unnamedplus"
-o.incsearch = true
+o.clipboard = "unnamedplus" -- Sync OS clipboard with Neovim clipboard
+o.incsearch = true          -- Enable incremental search
 
-o.ignorecase = true
-o.smartcase = true
+o.ignorecase = true         -- Ignore case when searching
+o.smartcase = true          -- If capital letters appear in search, enable case sensitivity
 
-o.hlsearch = true
-o.lazyredraw = true
-o.updatetime = 300
-o.timeoutlen = 500
-o.ttimeoutlen = 0
-o.autowrite = false
-o.visualbell = true
-o.timeoutlen = 50
+o.hlsearch = true           -- Highlight search matches
+o.lazyredraw = true         -- Lazy redrawing
+o.timeoutlen = 500          -- Show 'whichkey' after 500ms
+o.ttimeoutlen = 0           -- Keycode timeout
+o.autowrite = false         -- Disable auto-saving of files
+o.visualbell = true         -- Use visual bell instead of OS 'beeping' on error input
 
-o.undofile = true
-o.updatetime = 200
+o.undofile = true           -- Enable undoing
+o.updatetime = 200          -- Update status line every 200ms
 
+-- WSL2 Clipboard fix
+local is_wsl = vim.fn.has("wsl") == 1
 if is_wsl then
     vim.g.clipboard = {
         name = "WslClipboard",
@@ -70,5 +71,5 @@ if is_wsl then
     }
 end
 
+-- Set color scheme
 vim.cmd.colorscheme "catppuccin"
-

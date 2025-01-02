@@ -14,7 +14,6 @@ vim.api.nvim_create_autocmd("User", {
 vim.api.nvim_create_autocmd({ "BufWritePost", "BufEnter", "InsertLeave" }, {
     callback = function()
         local lint = require("lint")
-        lint.try_lint('trail_space')
         lint.try_lint()
     end,
 })
