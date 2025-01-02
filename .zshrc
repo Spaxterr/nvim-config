@@ -89,5 +89,8 @@ fi
 # Load environment variables
 [[ -f $HOME/.env ]] && source $HOME/.env
 
+# Add dotnet tools to PATH
+export PATH="$HOME/.dotnet/tools:$PATH"
+
 bindkey "^[[1;5C" forward-word
 bindkey "^[[1;5D" backward-word
