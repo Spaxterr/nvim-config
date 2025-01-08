@@ -34,11 +34,13 @@ map('n', '<leader>bc', ':bufdo bd<CR>', { noremap = true, silent = true, desc = 
 local fzf = require('fzf-lua')
 map("n", "<leader>fw", fzf.live_grep, { noremap = true, silent = true, desc = "Live grep" })
 map('n', '<leader>ff', fzf.files, { noremap = true, silent = true, desc = "Find files" })
+map('n', '<leader>ft', fzf.treesitter, { noremap = true, silent = true, desc = "Find symbols" })
 
 -- Coc bindings
 map('v', '<Leader>ff', '<Plug>(coc-format-selected)', { desc = "Format selection", silent = true, noremap = true })
 map('n', '<Leader>cf', ':call CocAction("format")<CR>', { desc = "Format file", silent = true, noremap = true })
-map('n', '<Leader>cr', '<Plug>(coc-codeaction-refactor)', { desc = "Refactor", silent = true, noremap = true })
+map('n', '<Leader>cr', '<Plug>(coc-rename)', { desc = "Rename symbol", silent = true, noremap = true })
+map('i', '<Tab>', 'coc#refresh()', { desc = "Show completions", silent = true, expr = true, noremap = true })
 map("n", "gd", "<Plug>(coc-definition)", { silent = true, desc = "Go to definition" })
 map("n", "gy", "<Plug>(coc-type-definition)", { silent = true, desc = "Go to type definition" })
 map("n", "gi", "<Plug>(coc-implementation)", { silent = true, desc = "Go to implementation" })
@@ -47,12 +49,12 @@ map({ "v", "n", "x" }, "<leader>cq", "<Plug>(coc-codeaction-cursor)", { silent =
 map("n", "K", ":call CocActionAsync('doHover')<CR>", { silent = true, desc = "Hover" })
 map("i", "<CR>", [[coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"]],
     { noremap = true, silent = true, expr = true })
-map("i", "<C-j>", 'coc#pum#visible() ? coc#pum#next(1) : "<Tab>"', { noremap = true, expr = true, silent = true })
-map("i", "<C-k>", 'coc#pum#visible() ? coc#pum#prev(1) : "<C-h>"', { noremap = true, expr = true, silent = true })
+map("i", "<C-j>", 'coc#pum#visible() ? coc#pum#next(1) : "<C-j>"', { noremap = true, expr = true, silent = true })
+map("i", "<C-k>", 'coc#pum#visible() ? coc#pum#prev(1) : "<C-k>"', { noremap = true, expr = true, silent = true })
 
 -- Barbar bindings
-map('n', '<Tab>', '<Cmd>BufferNext<CR>', { noremap = true, silent = true })
-map('n', '<S-Tab>', '<Cmd>BufferPrevious<CR>', { noremap = true, silent = true })
+map('n', '<Tab>', '<Cmd>BufferNext<CR>', { noremap = true, silent = true, desc = "Next tab" })
+map('n', '<S-Tab>', '<Cmd>BufferPrevious<CR>', { noremap = true, silent = true, desc = "Previous tab" })
 map('n', '<space>x', '<Cmd>BufferClose<CR>', { noremap = true, silent = true, desc = "Close file" })
 
 -- Git
