@@ -36,6 +36,13 @@
     "java.import.gradle.enabled": true,
     "java.format.enabled": true,
     "java.completion.enabled": true,
+    "java.completion.favoriteStaticMembers": [],
+    "java.jdt.ls.vmargs": "-Xmx4G -Xms1G -XX:+UseG1GC -XX:+UseStringDeduplication",
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar"
+    ],
+    "java.autobuild.enabled": false,
+    "java.saveActions.organizeImports": true,
     "java.progressReports.enabled": true,
     "java.trace.server": "off",
     "java.signatureHelp.enabled": false,
