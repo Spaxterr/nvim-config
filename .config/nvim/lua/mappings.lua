@@ -40,7 +40,7 @@ map('n', '<leader>ft', fzf.treesitter, { noremap = true, silent = true, desc = "
 map('v', '<Leader>ff', '<Plug>(coc-format-selected)', { desc = "Format selection", silent = true, noremap = true })
 map('n', '<Leader>cf', ':call CocAction("format")<CR>', { desc = "Format file", silent = true, noremap = true })
 map('n', '<Leader>cr', '<Plug>(coc-rename)', { desc = "Rename symbol", silent = true, noremap = true })
-map('i', '<Tab>', 'coc#refresh()', { desc = "Show completions", silent = true, expr = true, noremap = true })
+map('i', '<C-s>', 'coc#refresh()', { desc = "Show completions", silent = true, expr = true, noremap = true })
 map("n", "gd", "<Plug>(coc-definition)", { silent = true, desc = "Go to definition" })
 map("n", "gy", "<Plug>(coc-type-definition)", { silent = true, desc = "Go to type definition" })
 map("n", "gi", "<Plug>(coc-implementation)", { silent = true, desc = "Go to implementation" })
