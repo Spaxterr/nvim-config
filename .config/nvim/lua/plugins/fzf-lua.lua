@@ -38,14 +38,14 @@ return {
                 },
                 winopts = {
                     height = 0.75,
-                    width = 0.70,
+                    width = 0.80,
                     row = 0.3,
                     col = 0.5,
                     preview = {
-                        delay = 100,
+                        delay = 250,
                         title = true,
                         scrollbar = "float",
-                        layout = "vertical",
+                        layout = "horizontal",
                         height = "45%",
                     }
                 },
