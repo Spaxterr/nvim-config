@@ -13,6 +13,7 @@
 
     "python.linting.enabled": true,
     "python.linting.flake8Enabled": true,
+    "python.linting.flake8Args": ["--config", "./tox.ini", "--verbose"],
     "python.linting.pylintEnabled": false,
     "python.analysis.autoImportCompletions": true,
     "python.pythonPath": "python3",
