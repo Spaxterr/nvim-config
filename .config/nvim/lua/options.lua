@@ -54,6 +54,8 @@ o.visualbell = true         -- Use visual bell instead of OS 'beeping' on error 
 o.undofile = true           -- Enable undoing
 o.updatetime = 200          -- Update status line every 200ms
 
+o.fileformats = "unix,dos,mac" -- Preserve file EOL character
+
 -- WSL2 Clipboard fix
 local is_wsl = vim.fn.has("wsl") == 1
 if is_wsl then
