@@ -89,8 +89,13 @@ fi
 # Load environment variables
 [[ -f $HOME/.env ]] && source $HOME/.env
 
+export TMPDIR="/tmp/"
+
 # Add dotnet tools to PATH
 export PATH="$HOME/.dotnet/tools:$PATH"
+
+# Add snap to PATH
+export PATH="/snap/bin/:$PATH"
 
 bindkey "^[[1;5C" forward-word
 bindkey "^[[1;5D" backward-word
