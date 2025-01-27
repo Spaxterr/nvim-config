@@ -64,3 +64,12 @@ end, {})
 
 -- Set inline hints to the same color as LineNr
 vim.cmd [[highlight! link CocInlayHint LineNr ]]
+
+-- Set highlight colors for notifier
+vim.cmd([[
+    highlight NotifyERRORBorder guifg=#e78284
+    highlight NotifyWARNBorder guifg=#e5c890
+    highlight NotifyINFOBorder guifg=#99d1db
+    highlight NotifyDEBUGBorder guifg=#f4b8e4
+    highlight NotifyTRACEBorder guifg=#c6d0f5
+]])
