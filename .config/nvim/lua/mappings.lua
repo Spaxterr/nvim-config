@@ -28,7 +28,7 @@ map({ 'v', 'n' }, '<Leader>cw', [[:<C-u>'<,'>s/\s\+$//<CR>]],
     { noremap = true, silent = true, desc = "Remove trailing whitespaces" });
 
 -- Set 'b+c' to close all open tabs/buffers
-vim.keymap.set('n', '<leader>bc', ':BDeleteAll<CR>', { noremap = true, silent = true, desc = "Close all tabs" })
+vim.keymap.set('n', '<leader>bc', ':CloseAllBuffers<CR>', { noremap = true, silent = true, desc = "Close all tabs" })
 
 -- Fzf Lua
 local fzf = require('fzf-lua')
