@@ -15,15 +15,6 @@ return {
         terminal = { enabled = true },
         statuscolumn = { enabled = true },
         words = { enabled = true },
-        scroll = {
-            enabled = true,
-            animate = {
-                duration = {
-                    step = 5,
-                    total = 100
-                },
-            }
-        },
         git = { enabled = true },
     },
 }
