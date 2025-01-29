@@ -44,7 +44,7 @@ map(
 )
 
 -- Set 'b+c' to close all open tabs/buffers
-vim.keymap.set("n", "<leader>bc", ":CloseAllBuffers<CR>", { noremap = true, silent = true, desc = "Close all tabs" })
+vim.keymap.set('n', '<leader>bc', '<Cmd>CloseAllBuffers<CR>', { noremap = true, silent = true, desc = "Close all tabs" })
 
 -- Fzf Lua
 local fzf = require("fzf-lua")
