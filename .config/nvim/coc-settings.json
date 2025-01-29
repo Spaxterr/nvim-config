@@ -1,4 +1,6 @@
 {
+    "diagnostic.displayByAle": true,
+    "diagnostic.enable": true,
     "coc.preferences.bracketEnterImprove": true,
     "coc.preferences.enableMessageDialog": false,
     "coc.source.file.enable": true,
@@ -17,10 +19,6 @@
     "python.linting.pylintEnabled": false,
     "python.analysis.autoImportCompletions": true,
     "python.pythonPath": "python3",
-
-    "prettier.formatterPriority": 1,
-    "prettier.enable": true,
-    "prettier.resolveGlobalModules": false,
 
     "java.configuration.updateBuildConfiguration": "automatic",
     "java.import.maven.enabled": true,

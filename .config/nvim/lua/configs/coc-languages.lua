@@ -8,7 +8,6 @@ return {
     "coc-java",
     "coc-snippets",
     "coc-pairs",
-    "coc-prettier",
     "coc-svelte",
     "coc-csharp-ls",
     "@yaegassy/coc-tailwindcss3",

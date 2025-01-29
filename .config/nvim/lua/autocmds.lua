@@ -11,13 +11,6 @@ vim.api.nvim_create_autocmd("User", {
     end,
 })
 
-vim.api.nvim_create_autocmd({ "BufWritePost", "BufEnter", "InsertLeave" }, {
-    callback = function()
-        local lint = require("lint")
-        lint.try_lint()
-    end,
-})
-
 vim.api.nvim_create_autocmd('FileType', {
     pattern = 'svelte',
     group = vim.api.nvim_create_augroup('svelte_only_keymaps', { clear = true }),
