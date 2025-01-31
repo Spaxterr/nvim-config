@@ -31,6 +31,7 @@ return {
                     svelte = { "prettier" },
                     json = { "prettier" },
                     lua = { "stylua" },
+                    java = { "clang-format" },
                 },
                 formatters = {
                     prettier = {

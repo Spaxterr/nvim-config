@@ -21,6 +21,8 @@ return {
 
             g.python_flake8_options = "--config ./tox.ini --verbose"
 
+            g.ale_java_checkstyle_options = "-c checkstyle.xml"
+
             g.ale_linters = {
                 lua = { "lua_language_server", "cspell" },
                 javascript = { "eslint", "cspell" },

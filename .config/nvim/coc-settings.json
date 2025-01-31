@@ -11,12 +11,8 @@
     "suggest.enablePreselect": false,
     "diagnostic.checkCurrentLine": true,
     "snippets.ultisnips.pythonPrompt": false,
-    "svelte.enable-ts-plugin": true,
 
-    "python.linting.enabled": true,
-    "python.linting.flake8Enabled": true,
-    "python.linting.flake8Args": ["--config", "./tox.ini", "--verbose"],
-    "python.linting.pylintEnabled": false,
+    "python.linting.enabled": false,
     "python.analysis.autoImportCompletions": true,
     "python.pythonPath": "python3",
 
@@ -24,19 +20,19 @@
     "java.import.maven.enabled": true,
     "java.maven.downloadSources": true,
     "java.import.gradle.enabled": true,
-    "java.format.enabled": true,
+    "java.format.enabled": false,
     "java.completion.enabled": true,
     "java.completion.favoriteStaticMembers": [],
-    "java.jdt.ls.vmargs": "-Xmx4G -Xms1G -XX:+UseG1GC -XX:+UseStringDeduplication",
+    "java.jdt.ls.vmargs": "-Xmx12G -Xms1G -XX:+UseG1GC -XX:+UseStringDeduplication",
     "java.project.referencedLibraries": [
         "lib/**/*.jar"
     ],
     "java.autobuild.enabled": false,
-    "java.saveActions.organizeImports": true,
     "java.progressReports.enabled": true,
     "java.trace.server": "off",
     "java.signatureHelp.enabled": false,
 
+    "svelte.enable-ts-plugin": true,
     "svelte.plugin.typescript.enable": true,
     "svelte.plugin.css.enable": true,
     "svelte.plugin.svelte.format.enable": false,
@@ -49,8 +45,6 @@
     },
 
     "rust-analyzer.cachePriming.enable": true,
-    "rust-analyzer.rustfmt.rangeFormatting.enable": true,
-    "rust-analyzer.typing.autoClosingAngleBrackets.enable": true,
     "rust-analyzer.updates.checkOnStartup": true,
     "rust-analyzer.inlayHints.typeHints.enable": true
 }
