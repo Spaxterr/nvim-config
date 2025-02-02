@@ -10,11 +10,3 @@ vim.api.nvim_create_autocmd("User", {
         vim.api.nvim_input("<ESC>:%bd!<CR>")
     end,
 })
-
-vim.api.nvim_create_autocmd('FileType', {
-    pattern = 'svelte',
-    group = vim.api.nvim_create_augroup('svelte_only_keymaps', { clear = true }),
-    callback = function()
-        vim.keymap.set('n', '<Leader>cf', '<CMD>CocCommand prettier.formatFile<CR>', { desc = "Format file", silent = true, noremap = true })
-    end,
-})
