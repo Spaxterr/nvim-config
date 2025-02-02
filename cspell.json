@@ -2,6 +2,25 @@
     "version": "0.2",
     "language": "en",
     "ignorePaths": ["node_modules", "dist"],
-    "dictionaries": ["softwareTerms", "typescript", "java", "fonts"],
-    "words": [],
+    "dictionaries": [
+        "softwareTerms",
+        "typescript",
+        "node",
+        "python",
+        "csharp",
+        "html",
+        "en-gb",
+        "filetypes",
+        "npm",
+        "java",
+        "fonts"
+    ],
+    "words": [
+        "bukkit",
+        "arclight",
+        "spaxter",
+        "pixelmon",
+        "pokeball",
+        "pokeballs"
+    ]
 }
