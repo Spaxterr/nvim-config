@@ -21,6 +21,11 @@
         "spaxter",
         "pixelmon",
         "pokeball",
-        "pokeballs"
+        "pokeballs",
+        "mtek",
+        "mbrain",
+        "createdat",
+        "createdby",
+        "showmessage",
     ]
 }
