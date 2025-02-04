@@ -16,55 +16,27 @@ return {
                 "prettier.config.cjs",
             }
 
-            local function find_config_in_path(path)
-                for _, filename in ipairs(prettier_files) do
-                    local results = vim.fs.find(filename, {
-                        path = path,
-                        upward = false, -- Only search in the given directory.
-                        type = "file",
-                        hidden = true, -- Include hidden files in the search.
-                    })
-                    if results then
-                        for _, file in ipairs(results) do
-                            -- Ignore any file that is in a node_modules directory.
-                            if not file:find("node_modules") then
-                                return file
-                            end
-                        end
-                    end
-                end
-                return nil
-            end
-
             local function get_prettier_config()
                 local cwd = vim.fn.getcwd()
 
-                -- Check only the local (current) directory.
-                local local_config = find_config_in_path(cwd)
-                if local_config then
-                    print("Formatting file using", local_config)
-                    return local_config
+                for _, filename in ipairs(prettier_files) do
+                    local full_path = cwd .. "/" .. filename
+                    if vim.uv.fs_stat(full_path) then
+                        return full_path
+                    end
                 end
 
-                -- Fallback: check for a global config in your home directory.
-                local home = vim.fn.expand("~")
-                local global_config = find_config_in_path(home)
-                if global_config then
-                    print("Formatting file using", global_config)
-                    return global_config
-                end
-
-                vim.notify("No prettier config found", vim.log.levels.WARN)
+                vim.notify("No Prettier config found in the current directory", vim.log.levels.WARN)
                 return nil
             end
 
             conform.setup({
                 formatters_by_ft = {
-                    javascript = { "prettier" },
-                    typescript = { "prettier" },
-                    svelte = { "prettier" },
-                    json = { "prettier" },
-                    html = { "prettier" },
+                    javascript = { "prettierd", "prettier", stop_after_first = true },
+                    typescript = { "prettierd", "prettier", stop_after_first = true },
+                    svelte = { "prettierd", "prettier", stop_after_first = true },
+                    json = { "prettierd", "prettier", stop_after_first = true },
+                    html = { "prettierd", "prettier", stop_after_first = true },
                     lua = { "stylua" },
                     java = { "clang-format" },
                 },
@@ -72,10 +44,7 @@ return {
                     prettier = {
                         prepend_args = function()
                             local config = get_prettier_config()
-                            if config then
-                                return { "--config", config }
-                            end
-                            return {}
+                            return config and { "--config", config } or {}
                         end,
                     },
                 },
