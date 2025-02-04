@@ -99,3 +99,5 @@ export PATH="/snap/bin/:$PATH"
 
 bindkey "^[[1;5C" forward-word
 bindkey "^[[1;5D" backward-word
+
+export PRETTIERD_DEFAULT_CONFIG="$HOME/.prettierrc"
