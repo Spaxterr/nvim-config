@@ -39,7 +39,6 @@ return {
                         path = vim.fn.stdpath("data") .. "/fzf-lua-files-history",
                         limit = 1000,
                     },
-                    preview_opts = "--style=numbers,changes --color always",
                     actions = {
                         ["default"] = function(selected) -- Immediately open the selected files instead of adding them to a list
                             if not selected then
