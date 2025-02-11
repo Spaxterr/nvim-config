@@ -35,11 +35,12 @@ return {
             g.ale_disable_lsp = 1
 
             vim.cmd([[
-                highlight ALEError gui=undercurl guisp=#FF0000
-                highlight ALEWarning gui=undercurl guisp=#FFFF00
-                highlight ALEInfo gui=undercurl guisp=#00FF00
-                highlight ALEStyleError gui=undercurl guisp=#FF00FF
-                highlight ALEStyleWarning gui=undercurl guisp=#FFFF00
+                highlight ALEError gui=undercurl guisp=#e78284
+                highlight ALEWarning gui=undercurl guisp=#e5c890
+                highlight ALEInfo gui=undercurl guisp=#81c8be
+                highlight ALEStyleError gui=undercurl guisp=#8caaee
+                highlight ALEStyleWarning gui=undercurl guisp=#c6d0f5
+                highlight SpellBad gui=undercurl guisp=#c6d0f5
             ]])
 
             -- Python specific
@@ -51,6 +52,10 @@ return {
             -- CSpell specific
             g.ale_cspell_options = "--config ~/cspell.json --show-suggestions"
             g.ale_cspell_use_global_config = 1
+
+            g.ale_type_map = {
+                cspell = { W = "I" },
+            }
 
             g.ale_linters = {
                 ["*"] = { "cspell" },
