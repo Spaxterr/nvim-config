@@ -53,12 +53,16 @@ vim.schedule(function()
     require("mappings")
 end)
 
-vim.api.nvim_create_user_command("CloseAllBuffers", function()
+local function close_all_buffers()
     for _, bufnr in ipairs(vim.api.nvim_list_bufs()) do
         if vim.api.nvim_buf_is_valid(bufnr) and not vim.bo[bufnr].modified then
             vim.cmd("bdelete " .. bufnr)
         end
     end
+end
+
+vim.api.nvim_create_user_command("CloseAllBuffers", function()
+    pcall(close_all_buffers)
 end, {})
 
 vim.api.nvim_create_user_command("Format", function(args)
