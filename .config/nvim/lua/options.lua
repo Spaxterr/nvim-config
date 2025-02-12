@@ -26,7 +26,7 @@ vim.diagnostic.config({
 o.number = true             -- Show line numbers
 o.relativenumber = true     -- Enable relative line numbers
 o.tabstop = 4               -- Number of spaces a '<Tab>' displays as
-o.shiftwidth = 4            -- Number of spaces to use for each step of indendation when indenting lines with "Shift - >" or "Shift - <"
+o.shiftwidth = 4            -- Number of spaces to use for each step of indents when indenting lines with "Shift - >" or "Shift - <"
 o.smartindent = true        -- Use smart indenting when inserting new lines
 o.cmdheight = 2             -- Number of screen lines to use for the command-line
 o.expandtab = true          -- Use appropriate number of spaces when inserting a <Tab>
@@ -46,7 +46,7 @@ o.smartcase = true          -- If capital letters appear in search, enable case 
 
 o.hlsearch = true           -- Highlight search matches
 o.lazyredraw = true         -- Lazy redrawing
-o.timeoutlen = 500          -- Show 'whichkey' after 500ms
+o.timeoutlen = 2500         -- Show 'whichkey' after 2.5s
 o.ttimeoutlen = 0           -- Keycode timeout
 o.autowrite = false         -- Disable auto-saving of files
 o.visualbell = true         -- Use visual bell instead of OS 'beeping' on error input
@@ -60,14 +60,14 @@ o.fileformats = "unix,dos,mac" -- Preserve file EOL character
 local is_wsl = vim.fn.has("wsl") == 1
 if is_wsl then
     vim.g.clipboard = {
-        name = "WslClipboard",
+        name = "win32yank",
         copy = {
-            ["+"] = "clip.exe",
-            ["*"] = "clip.exe",
+            ["+"] = "win32yank.exe -i --crlf",
+            ["*"] = "win32yank.exe -i --crlf",
         },
         paste = {
-            ["+"] = 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
-            ["*"] = 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))'
+            ["+"] = 'win32yank.exe -o --lf',
+            ["*"] = 'win32yank.exe -o --lf'
         },
         cache_enabled = 0,
     }
