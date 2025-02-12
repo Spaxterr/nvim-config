@@ -53,6 +53,7 @@ return {
             g.ale_cspell_options = "--config ~/cspell.json --show-suggestions"
             g.ale_cspell_use_global_config = 1
 
+            -- Remap highlight groups
             g.ale_type_map = {
                 cspell = { W = "I" },
             }

@@ -26,7 +26,7 @@ vim.diagnostic.config({
 o.number = true             -- Show line numbers
 o.relativenumber = true     -- Enable relative line numbers
 o.tabstop = 4               -- Number of spaces a '<Tab>' displays as
-o.shiftwidth = 4            -- Number of spaces to use for each step of indents when indenting lines with "Shift - >" or "Shift - <"
+o.shiftwidth = 4            -- Number of spaces to use for each step of indents when indenting lines with the ">" or "<" keys
 o.smartindent = true        -- Use smart indenting when inserting new lines
 o.cmdheight = 2             -- Number of screen lines to use for the command-line
 o.expandtab = true          -- Use appropriate number of spaces when inserting a <Tab>
