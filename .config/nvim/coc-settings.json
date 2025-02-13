@@ -5,6 +5,12 @@
     "coc.preferences.enableMessageDialog": false,
     "coc.source.file.enable": true,
     "coc.source.around.enable": true,
+    "suggest.floatConfig": {
+        "rounded": true,
+        "border": true,
+        "winblend": 1,
+        "borderhighlight": "LazyVaule"
+    },
     "Lua.workspace.checkThirdParty": false,
     "inlayHint.enable": false,
     "suggest.noselect": false,
