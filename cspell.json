@@ -27,5 +27,9 @@
         "createdat",
         "createdby",
         "showmessage",
+        "lwjgl",
+        "lwjgl3",
+        "libgdx",
+        "sonki"
     ]
 }

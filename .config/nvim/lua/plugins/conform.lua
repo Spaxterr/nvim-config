@@ -47,6 +47,10 @@ return {
                             return config and { "--config", config } or {}
                         end,
                     },
+                    clang_format = {
+                        args = { "--assume-filename=.java", "--style=file" },
+                        stdin = true,
+                    },
                 },
                 log_level = vim.log.levels.DEBUG,
             })

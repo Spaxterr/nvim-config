@@ -93,6 +93,6 @@ map("v", "<Leader>ff", "<Cmd>Format<CR>", { desc = "Format selection", silent = 
 map(
     "n",
     "<Leader>cf",
-    ':lua require("conform").format({ async = true, lsp_format = "fallback" })<CR>',
+    ':lua require("conform").format({ async = true, lsp_format = "fallback", lsp_fallback = true })<CR>',
     { desc = "Format file", silent = true, noremap = true }
 )
