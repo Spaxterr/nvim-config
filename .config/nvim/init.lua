@@ -80,6 +80,9 @@ end, { range = true })
 -- Set inline hints to the same color as LineNr
 vim.cmd([[highlight! link CocInlayHint LineNr ]])
 
+-- 
+vim.cmd([[highlight! link MiniTrailspace Search ]])
+
 -- Set highlight colors for notifier
 vim.cmd([[
     highlight NotifyERRORBorder guifg=#e78284
