@@ -37,6 +37,7 @@ return {
                     svelte = { "prettierd", "prettier", stop_after_first = true },
                     json = { "prettierd", "prettier", stop_after_first = true },
                     html = { "prettierd", "prettier", stop_after_first = true },
+                    python = { "black" },
                     lua = { "stylua" },
                     java = { "clang-format" },
                 },
@@ -51,6 +52,10 @@ return {
                         args = { "--assume-filename=.java", "--style=file" },
                         stdin = true,
                     },
+                    black = {
+                        command = "python3",
+                        args = { "-m", "black", "-" }
+                    }
                 },
                 log_level = vim.log.levels.DEBUG,
             })

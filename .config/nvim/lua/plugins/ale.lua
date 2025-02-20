@@ -44,7 +44,8 @@ return {
             ]])
 
             -- Python specific
-            g.python_flake8_options = "--config ./tox.ini --verbose"
+            g.ale_python_flake8_executable = 'python3'
+            g.ale_python_flake8_options = "-m flake8 --config ./tox.ini --verbose"
 
             -- Java specific
             g.ale_java_checkstyle_options = "-c checkstyle.xml"
