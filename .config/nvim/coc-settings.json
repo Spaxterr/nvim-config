@@ -18,7 +18,6 @@
     "diagnostic.checkCurrentLine": true,
     "snippets.ultisnips.pythonPrompt": false,
 
-    "pyright.enable": false,
     "python.linting.enabled": false,
     "python.analysis.autoImportCompletions": true,
     "python.pythonPath": "python3",
