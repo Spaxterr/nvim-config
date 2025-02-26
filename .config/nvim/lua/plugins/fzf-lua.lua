@@ -5,15 +5,10 @@ return {
         dependencies = { "nvim-tree/nvim-web-devicons" },
         lazy = false,
         config = function()
-            -- calling `setup` is optional for customization
             require("fzf-lua").setup({
                 fzf_bin = "fzf",
                 { "fzf-native", "max-perf" },
                 fzf_opts = {
-                    -- Enable history
-                    ["--history"] = vim.fn.stdpath("data") .. "/fzf-lua-history",
-                    -- Load history per command
-                    ["--history-size"] = 1000,
                     ["--layout"] = "reverse",
                     ["--border"] = "rounded",
                     ["--no-exact"] = false,
@@ -27,18 +22,8 @@ return {
                     grep_highlights = true,
                     show_matches_only = false,
                     preview_layout = "vertical",
-                    history = {
-                        enable = true,
-                        path = vim.fn.stdpath("data") .. "/fzf-lua-live-grep-history",
-                        limit = 1000,
-                    },
                 },
                 files = {
-                    history = {
-                        enable = true,
-                        path = vim.fn.stdpath("data") .. "/fzf-lua-files-history",
-                        limit = 1000,
-                    },
                     actions = {
                         ["default"] = function(selected) -- Immediately open the selected files instead of adding them to a list
                             if not selected then
