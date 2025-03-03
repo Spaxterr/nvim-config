@@ -40,6 +40,7 @@ return {
                     python = { "black" },
                     lua = { "stylua" },
                     java = { "clang-format" },
+                    rust = { "rustfmt" },
                 },
                 formatters = {
                     prettier = {
