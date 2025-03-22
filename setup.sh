@@ -18,7 +18,7 @@ if [ ! -f "$HOME/antigen/antigen.zsh" ]; then
   curl -L git.io/antigen > "$HOME/antigen/antigen.zsh"
 fi
 
-# Antigen
+# Liquidprompt
 if [ ! -f "$HOME/liquidprompt/liquidprompt" ]; then
   echo "Liquid prompt not found. Installing..."
   mkdir $HOME/liquidprompt/
@@ -36,18 +36,20 @@ if ! command_exists batcat; then
   echo "batcat not found. Installing..."
   if command_exists apt; then
     sudo apt update && sudo apt install -y bat
+  elif command_exists pacman; then
+    sudo pacman -S exa
   else
     echo "Package manager not found. Please install bat manually."
   fi
 fi
 
 # Colorls
-if ! command_exists colorls; then
-  echo "colorls not found. Installing..."
-  if command_exists gem; then
-    sudo gem install colorls
+if ! command_exists exa; then
+  echo "exa not found. Installing..."
+  if command_exists cargo; then
+    cargo add exa
   else
-    echo "Ruby gem not found. Please install Ruby and try again."
+    echo "Cargo not found. Please install Rust and try again."
   fi
 fi
 
