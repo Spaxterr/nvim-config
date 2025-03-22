@@ -74,7 +74,7 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#555588"
 ZSH_AUTOSUGGEST_STRATEGY=(completion history)
 
 # Aliases
-alias ls="colorls -A --gs --sd"
+alias ls="exa --color always --icons --all"
 alias cat="batcat -p"
 alias dev="~/dev.sh"
 
