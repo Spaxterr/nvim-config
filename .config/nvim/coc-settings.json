@@ -22,6 +22,7 @@
     "python.analysis.autoImportCompletions": true,
     "python.pythonPath": "python3",
 
+    "java.jdt.ls.java.home": "/home/developer/.jenv/versions/21.0/",
     "java.configuration.updateBuildConfiguration": "automatic",
     "java.import.maven.enabled": true,
     "java.maven.downloadSources": true,

@@ -26,7 +26,7 @@ return {
                     end
                 end
 
-                vim.notify("No Prettier config found in the current directory", vim.log.levels.WARN)
+                vim.notify("ℹ️ No Prettier config found in the current directory", vim.log.levels.WARN)
                 return nil
             end
 

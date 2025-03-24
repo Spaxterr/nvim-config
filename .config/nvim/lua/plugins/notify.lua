@@ -1,16 +1,17 @@
 return {
-    { 
+    {
         "rcarriga/nvim-notify",
         lazy = false,
-        config = function ()
-            require('notify').setup({
+        config = function()
+            require("notify").setup({
                 stages = "fade",
                 timeout = 7000,
                 fps = 30,
                 render = "wrapped-default",
+                background_colour = "#303446",
             })
 
             vim.notify = require("notify")
-        end
-    }
+        end,
+    },
 }
