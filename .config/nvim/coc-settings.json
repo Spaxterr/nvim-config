@@ -11,12 +11,15 @@
         "winblend": 1,
         "borderhighlight": "LazyVaule"
     },
-    "Lua.workspace.checkThirdParty": false,
-    "inlayHint.enable": false,
+    "suggest.selection": "recentlyUsed",
+    "suggest.localityBonus": true,
     "suggest.noselect": false,
     "suggest.enablePreselect": false,
+    "suggest.insertMode": "insert",
     "diagnostic.checkCurrentLine": true,
     "snippets.ultisnips.pythonPrompt": false,
+    "inlayHint.enable": false,
+    "Lua.workspace.checkThirdParty": false,
 
     "python.linting.enabled": false,
     "python.analysis.autoImportCompletions": true,
