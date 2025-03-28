@@ -13,6 +13,7 @@ return {
                     ["--border"] = "rounded",
                     ["--no-exact"] = false,
                     ["--tiebreak"] = "length,begin,index",
+                    ["--history"] = vim.fn.stdpath("data") .. "/fzf-lua-history",
                 },
                 grep_live = {
                     cmd = "rg",
