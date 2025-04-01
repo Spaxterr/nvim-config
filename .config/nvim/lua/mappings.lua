@@ -67,10 +67,8 @@ map(
     [[coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"]],
     { noremap = true, silent = true, expr = true }
 )
-map("i", "<C-j>", 'coc#pum#visible() ? coc#pum#next(1) : "<C-j>"', { noremap = true, expr = true, silent = true })
-map("i", "<C-k>", 'coc#pum#visible() ? coc#pum#prev(1) : "<C-k>"', { noremap = true, expr = true, silent = true })
-map("i", "<S-j>", 'coc#float#has_scroll() ? coc#float#scroll(2, 1) : "<C-j>"', { noremap = true, expr = true, silent = true })
-map("i", "<S-k>", 'coc#float#has_scroll() ? coc#float#scroll(0, 1) : "<C-k>"', { noremap = true, expr = true, silent = true })
+map("i", "<C-j>", 'coc#pum#visible() ? coc#pum#next(1) : "<C-j>"', { noremap = false, expr = true, silent = true })
+map("i", "<C-k>", 'coc#pum#visible() ? coc#pum#prev(1) : "<C-k>"', { noremap = false, expr = true, silent = true })
 
 -- Barbar bindings
 map("n", "<Tab>", "<Cmd>BufferNext<CR>", { noremap = true, silent = true, desc = "Next tab" })
