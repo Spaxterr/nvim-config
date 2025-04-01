@@ -36,11 +36,6 @@ require("lazy").setup({
     { import = "plugins" },
 }, lazy_config)
 
-local cmp = require("cmp")
-cmp.setup({
-    enabled = false, -- Disable nvim-cmp since coc already has autocompletion
-})
-
 -- load theme
 dofile(vim.g.base46_cache .. "defaults")
 dofile(vim.g.base46_cache .. "statusline")
