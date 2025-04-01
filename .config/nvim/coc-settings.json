@@ -1,6 +1,7 @@
 {
     "diagnostic.displayByAle": true,
     "diagnostic.enable": true,
+    "dialog.rounded": true,
     "coc.preferences.bracketEnterImprove": true,
     "coc.preferences.enableMessageDialog": false,
     "coc.source.file.enable": true,
@@ -9,11 +10,17 @@
         "rounded": true,
         "border": true,
         "winblend": 1,
-        "borderhighlight": "LazyVaule"
+        "borderhighlight": "Comment"
+    },
+    "signature.floatConfig": {
+        "rounded": true,
+        "border": true,
+        "winblend": 1,
+        "borderhighlight": "Type"
     },
     "suggest.selection": "recentlyUsed",
     "suggest.localityBonus": true,
-    "suggest.noselect": false,
+    "suggest.noselect": true,
     "suggest.enablePreselect": false,
     "suggest.insertMode": "insert",
     "diagnostic.checkCurrentLine": true,
@@ -23,6 +30,7 @@
 
     "python.linting.enabled": false,
     "python.analysis.autoImportCompletions": true,
+    "python.analysis.typeCheckingMode": "strict",
     "python.pythonPath": "python3",
 
     "java.jdt.ls.java.home": "/home/developer/.jenv/versions/21.0/",
@@ -40,7 +48,7 @@
     "java.autobuild.enabled": false,
     "java.progressReports.enabled": true,
     "java.trace.server": "off",
-    "java.signatureHelp.enabled": false,
+    "java.signatureHelp.enabled": true,
 
     "svelte.enable-ts-plugin": true,
     "svelte.plugin.typescript.enable": true,
@@ -56,5 +64,7 @@
 
     "rust-analyzer.cachePriming.enable": true,
     "rust-analyzer.updates.checkOnStartup": true,
-    "rust-analyzer.inlayHints.typeHints.enable": true
+    "rust-analyzer.inlayHints.typeHints.enable": true,
+    "rust-analyzer.inlayHints.chainingHints.enable": true,
+    "rust-analyzer.inlayHints.parameterHints.enable": true
 }
