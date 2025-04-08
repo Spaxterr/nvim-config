@@ -9,7 +9,6 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 vim.g.tabufline_enabled = false
 
--- vim.g.coc_global_extensions = require('configs.coc-languages')
 vim.g.svelte_preprocessors = { "typescript" }
 
 -- bootstrap lazy and all plugins
@@ -40,6 +39,7 @@ require("lazy").setup({
 dofile(vim.g.base46_cache .. "defaults")
 dofile(vim.g.base46_cache .. "statusline")
 
+require("configs.lspconfig")
 require("options")
 require("nvchad.autocmds")
 require("autocmds")
@@ -72,10 +72,7 @@ vim.api.nvim_create_user_command("Format", function(args)
     require("conform").format({ async = true, lsp_format = "fallback", range = range, lsp_fallback = true })
 end, { range = true })
 
--- Set inline hints to the same color as LineNr
-vim.cmd([[highlight! link CocInlayHint LineNr ]])
-
--- 
+--
 vim.cmd([[highlight! link MiniTrailspace Search ]])
 
 -- Set highlight colors for notifier

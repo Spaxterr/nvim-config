@@ -52,23 +52,16 @@ map("n", "<leader>fw", fzf.live_grep_native, { noremap = true, silent = true, de
 map("n", "<leader>ff", fzf.files, { noremap = true, silent = true, desc = "Find files" })
 map("n", "<leader>ft", fzf.treesitter, { noremap = true, silent = true, desc = "Find symbols" })
 
--- Coc bindings
-map("n", "<Leader>cr", "<Plug>(coc-rename)", { desc = "Rename symbol", silent = true, noremap = true })
-map("i", "<C-s>", "coc#refresh()", { desc = "Show completions", silent = true, expr = true, noremap = true })
-map("n", "gd", "<Plug>(coc-definition)", { silent = true, desc = "Go to definition" })
-map("n", "gy", "<Plug>(coc-type-definition)", { silent = true, desc = "Go to type definition" })
-map("n", "gi", "<Plug>(coc-implementation)", { silent = true, desc = "Go to implementation" })
-map("n", "gr", "<Plug>(coc-references)", { silent = true, desc = "Go to reference(s)" })
-map({ "v", "n", "x" }, "<leader>cq", "<Plug>(coc-codeaction-cursor)", { silent = true, desc = "Show code actions" })
-map("n", "K", ":call CocActionAsync('doHover')<CR>", { silent = true, desc = "Hover" })
-map(
-    "i",
-    "<CR>",
-    [[coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"]],
-    { noremap = true, silent = true, expr = true }
-)
-map("i", "<C-j>", 'coc#pum#visible() ? coc#pum#next(1) : "<C-j>"', { noremap = false, expr = true, silent = true })
-map("i", "<C-k>", 'coc#pum#visible() ? coc#pum#prev(1) : "<C-k>"', { noremap = false, expr = true, silent = true })
+-- LSP config
+local cmp = require("cmp")
+map("n", "<Leader>cr", vim.lsp.buf.rename, { desc = "Rename symbol", silent = true, noremap = true })
+map("i", "<C-s>", cmp.mapping.complete(), { desc = "Show completions", silent = true, expr = true, noremap = true })
+map("n", "gd", vim.lsp.buf.definition, { silent = true, desc = "Go to definition" })
+map("n", "gy", vim.lsp.buf.type_definition, { silent = true, desc = "Go to type definition" })
+map("n", "gi", vim.lsp.buf.implementation, { silent = true, desc = "Go to implementation" })
+map("n", "gr", vim.lsp.buf.references, { silent = true, desc = "Go to reference(s)" })
+map("n", "K", vim.lsp.buf.hover, { silent = true, desc = "Hover" })
+map({ "v", "n", "x" }, "<leader>cq", vim.lsp.buf.code_action, { silent = true, desc = "Show code actions" })
 
 -- Barbar bindings
 map("n", "<Tab>", "<Cmd>BufferNext<CR>", { noremap = true, silent = true, desc = "Next tab" })

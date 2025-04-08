@@ -9,19 +9,20 @@ vim.opt.list = true
 vim.opt.listchars = { trail = '·' }
 
 vim.diagnostic.config({
-    virtual_text = {
-        prefix = "",
-        spacing = 4,
-    },
+    virtual_text = false,
     float = {
         source = "always",
-        border = "rounded"
+        border = "rounded",
+        header = "",
+        prefix = "",
+        borderhighlight = "Comment",
     },
     signs = true,
     underline = true,
     update_in_insert = false,
     severity_sort = true,
 })
+vim.cmd [[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, { focus=false })]]
 
 o.number = true             -- Show line numbers
 o.relativenumber = true     -- Enable relative line numbers

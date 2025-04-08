@@ -10,26 +10,25 @@ return {
             g.ale_fix_on_save = 0
 
             g.ale_lint_on_save = 1 -- Lint only on save instead of text changes
-            g.ale_lint_on_text_changed = "never" -- Remove real-time linting
-            g.ale_lint_on_insert_leave = 1 -- Don't lint when leaving insert mode
+            g.ale_lint_on_text_changed = "never" -- Remove real-time linting for performance
+            g.ale_lint_on_insert_leave = 0 -- Don't lint when leaving insert mode
             g.ale_cache_executable_check_failures = 1
             g.ale_lint_delay = 250
 
             g.ale_set_highlights = 1
             g.ale_set_signs = 1
             g.ale_highlight_problems = 1
-            g.ale_use_neovim_diagnostics_api = 0
+            g.ale_use_neovim_diagnostics_api = 1
 
             g.ale_linters_explicit = 1
-            g.ale_floating_preview = 1
+            g.ale_hover_cursor = 0
+            g.ale_floating_preview = 0
             g.ale_completion_enabled = 0
             g.ale_fix_on_save = 0
-            g.ale_cursor_detail = 1
-            g.ale_floating_preview = 1
-            g.ale_close_preview_on_insert = 1
+            g.ale_cursor_detail = 0
+            g.ale_floating_preview = 0
             g.ale_open_list = 0
             g.ale_virtualtext_cursor = "disabled"
-            g.ale_floating_window_border = { "│", "─", "╭", "╮", "╯", "╰", "│", "─" }
             g.ale_echo_msg_format = "[%linter%] %s (%code%)"
             g.ale_window_msg_format = "[%linter%] %s (%code%)"
             g.ale_disable_lsp = 1
