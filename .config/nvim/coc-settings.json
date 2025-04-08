@@ -1,6 +1,12 @@
 {
     "diagnostic.displayByAle": true,
     "diagnostic.enable": true,
+    "diagnostic.floatConfig": {
+        "rounded": true,
+        "border": true,
+        "winblend": 1,
+        "borderhighlight": "Comment"
+    },
     "dialog.rounded": true,
     "coc.preferences.bracketEnterImprove": true,
     "coc.preferences.enableMessageDialog": false,

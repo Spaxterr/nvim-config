@@ -11,14 +11,14 @@ return {
 
             g.ale_lint_on_save = 1 -- Lint only on save instead of text changes
             g.ale_lint_on_text_changed = "never" -- Remove real-time linting
-            g.ale_lint_on_insert_leave = 0 -- Don't lint when leaving insert mode
+            g.ale_lint_on_insert_leave = 1 -- Don't lint when leaving insert mode
             g.ale_cache_executable_check_failures = 1
-            g.ale_lint_delay = 500
+            g.ale_lint_delay = 250
 
             g.ale_set_highlights = 1
             g.ale_set_signs = 1
             g.ale_highlight_problems = 1
-            g.ale_use_neovim_diagnostics_api = 1
+            g.ale_use_neovim_diagnostics_api = 0
 
             g.ale_linters_explicit = 1
             g.ale_floating_preview = 1
