@@ -22,7 +22,8 @@ vim.diagnostic.config({
     update_in_insert = false,
     severity_sort = true,
 })
-vim.cmd [[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, { focus=false })]]
+
+vim.cmd([[autocmd CursorHold * lua vim.diagnostic.open_float(nil, {focus=false})]])
 
 o.number = true             -- Show line numbers
 o.relativenumber = true     -- Enable relative line numbers
