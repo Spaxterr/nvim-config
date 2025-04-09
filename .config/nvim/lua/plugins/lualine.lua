@@ -3,6 +3,15 @@ return {
         "nvim-lualine/lualine.nvim",
         lazy = false,
         config = function()
+            local winbar = require("lspsaga.symbol.winbar")
+            local breadcrumbs = function()
+                local text = winbar.get_bar()
+                if text then
+                    return text
+                else
+                    return ""
+                end
+            end
             require("lualine").setup({
                 options = {
                     theme = "auto",
@@ -12,15 +21,18 @@ return {
                 sections = {
                     lualine_a = { "mode" },
                     lualine_b = { "branch", "diff", "diagnostics" },
-                    lualine_c = { "filename" },
+                    lualine_c = { "filename", breadcrumbs },
                     lualine_x = {
                         "filesize",
                         {
                             "lsp_status",
                             icon = "",
                             symbols = {
+                                -- Standard unicode symbols to cycle through for LSP progress:
                                 spinner = { "⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏" },
+                                -- Standard unicode symbol for when LSP is done:
                                 done = "✓",
+                                -- Delimiter inserted between LSP names:
                                 separator = " ",
                             },
                         },

@@ -8,6 +8,11 @@ return {
                     enable = false,
                     enable_in_insert = false,
                 },
+                symbol_in_winbar = {
+                    enable = false,
+                    folder_level = 1,
+                    show_file = false,
+                }
             })
         end,
     },
