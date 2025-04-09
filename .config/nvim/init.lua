@@ -11,6 +11,8 @@ vim.g.tabufline_enabled = false
 
 vim.g.svelte_preprocessors = { "typescript" }
 
+vim.uv.os_setenv("JAVA_HOME",  "/usr/lib/jvm/java-21-openjdk-amd64")
+
 -- bootstrap lazy and all plugins
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 
