@@ -15,6 +15,7 @@ local servers = {
     "cssls",
     "jsonls",
     "yamlls",
+    "jdtls",
 }
 
 require("mason-lspconfig").setup({
