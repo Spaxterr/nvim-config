@@ -1,13 +1,14 @@
 return {
     {
         "nvimdev/lspsaga.nvim",
-        event = 'LspAttach',
+        event = "LspAttach",
         config = function()
             require("lspsaga").setup({
-                code_action_prompt = {
+                lightbulb = {
                     enable = false,
-                }
+                    enable_in_insert = false,
+                },
             })
         end,
-    }
+    },
 }
