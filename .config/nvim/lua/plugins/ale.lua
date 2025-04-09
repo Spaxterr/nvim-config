@@ -1,7 +1,7 @@
 return {
     {
         "dense-analysis/ale",
-        lazy = false,
+        event = 'BufEnter',
         config = function()
             local g = vim.g
 

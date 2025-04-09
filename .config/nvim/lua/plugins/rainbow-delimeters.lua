@@ -1,7 +1,7 @@
 return {
     {
         "HiPhish/rainbow-delimiters.nvim",
-        lazy = false,
+        event = 'LspAttach',
         config = function()
             require('rainbow-delimiters.setup').setup()
         end

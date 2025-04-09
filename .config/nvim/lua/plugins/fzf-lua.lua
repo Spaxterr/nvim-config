@@ -3,7 +3,6 @@ return {
         "ibhagwan/fzf-lua",
         run = "make",
         dependencies = { "nvim-tree/nvim-web-devicons" },
-        lazy = false,
         config = function()
             require("fzf-lua").setup({
                 fzf_bin = "fzf",

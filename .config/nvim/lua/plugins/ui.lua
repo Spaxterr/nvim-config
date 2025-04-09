@@ -1,10 +1,10 @@
 return {
     {
-      "NvChad/ui",
-      opts = {
-        tabufline = {
-          enabled = false,
-        }
-      }
-    }
+        "NvChad/ui",
+        opts = {
+            tabufline = {
+                enabled = false,
+            },
+        },
+    },
 }

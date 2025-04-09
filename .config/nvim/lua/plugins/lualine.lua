@@ -3,13 +3,6 @@ return {
         "nvim-lualine/lualine.nvim",
         lazy = false,
         config = function()
-            local lint_progress = function()
-                local linters = require("lint").get_running()
-                if #linters == 0 then
-                    return "󰸞"
-                end
-                return "󰇘 " .. table.concat(linters, ", ")
-            end
             require("lualine").setup({
                 options = {
                     theme = "auto",
@@ -18,19 +11,16 @@ return {
                 },
                 sections = {
                     lualine_a = { "mode" },
-                    lualine_b = { "branch", "diff", lint_progress, "diagnostics" },
+                    lualine_b = { "branch", "diff", "diagnostics" },
                     lualine_c = { "filename" },
                     lualine_x = {
                         "filesize",
                         {
                             "lsp_status",
-                            icon = "", -- f013
+                            icon = "",
                             symbols = {
-                                -- Standard unicode symbols to cycle through for LSP progress:
                                 spinner = { "⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏" },
-                                -- Standard unicode symbol for when LSP is done:
                                 done = "✓",
-                                -- Delimiter inserted between LSP names:
                                 separator = " ",
                             },
                         },

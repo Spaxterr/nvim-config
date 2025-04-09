@@ -7,7 +7,7 @@ return {
                 stages = "fade",
                 timeout = 7000,
                 fps = 30,
-                render = "wrapped-default",
+                render = "compact",
                 background_colour = "#303446",
             })
 
