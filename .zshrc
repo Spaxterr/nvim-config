@@ -96,6 +96,7 @@ export PATH="$HOME/.dotnet/tools:$PATH"
 
 # Add snap to PATH
 export PATH="/snap/bin/:$PATH"
+export PATH="/mnt/c/Win32Yank/:$PATH"
 
 bindkey "^[[1;5C" forward-word
 bindkey "^[[1;5D" backward-word

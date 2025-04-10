@@ -3,15 +3,6 @@ return {
         "nvim-lualine/lualine.nvim",
         lazy = false,
         config = function()
-            local winbar = require("lspsaga.symbol.winbar")
-            local breadcrumbs = function()
-                local text = winbar.get_bar()
-                if text then
-                    return text
-                else
-                    return ""
-                end
-            end
             require("lualine").setup({
                 options = {
                     theme = "auto",
@@ -21,7 +12,7 @@ return {
                 sections = {
                     lualine_a = { "mode" },
                     lualine_b = { "branch", "diff", "diagnostics" },
-                    lualine_c = { "filename", breadcrumbs },
+                    lualine_c = { "filename" },
                     lualine_x = {
                         "filesize",
                         {

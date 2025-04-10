@@ -56,12 +56,12 @@ map("n", "<leader>ft", fzf.treesitter, { noremap = true, silent = true, desc = "
 local cmp = require("cmp")
 map("n", "<Leader>cr", vim.lsp.buf.rename, { desc = "Rename symbol", silent = true, noremap = true })
 map("i", "<C-s>", cmp.mapping.complete(), { desc = "Show completions", silent = true, expr = true, noremap = true })
-map("n", "gd", vim.lsp.buf.definition, { silent = true, desc = "Go to definition" })
-map("n", "gy", vim.lsp.buf.type_definition, { silent = true, desc = "Go to type definition" })
-map("n", "gi", vim.lsp.buf.implementation, { silent = true, desc = "Go to implementation" })
-map("n", "gr", vim.lsp.buf.references, { silent = true, desc = "Go to reference(s)" })
+map("n", "gd", '<Cmd>Lspsaga goto_definition<CR>', { silent = true, desc = "Go to definition" })
+map("n", "gy", '<Cmd>Lspsaga goto_type_definition<CR>', { silent = true, desc = "Go to type definition" })
+map("n", "gi", '<Cmd>Lspsaga finder imp<CR>', { silent = true, desc = "Go to implementation" })
+map("n", "gr", '<Cmd>Lspsaga finder ref<CR>', { silent = true, desc = "Go to reference(s)" })
 map('n', 'K', '<Cmd>Lspsaga hover_doc<CR>', { silent = true, desc = 'Show hover doc'})
-map({ "v", "n", "x" }, "<leader>cq", vim.lsp.buf.code_action, { silent = true, desc = "Show code actions" })
+map({ "v", "n", "x" }, "<leader>cq", '<Cmd>Lspsaga code_action<CR>', { silent = true, desc = "Show code actions" })
 
 -- Barbar bindings
 map("n", "<Tab>", "<Cmd>BufferNext<CR>", { noremap = true, silent = true, desc = "Next tab" })

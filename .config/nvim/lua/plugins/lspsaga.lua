@@ -10,9 +10,25 @@ return {
                 },
                 symbol_in_winbar = {
                     enable = false,
-                    folder_level = 1,
-                    show_file = false,
-                }
+                },
+                code_action = {
+                    keys = {
+                        quit = "<ESC>",
+                        exec = "<CR>",
+                    },
+                },
+                definition = {
+                    keys = {
+                        quit = "<ESC>",
+                        toggle_or_open = "<CR>",
+                    },
+                },
+                finder = {
+                    keys = {
+                        quit = "<ESC>",
+                        toggle_or_open = "<CR>",
+                    },
+                },
             })
         end,
     },
