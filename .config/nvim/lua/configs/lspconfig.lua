@@ -16,6 +16,7 @@ local servers = {
     "jsonls",
     "yamlls",
     "jdtls",
+    "gopls",
 }
 
 require("mason-lspconfig").setup({
@@ -26,14 +27,16 @@ require("mason-lspconfig").setup({
 
 local lspconfig = require("lspconfig")
 for _, server in ipairs(servers) do
-    local status, config = pcall(require, "configs.lsp." .. server)
-    if not status then
+    local status, config = pcall(require, "configs.lsp." .. server) -- Attempt to import from './lsp/{language server name}.lua'
+    if not status then -- If the import failed, default to an empty table
         config = {}
     end
 
+    -- Attach NvChad default config options
     config.capabilities = nvlsp.capabilities
     config.on_attach = nvlsp.on_attach
     config.on_init = nvlsp.on_init
 
+    -- Setup language server with config
     lspconfig[server].setup(config)
 end

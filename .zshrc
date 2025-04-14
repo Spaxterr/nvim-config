@@ -94,8 +94,13 @@ export TMPDIR="/tmp/"
 # Add dotnet tools to PATH
 export PATH="$HOME/.dotnet/tools:$PATH"
 
+# Add Go tools to PATH
+export PATH="$HOME/go/bin/:$PATH"
+
 # Add snap to PATH
 export PATH="/snap/bin/:$PATH"
+
+# Add Win32Yank to PATH
 export PATH="/mnt/c/Win32Yank/:$PATH"
 
 bindkey "^[[1;5C" forward-word

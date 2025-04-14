@@ -2,25 +2,15 @@ return {
     {
         "hrsh7th/nvim-cmp",
         enabled = true,
-        event = "LspAttach",
+        event = { "InsertEnter", "CmdlineEnter" },
         dependencies = {
             "hrsh7th/cmp-nvim-lsp",
             "hrsh7th/cmp-buffer",
             "hrsh7th/cmp-path",
-            "hrsh7th/cmp-cmdline",
-            {
-                "echasnovski/mini.snippets",
-                version = false,
-                config = function()
-                    local gen_loader = require("mini.snippets").gen_loader
-                    require("mini.snippets").setup({
-                        snippets = {
-                            gen_loader.from_lang(), -- This includes those defined by friendly-snippets.
-                        },
-                    })
-                end,
-            },
-            "xzbdmw/cmp-mini-snippets",
+            "hrsh7th/cmp-nvim-lsp-signature-help",
+            "L3MON4D3/LuaSnip",
+            "saadparwaiz1/cmp_luasnip",
+            "zjp-CN/nvim-cmp-lsp-rs",
         },
         config = function()
             local cmp = require("cmp")
@@ -30,16 +20,17 @@ return {
                     documentation = cmp.config.window.bordered(),
                     snippet = {
                         expand = function(args)
-                            vim.fn["vsnip#anonymous"](args.body)
+                            require'luasnip'.lsp_expand(args.body)
                         end,
                     },
                 },
                 sources = {
                     { name = "nvim_lsp" },
-                    { name = "mini.snippets" },
+                    { name = "cmp_lsp_rs" },
+                    { name = "nvim_lsp_signature_help" },
+                    { name = "luasnip" },
                     { name = "buffer" },
-                    { name = "async_path" },
-                    { name = "cmdline" },
+                    { name = "path" },
                 },
                 mapping = {
                     ["<C-j>"] = cmp.mapping.select_next_item(),
