@@ -10,7 +10,6 @@ return {
             "hrsh7th/cmp-nvim-lsp-signature-help",
             "L3MON4D3/LuaSnip",
             "saadparwaiz1/cmp_luasnip",
-            "zjp-CN/nvim-cmp-lsp-rs",
         },
         config = function()
             local cmp = require("cmp")
@@ -25,12 +24,11 @@ return {
                     },
                 },
                 sources = {
-                    { name = "nvim_lsp" },
-                    { name = "cmp_lsp_rs" },
-                    { name = "nvim_lsp_signature_help" },
-                    { name = "luasnip" },
-                    { name = "buffer" },
-                    { name = "path" },
+                    { name = "nvim_lsp", priority = 1000 },
+                    { name = "nvim_lsp_signature_help", priority = 900 },
+                    { name = "luasnip", priority = 800 },
+                    { name = "buffer", priority = 100 },
+                    { name = "path", priority = 100 },
                 },
                 mapping = {
                     ["<C-j>"] = cmp.mapping.select_next_item(),

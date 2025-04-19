@@ -6,7 +6,7 @@ local o = vim.o
 vim.g.mapleader = " "
 
 vim.opt.list = true
-vim.opt.listchars = { trail = '·' }
+vim.opt.listchars = { trail = '·', tab = '  ' }
 
 vim.diagnostic.config({
     virtual_text = false,

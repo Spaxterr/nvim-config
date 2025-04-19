@@ -1,7 +1,7 @@
 return {
     {
         "stevearc/conform.nvim",
-        event = 'LspAttach',
+        event = "LspAttach",
         config = function()
             local conform = require("conform")
 
@@ -42,6 +42,7 @@ return {
                     lua = { "stylua" },
                     java = { "clang-format" },
                     rust = { "rustfmt" },
+                    go = { "golangci-lint" },
                 },
                 formatters = {
                     prettier = {
@@ -56,8 +57,8 @@ return {
                     },
                     black = {
                         command = "python3",
-                        args = { "-m", "black", "-" }
-                    }
+                        args = { "-m", "black", "-" },
+                    },
                 },
                 log_level = vim.log.levels.DEBUG,
             })
