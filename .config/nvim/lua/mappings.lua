@@ -60,7 +60,7 @@ map("n", "gd", '<Cmd>Lspsaga goto_definition<CR>', { silent = true, desc = "Go t
 map("n", "gy", '<Cmd>Lspsaga goto_type_definition<CR>', { silent = true, desc = "Go to type definition" })
 map("n", "gi", '<Cmd>Lspsaga finder imp<CR>', { silent = true, desc = "Go to implementation" })
 map("n", "gr", '<Cmd>Lspsaga finder ref<CR>', { silent = true, desc = "Go to reference(s)" })
-map('n', 'K', '<Cmd>Lspsaga hover_doc<CR>', { silent = true, desc = 'Show hover doc'})
+map('n', 'K', vim.lsp.buf.hover, { silent = true, desc = 'Show hover doc'})
 map({ "v", "n", "x" }, "<leader>cq", '<Cmd>Lspsaga code_action<CR>', { silent = true, desc = "Show code actions" })
 
 -- Barbar bindings

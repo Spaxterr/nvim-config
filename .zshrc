@@ -96,6 +96,7 @@ export PATH="$HOME/.dotnet/tools:$PATH"
 
 # Add Go tools to PATH
 export PATH="$HOME/go/bin/:$PATH"
+export PATH=$PATH:/usr/local/go/bin
 
 # Add snap to PATH
 export PATH="/snap/bin/:$PATH"
