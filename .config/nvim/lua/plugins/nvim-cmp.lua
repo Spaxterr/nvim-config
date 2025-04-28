@@ -19,7 +19,7 @@ return {
                     documentation = cmp.config.window.bordered(),
                     snippet = {
                         expand = function(args)
-                            require'luasnip'.lsp_expand(args.body)
+                            require("luasnip").lsp_expand(args.body)
                         end,
                     },
                 },
@@ -27,8 +27,8 @@ return {
                     { name = "nvim_lsp", priority = 1000 },
                     { name = "nvim_lsp_signature_help", priority = 900 },
                     { name = "luasnip", priority = 800 },
-                    { name = "buffer", priority = 100 },
                     { name = "path", priority = 100 },
+                    { name = "buffer", priority = 1 },
                 },
                 mapping = {
                     ["<C-j>"] = cmp.mapping.select_next_item(),
