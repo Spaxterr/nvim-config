@@ -63,7 +63,7 @@ map("n", "gi", fzf_lua.lsp_implementations, { silent = true, desc = "Go to imple
 map("n", "gr", fzf_lua.lsp_references, { silent = true, desc = "Go to reference(s)" })
 map("n", "<Leader>di", fzf_lua.diagnostics_document, { silent = true, desc = "View file diagnostics" })
 map("n", "<Leader>dw", fzf_lua.diagnostics_workspace, { silent = true, desc = "View workspace diagnostics" })
-map('n', 'K', vim.lsp.buf.hover, { silent = true, desc = 'Show hover doc'})
+map('n', 'K', '<Cmd>Lspsaga hover_doc<CR>', { silent = true, desc = "Show hover doc" })
 map({ "v", "n", "x" }, "<leader>cq", '<Cmd>Lspsaga code_action<CR>', { silent = true, desc = "Show code actions" })
 
 -- Barbar bindings

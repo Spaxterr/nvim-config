@@ -5,24 +5,28 @@ return {
         config = function()
             local g = vim.g
 
-            g.ale_linters_explicit = 1
-            g.ale_completion_enabled = 0
-            g.ale_fix_on_save = 0
-
             g.ale_lint_on_save = 1 -- Lint only on save instead of text changes
             g.ale_lint_on_text_changed = "never" -- Remove real-time linting for performance
             g.ale_lint_on_insert_leave = 0 -- Don't lint when leaving insert mode
             g.ale_cache_executable_check_failures = 1
-            g.ale_lint_delay = 250
+
+            g.ale_maximum_file_size = 500000
+            g.ale_max_buffer_history_size = 10
+            g.ale_max_signs = 100
+            g.ale_buffer_sign_delay = 100
+            g.ale_history_enabled = 0
+            g.ale_parallel_check = 1
+            g.ale_lint_delay = 300
 
             g.ale_set_highlights = 1
             g.ale_set_signs = 1
             g.ale_highlight_problems = 1
             g.ale_use_neovim_diagnostics_api = 1
+            g.ale_set_quickfix = 0
+            g.ale_set_loclist = 0
 
             g.ale_linters_explicit = 1
             g.ale_hover_cursor = 1
-            g.ale_floating_preview = 0
             g.ale_completion_enabled = 0
             g.ale_fix_on_save = 0
             g.ale_cursor_detail = 0

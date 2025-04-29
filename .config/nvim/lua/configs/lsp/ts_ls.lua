@@ -14,8 +14,17 @@ return {
         typescript = {
             enable = true,
         },
+        diagnostics = {
+            enable = true,
+            reportStyleChecksAsWarnings = true,
+            ignoreEmit = true,
+        },
         init_options = {
             hostInfo = "neovim",
-        }
+            preferences = {
+                disableSuggestions = false,
+                importModuleSpecifierPreference = "relative",
+            },
+        },
     },
 }
