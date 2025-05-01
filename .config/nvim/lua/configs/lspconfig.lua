@@ -19,6 +19,7 @@ local servers = {
     "gopls",
     "omnisharp",
     "nginx_language_server",
+    "svelte",
 }
 
 require("mason-lspconfig").setup({
