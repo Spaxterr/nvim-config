@@ -9,7 +9,7 @@ return {
                     enable_in_insert = false,
                 },
                 symbol_in_winbar = {
-                    enable = false,
+                    enable = true,
                 },
                 code_action = {
                     keys = {
