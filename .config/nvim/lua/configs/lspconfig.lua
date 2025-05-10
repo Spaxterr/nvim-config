@@ -20,6 +20,7 @@ local servers = {
     "omnisharp",
     "nginx_language_server",
     "svelte",
+    "tailwindcss",
 }
 
 require("mason-lspconfig").setup({
