@@ -46,6 +46,8 @@ map(
 -- Set 'b+c' to close all open tabs/buffers
 vim.keymap.set('n', '<leader>bc', '<Cmd>CloseAllBuffers<CR>', { noremap = true, silent = true, desc = "Close all tabs" })
 
+map("n", "dm", "<Cmd>delmarks!<CR>", { noremap = true, silent = true, desc = "Delete all marks" })
+
 -- Fzf Lua
 local fzf = require("fzf-lua")
 map("n", "<leader>fw", fzf.live_grep_native, { noremap = true, silent = true, desc = "Live grep" })
