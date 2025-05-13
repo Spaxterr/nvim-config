@@ -9,12 +9,32 @@ return {
 
             configs.setup({
                 autotag = { enable = true },
-                rainbow = { enable = true, },
-                ensure_installed = { "lua", "vim", "javascript", "typescript", "html", "python", "jsdoc", "css", "java", "markdown", "svelte", "c_sharp", "rust", "yaml" },
+                rainbow = { enable = true },
+                ensure_installed = {
+                    "lua",
+                    "vim",
+                    "javascript",
+                    "typescript",
+                    "html",
+                    "python",
+                    "jsdoc",
+                    "css",
+                    "java",
+                    "markdown",
+                    "svelte",
+                    "c_sharp",
+                    "rust",
+                    "yaml",
+                    "query",
+                    "sql",
+                    "vim",
+                    "vimdoc",
+                },
                 sync_install = false,
-                highlight = { enable = true },
+                auto_install = true,
+                highlight = { enable = true, additional_vim_regex_highlighting = false },
                 indent = { enable = true },
             })
-        end
+        end,
     },
 }
