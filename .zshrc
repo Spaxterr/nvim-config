@@ -104,7 +104,11 @@ export PATH="/snap/bin/:$PATH"
 # Add Win32Yank to PATH
 export PATH="/mnt/c/Win32Yank/:$PATH"
 
+# Add local binaries to PATH
+export PATH="$HOME/.local/bin/:$PATH"
+
 bindkey "^[[1;5C" forward-word
 bindkey "^[[1;5D" backward-word
 
 export PRETTIERD_DEFAULT_CONFIG="$HOME/.prettierrc"
+export PATH="$HOME/.local/bin:$PATH"

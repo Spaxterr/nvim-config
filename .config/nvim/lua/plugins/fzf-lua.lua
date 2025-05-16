@@ -14,6 +14,9 @@ return {
                     ["--tiebreak"] = "length,begin,index",
                     ["--history"] = vim.fn.stdpath("data") .. "/fzf-lua-history",
                 },
+                lsp = {
+                    jump1 = true,
+                },
                 grep_live = {
                     cmd = "rg",
                     rg_opts = "--hidden --column --line-number --no-heading --color=always --smart-case --sort=path",

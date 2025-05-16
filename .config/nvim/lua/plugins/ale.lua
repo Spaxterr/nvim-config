@@ -57,6 +57,16 @@ return {
             g.ale_cspell_options = "--config ~/cspell.json --show-suggestions"
             g.ale_cspell_use_global_config = 1
 
+            -- g.ale_python_ruff_executable = 'python3'
+            -- g.ale_python_ruff_options = '-m ruff check --config ./pyproject.toml'
+            -- g.ale_python_ruff_use_config = 1
+
+
+            g.ale_history_enabled = 1
+            g.ale_history_log_output = 1
+            g.ale_echo_cursor = 1
+            g.ale_keep_list_window_open = 1
+
             -- Remap highlight groups
             g.ale_type_map = {
                 cspell = { W = "I" },
@@ -67,7 +77,7 @@ return {
                 lua = { "lua_language_server", "cspell" },
                 javascript = { "eslint", "cspell" },
                 typescript = { "eslint", "cspell" },
-                python = { "flake8", "cspell" },
+                python = { "ruff", "cspell" },
                 java = { "checkstyle", "cspell" },
                 go = { "golangci-lint", "cspell" }
             }
