@@ -82,14 +82,16 @@ o.fileformats = "unix,dos,mac" -- Preserve file EOL character
 local is_wsl = vim.fn.has("wsl") == 1
 if is_wsl then
     vim.g.clipboard = {
-        name = "win32yank",
+        name = 'WslClipboard',
         copy = {
-            ["+"] = "win32yank.exe -i --crlf",
-            ["*"] = "win32yank.exe -i --crlf",
+            ['+'] = 'clip.exe',
+            ['*'] = 'clip.exe',
         },
         paste = {
-            ["+"] = 'win32yank.exe -o --lf',
-            ["*"] = 'win32yank.exe -o --lf'
+            ['+'] =
+            'powershell.exe -NoLogo -NoProfile -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
+            ['*'] =
+            'powershell.exe -NoLogo -NoProfile -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
         },
         cache_enabled = 0,
     }

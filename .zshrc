@@ -112,3 +112,4 @@ bindkey "^[[1;5D" backward-word
 
 export PRETTIERD_DEFAULT_CONFIG="$HOME/.prettierrc"
 export PATH="$HOME/.local/bin:$PATH"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
