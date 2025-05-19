@@ -31,16 +31,22 @@ if [ ! -d "$HOME/.nvm" ]; then
   curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.4/install.sh | bash
 fi
 
+if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
+    mkdir ~/.config/tmux/plugins/tpm
+    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+fi
+
 # Batcat
 if ! command_exists batcat; then
   echo "batcat not found. Installing..."
   if command_exists apt; then
     sudo apt update && sudo apt install -y bat
   elif command_exists pacman; then
-    sudo pacman -S exa
+    sudo pacman -S bat
   else
     echo "Package manager not found. Please install bat manually."
   fi
+  sudo mv /usr/bin/bat /usr/bin/batcat
 fi
 
 # Colorls
