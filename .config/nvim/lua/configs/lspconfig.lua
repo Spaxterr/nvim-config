@@ -18,7 +18,6 @@ local servers = {
     "jdtls",
     "gopls",
     "omnisharp",
-    "nginx_language_server",
     "svelte",
     "tailwindcss",
 }
