@@ -55,20 +55,6 @@ map("n", "<leader>ff", fzf.files, { noremap = true, silent = true, desc = "Find 
 map("n", "<leader>ft", fzf.treesitter, { noremap = true, silent = true, desc = "Find symbols" })
 map("n", "<leader>fm", fzf.marks, { noremap = true, silent = true, desc = "Find marks" })
 
--- LSP config
-local cmp = require("cmp")
-local fzf_lua = require("fzf-lua")
-map("n", "<Leader>cr", vim.lsp.buf.rename, { desc = "Rename symbol", silent = true, noremap = true })
-map("i", "<C-s>", cmp.mapping.complete(), { desc = "Show completions", silent = true, expr = true, noremap = true })
-map("n", "gd", fzf_lua.lsp_declarations, { silent = true, desc = "Go to definition" })
-map("n", "gy", fzf_lua.lsp_typedefs, { silent = true, desc = "Go to type definition" })
-map("n", "gi", fzf_lua.lsp_implementations, { silent = true, desc = "Go to implementation" })
-map("n", "gr", fzf_lua.lsp_references, { silent = true, desc = "Go to reference(s)" })
-map("n", "<Leader>di", fzf_lua.diagnostics_document, { silent = true, desc = "View file diagnostics" })
-map("n", "<Leader>dw", fzf_lua.diagnostics_workspace, { silent = true, desc = "View workspace diagnostics" })
-map('n', 'K', '<Cmd>Lspsaga hover_doc<CR>', { silent = true, desc = "Show hover doc" })
-map({ "v", "n", "x" }, "<leader>cq", '<Cmd>Lspsaga code_action<CR>', { silent = true, desc = "Show code actions" })
-
 -- Barbar bindings
 map("n", "<Tab>", "<Cmd>BufferNext<CR>", { noremap = true, silent = true, desc = "Next tab" })
 map("n", "<S-Tab>", "<Cmd>BufferPrevious<CR>", { noremap = true, silent = true, desc = "Previous tab" })
