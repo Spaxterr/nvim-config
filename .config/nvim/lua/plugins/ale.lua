@@ -61,7 +61,6 @@ return {
             -- g.ale_python_ruff_options = '-m ruff check --config ./pyproject.toml'
             -- g.ale_python_ruff_use_config = 1
 
-
             g.ale_history_enabled = 1
             g.ale_history_log_output = 1
             g.ale_echo_cursor = 1
