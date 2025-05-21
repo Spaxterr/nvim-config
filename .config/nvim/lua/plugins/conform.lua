@@ -38,7 +38,7 @@ return {
                     svelte = { "prettierd", "prettier", stop_after_first = true },
                     json = { "prettierd", "prettier", stop_after_first = true },
                     html = { "prettierd", "prettier", stop_after_first = true },
-                    python = { "black" },
+                    python = { "ruff" },
                     lua = { "stylua" },
                     java = { "clang-format" },
                     rust = { "rustfmt" },

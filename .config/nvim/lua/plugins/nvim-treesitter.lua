@@ -21,6 +21,7 @@ return {
                     "css",
                     "java",
                     "markdown",
+                    "markdown_inline",
                     "svelte",
                     "c_sharp",
                     "rust",
