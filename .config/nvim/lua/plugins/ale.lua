@@ -78,7 +78,8 @@ return {
                 typescript = { "eslint", "cspell" },
                 python = { "ruff", "cspell" },
                 java = { "checkstyle", "cspell" },
-                go = { "golangci-lint", "cspell" }
+                go = { "golangci-lint", "cspell" },
+                markdown = { "cspell" },
             }
 
             g.ale_linter_aliases = {
