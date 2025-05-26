@@ -9,12 +9,6 @@ return {
             })
             require("mini.pairs").setup()
             require("mini.surround").setup()
-            require("mini.cursorword").setup()
-
-            vim.cmd([[
-                highlight MiniCursorword guibg=#e5c890
-                highlight MiniCursorwordCurrent guibg=#e5c890
-            ]])
         end,
     },
 }
