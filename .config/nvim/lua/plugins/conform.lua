@@ -45,6 +45,11 @@ return {
                     go = { "golangci-lint" },
                 },
                 formatters = {
+                    prettierd = {
+                        env = {
+                            PRETTIERD_DEFAULT_CONFIG = vim.fn.expand("~/.prettierrc"),
+                        },
+                    },
                     prettier = {
                         prepend_args = function()
                             local config = get_prettier_config()
