@@ -35,6 +35,7 @@ return {
                 formatters_by_ft = {
                     javascript = { "prettierd", "prettier", stop_after_first = true },
                     typescript = { "prettierd", "prettier", stop_after_first = true },
+                    typescriptreact = { "prettierd", "prettier", stop_after_first = true },
                     svelte = { "prettierd", "prettier", stop_after_first = true },
                     json = { "prettierd", "prettier", stop_after_first = true },
                     html = { "prettierd", "prettier", stop_after_first = true },
@@ -64,6 +65,11 @@ return {
                         command = "python3",
                         args = { "-m", "black", "-" },
                     },
+                    ruff = {
+                        command = "python3",
+                        args = { "-m", "ruff", "format", "-" },
+                        stdin = true
+                    }
                 },
                 log_level = vim.log.levels.DEBUG,
             })

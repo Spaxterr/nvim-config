@@ -1,11 +1,3 @@
-# Lazy load nvm
-nvm() {
-  unset -f nvm
-  export NVM_DIR="$HOME/.nvm"
-  [ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"
-  nvm "$@"
-}
-
 # Lazy load jenv
 jenv() {
   unset -f jenv
@@ -112,4 +104,15 @@ bindkey "^[[1;5D" backward-word
 
 export PRETTIERD_DEFAULT_CONFIG="$HOME/.prettierrc"
 export PATH="$HOME/.local/bin:$PATH"
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# bun completions
+[ -s "/home/developer/.bun/_bun" ] && source "/home/developer/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+# NVM
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"

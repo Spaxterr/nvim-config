@@ -76,6 +76,7 @@ return {
                 lua = { "lua_language_server", "cspell" },
                 javascript = { "eslint", "cspell" },
                 typescript = { "eslint", "cspell" },
+                typescriptreact = { "eslint", "cspell" },
                 python = { "ruff", "cspell" },
                 java = { "checkstyle", "cspell" },
                 go = { "golangci-lint", "cspell" },
