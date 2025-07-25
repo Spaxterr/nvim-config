@@ -79,7 +79,9 @@ if grep -q "microsoft" /proc/version &>/dev/null; then
 fi
 
 # Load environment variables
-[[ -f $HOME/.env ]] && source $HOME/.env
+set -a
+. $HOME/.env
+set +a
 
 export TMPDIR="/tmp/"
 
