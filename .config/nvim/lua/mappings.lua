@@ -54,6 +54,7 @@ map("n", "<leader>fw", fzf.live_grep_native, { noremap = true, silent = true, de
 map("n", "<leader>ff", fzf.files, { noremap = true, silent = true, desc = "Find files" })
 map("n", "<leader>ft", fzf.treesitter, { noremap = true, silent = true, desc = "Find symbols" })
 map("n", "<leader>fm", fzf.marks, { noremap = true, silent = true, desc = "Find marks" })
+map("n", "<leader>fc", '<Cmd>lua require("fzf-lua").grep({ search="TODO|HACK|PERF|FIX|BUG", no_esc=true })<CR>', { noremap = true, silent = true, desc = "Find TODO (or similar) comments" })
 
 -- Barbar bindings
 map("n", "<Tab>", "<Cmd>BufferNext<CR>", { noremap = true, silent = true, desc = "Next tab" })
