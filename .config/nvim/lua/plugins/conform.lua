@@ -40,6 +40,7 @@ return {
                     json = { "prettierd", "prettier", stop_after_first = true },
                     html = { "prettierd", "prettier", stop_after_first = true },
                     python = { "ruff" },
+                    cs = { "csharpier" },
                     lua = { "stylua" },
                     java = { "clang-format" },
                     rust = { "rustfmt" },
@@ -69,6 +70,10 @@ return {
                         command = "python3",
                         args = { "-m", "ruff", "format", "-" },
                         stdin = true
+                    },
+                    csharpier = {
+                        command = "csharpier",
+                        args = { "format", "--write-stdout" }
                     }
                 },
                 log_level = vim.log.levels.DEBUG,
