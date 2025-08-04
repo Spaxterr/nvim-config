@@ -26,6 +26,7 @@ local on_attach = function(client, bufnr)
     local map = vim.keymap.set
     local cmp = require("cmp")
     local fzf_lua = require("fzf-lua")
+    local pretty_hover = require("pretty_hover")
 
     map("n", "<Leader>cr", vim.lsp.buf.rename, { desc = "Rename symbol", silent = true,  buffer = bufnr })
     map("i", "<C-s>", cmp.mapping.complete(),
@@ -38,7 +39,7 @@ local on_attach = function(client, bufnr)
         { silent = true, desc = "View file diagnostics", buffer = bufnr })
     map("n", "<Leader>dw", fzf_lua.diagnostics_workspace,
         { silent = true, desc = "View workspace diagnostics", buffer = bufnr })
-    map('n', 'K', '<Cmd>Lspsaga hover_doc<CR>', { silent = true, desc = "Show hover doc", buffer = bufnr })
+    map('n', 'K', pretty_hover.hover, { silent = true, desc = "Show hover doc", buffer = bufnr })
     map({ "v", "n", "x" }, "<leader>cq", '<Cmd>Lspsaga code_action<CR>',
         { silent = true, desc = "Show code actions", buffer = bufnr })
 end
