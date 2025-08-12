@@ -72,6 +72,8 @@ return {
                     LSP_timeout = 10000, -- LSP request timeout (ms)
                 },
             })
+
+            vim.cmd("FzfLua register_ui_select")
         end,
     },
 }
