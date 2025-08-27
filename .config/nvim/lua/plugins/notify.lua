@@ -1,7 +1,7 @@
 return {
     {
         "rcarriga/nvim-notify",
-        lazy = false,
+        event = "VeryLazy",
         config = function()
             require("notify").setup({
                 stages = "fade",

@@ -1,12 +1,23 @@
-require "nvchad.options"
-
 local o = vim.o
+
+vim.opt.maxmempattern = 2000000
 
 -- Map leader to '<Space>'
 vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 vim.opt.conceallevel = 2
 vim.opt.list = true
 vim.opt.listchars = { trail = '·', tab = '  ' }
+
+vim.opt.encoding = "utf-8"
+vim.opt.fileencoding = "utf-8"
+
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
+vim.g.svelte_preprocessors = { "typescript" }
+
+vim.uv.os_setenv("JAVA_HOME",  "/usr/lib/jvm/java-21-openjdk-amd64")
 
 vim.diagnostic.config({
     virtual_text = false,
@@ -74,7 +85,7 @@ o.autowrite = false         -- Disable auto-saving of files
 o.visualbell = true         -- Use visual bell instead of OS 'beeping' on error input
 
 o.undofile = true           -- Enable undoing
-o.updatetime = 200          -- Update status line every 200ms
+o.updatetime = 250          -- Update status line every 250ms
 
 o.fileformats = "unix,dos,mac" -- Preserve file EOL character
 
@@ -97,5 +108,3 @@ if is_wsl then
     }
 end
 
--- Set color scheme
-vim.cmd.colorscheme "catppuccin"

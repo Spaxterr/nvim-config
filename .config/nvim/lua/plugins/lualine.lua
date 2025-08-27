@@ -1,7 +1,7 @@
 return {
     {
         "nvim-lualine/lualine.nvim",
-        lazy = false,
+        event = "VeryLazy",
         config = function()
             local lsp_progress = require("lsp-progress")
             require("lualine").setup({

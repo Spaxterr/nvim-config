@@ -1,6 +1,7 @@
 return {
     {
         'linrongbin16/lsp-progress.nvim',
+        event = "VeryLazy",
         config = function()
             require("lsp-progress").setup({
                 client_format = function(client_name, spinner, series_messages)
