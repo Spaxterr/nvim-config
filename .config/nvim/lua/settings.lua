@@ -1,6 +1,8 @@
 local o = vim.o
 
+vim.opt.tabclose = "uselast"
 vim.opt.maxmempattern = 2000000
+vim.opt.completeopt = { "menu", "menuone", "noselect" }
 
 -- Map leader to '<Space>'
 vim.g.mapleader = " "
