@@ -14,10 +14,8 @@ local servers = {
 	"tailwindcss",
 }
 
-vim.lsp.enable(servers)
-
 local on_init = function(client, _)
-	if client.supports_method("textDocument/semanticTokens") then
+	if client:supports_method("textDocument/semanticTokens") then
 		client.server_capabilities.semanticTokensProvider = nil
 	end
 end
@@ -40,6 +38,7 @@ for _, server in ipairs(servers) do
 
 	-- Setup language server with config
 	vim.lsp.config(server, config)
+    vim.lsp.enable(server)
 end
 
 vim.api.nvim_create_autocmd("LspAttach", {
