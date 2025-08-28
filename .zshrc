@@ -148,6 +148,7 @@ path=(
     "/usr/local/go/bin"
     "/snap/bin"
     "/mnt/c/Win32Yank"
+    "/opt/gradle/bin"
     $path # Appends the existing system path
 )
 
