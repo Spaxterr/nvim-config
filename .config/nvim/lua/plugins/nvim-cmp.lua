@@ -8,8 +8,8 @@ return {
             "hrsh7th/cmp-buffer",
             "hrsh7th/cmp-path",
             "hrsh7th/cmp-nvim-lsp-signature-help",
-            "L3MON4D3/LuaSnip",
-            "saadparwaiz1/cmp_luasnip",
+            "SirVer/ultisnips",
+            "lukas-reineke/cmp-under-comparator",
         },
         config = function()
             local cmp = require("cmp")
@@ -23,12 +23,27 @@ return {
                         end,
                     },
                 },
+                sorting = {
+                    priority_weight = 1.0,
+                    comparators = {
+                        cmp.config.compare.offset,
+                        cmp.config.compare.exact,
+                        cmp.config.compare.score,
+                        require("cmp-under-comparator").under,
+                        cmp.config.compare.recently_used,
+                        cmp.config.compare.locality,
+                        cmp.config.compare.kind,
+                        cmp.config.compare.sort_text,
+                        cmp.config.compare.length,
+                        cmp.config.compare.order,
+                    },
+                },
                 sources = {
-                    { name = "nvim_lsp", priority = 1000 },
-                    { name = "nvim_lsp_signature_help", priority = 900 },
-                    { name = "luasnip", priority = 800 },
-                    { name = "path", priority = 100 },
-                    { name = "buffer", priority = 1 },
+                    { name = "nvim_lsp",                priority = 5 },
+                    { name = "ultisnips",               priority = 4 },
+                    { name = "nvim_lsp_signature_help", priority = 3 },
+                    { name = "path",                    priority = 2 },
+                    { name = "buffer",                  priority = 1 },
                 },
                 mapping = {
                     ["<C-j>"] = cmp.mapping.select_next_item(),
