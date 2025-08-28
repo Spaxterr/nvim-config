@@ -1,4 +1,5 @@
 return {
+    filetypes = { "java", "gradle" },
     settings = {
         java = {
             configuration = {
