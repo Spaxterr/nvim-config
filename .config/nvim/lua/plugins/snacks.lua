@@ -5,10 +5,10 @@ return {
 		lazy = false,
 		---@type snacks.Config
 		opts = {
-			animate = { enabled = true },
+			animate = { enabled = 1 },
 			bigfile = { enabled = true },
 			dashboard = { enabled = true },
-			indent = { enabled = true },
+			indent = { enabled = true, hl = "Whitespace" },
 			input = {
 				enabled = true,
 				icon = "",

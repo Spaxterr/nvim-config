@@ -62,15 +62,6 @@ return {
                         args = { "--assume-filename=.java", "--style=file" },
                         stdin = true,
                     },
-                    black = {
-                        command = "python3",
-                        args = { "-m", "black", "-" },
-                    },
-                    ruff = {
-                        command = "python3",
-                        args = { "-m", "ruff", "format", "-" },
-                        stdin = true
-                    },
                     csharpier = {
                         command = "csharpier",
                         args = { "format", "--write-stdout" }
