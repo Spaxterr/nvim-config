@@ -1,5 +1,4 @@
 return {
-    filetypes = { "go" },
     settings = {
         gopls = {
             analyses = {

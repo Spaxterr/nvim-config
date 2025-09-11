@@ -169,3 +169,6 @@ export PRETTIERD_DEFAULT_CONFIG="$HOME/.prettierrc"
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
+# Launch tmux by default if available
+if [ "$TMUX" = "" ]; then tmux; fi
