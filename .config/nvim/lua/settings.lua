@@ -1,5 +1,8 @@
 local o = vim.o
 
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
 vim.opt.tabclose = "uselast"
 vim.opt.maxmempattern = 2000000
 vim.opt.completeopt = { "menu", "menuone", "noselect" }
@@ -13,9 +16,6 @@ vim.opt.listchars = { trail = '·', tab = '  ' }
 
 vim.opt.encoding = "utf-8"
 vim.opt.fileencoding = "utf-8"
-
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
 
 vim.g.svelte_preprocessors = { "typescript" }
 

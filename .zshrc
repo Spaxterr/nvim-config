@@ -171,4 +171,4 @@ export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
 # Launch tmux by default if available
-if [ "$TMUX" = "" ]; then tmux; fi
+if [[ -z "$TMUX" && -o interactive ]]; then tmux; fi

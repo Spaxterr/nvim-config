@@ -43,7 +43,7 @@ map(
 	{ noremap = true, silent = true, desc = "Remove trailing whitespaces" }
 )
 
-map({ "v", "n", "x" }, "<leader>e", "<Cmd>Neotree<CR>", { noremap = true, silent = true, desc = "View file tree" })
+map({ "v", "n", "x" }, "<leader>e", "<Cmd>NvimTreeToggle<CR>", { noremap = true, silent = true, desc = "View file tree" })
 
 -- Set 'b+c' to close all open tabs/buffers
 vim.keymap.set("n", "<leader>bc", function()
