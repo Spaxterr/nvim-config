@@ -2,7 +2,7 @@ local servers = {
 	"pyright",
 	"lua_ls",
 	"rust_analyzer",
-	"ts_ls",
+    "vtsls",
 	"html",
 	"cssls",
 	"jsonls",
@@ -15,21 +15,18 @@ local servers = {
 }
 
 local global_on_init = function(client, _)
-    -- Disable resource-intensive features for better performance
-    if client.supports_method("textDocument/semanticTokens") then
+    if client:supports_method("textDocument/semanticTokens") then
         client.server_capabilities.semanticTokensProvider = nil
     end
 
-    -- Disable document highlighting for large files
-    if client.supports_method("textDocument/documentHighlight") then
+    if client:supports_method("textDocument/documentHighlight") then
         local buf_lines = vim.api.nvim_buf_line_count(0)
         if buf_lines > 5000 then
             client.server_capabilities.documentHighlightProvider = false
         end
     end
 
-    -- Optimize workspace folders
-    if client.supports_method("workspace/didChangeWorkspaceFolders") then
+    if client:supports_method("workspace/didChangeWorkspaceFolders") then
         client.server_capabilities.workspaceFolders = { supported = false }
     end
 end

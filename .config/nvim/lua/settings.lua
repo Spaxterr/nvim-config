@@ -58,6 +58,8 @@ vim.api.nvim_create_autocmd({ "CursorHold" }, {
     end
 })
 
+o.sessionoptions="blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
+
 o.number = true             -- Show line numbers
 o.relativenumber = true     -- Enable relative line numbers
 o.tabstop = 4               -- Number of spaces a '<Tab>' displays as

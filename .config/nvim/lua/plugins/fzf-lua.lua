@@ -3,7 +3,14 @@ return {
         "ibhagwan/fzf-lua",
         run = "make",
         event = "VeryLazy",
-        dependencies = { "nvim-tree/nvim-web-devicons" },
+        dependencies = {
+            "nvim-tree/nvim-web-devicons",
+            {
+                "junegunn/fzf",
+                lazy = true,
+                build = "./install --bin",
+            },
+        },
         config = function()
             require("fzf-lua").setup({
                 fzf_bin = "fzf",
@@ -29,20 +36,11 @@ return {
                 },
                 files = {
                     actions = {
-                        ["default"] = function(selected) -- Immediately open the selected files instead of adding them to a list
-                            if not selected then
-                                return
-                            end
-
-                            vim.fn.setqflist({})
-
-                            for i, file in ipairs(selected) do
-                                if i == 1 then
-                                    vim.cmd("edit " .. vim.fn.fnameescape(file))
-                                else
-                                    vim.cmd("badd " .. vim.fn.fnameescape(file))
-                                    vim.cmd("buffer " .. vim.fn.fnameescape(file))
-                                end
+                        ["default"] = function(selected)
+                            if #selected == 0 then return end
+                            vim.cmd.edit(selected[1])
+                            for i = 2, #selected do
+                                vim.cmd.badd(selected[i])
                             end
                         end,
                     },
