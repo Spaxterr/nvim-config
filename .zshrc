@@ -77,17 +77,12 @@ if [[ -f $HOME/antigen/antigen.zsh ]]; then
     antigen apply
 fi
 
-[[ $- = *i* ]] && [[ -f $HOME/liquidprompt/liquidprompt ]] && source $HOME/liquidprompt/liquidprompt
+# Load starship
+eval "$(starship init zsh)"
 
 # Load fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 fzf_config
-
-# Powerline theme for liquidprompt
-[[ -f $HOME/.themes/powerline.theme ]] && {
-    source $HOME/.themes/powerline.theme
-    lp_theme powerline
-}
 
 # Basic configuration
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#555588"

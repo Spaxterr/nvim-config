@@ -40,6 +40,12 @@ if ! command_exists zsh; then
   exit 1
 fi
 
+# --- 3. Starship ---
+if ! command_exists starship; then
+    echo "Starship not found, installing..."
+    curl -sS https://starship.rs/install.sh | sh
+exit 1
+
 if [ ! -d "$HOME/.oh-my-zsh" ]; then
   echo "> Oh My Zsh not found. Installing..."
   # The --unattended flag prevents it from trying to change the shell and run zsh
@@ -65,21 +71,6 @@ if [ ! -f "$HOME/antigen/antigen.zsh" ]; then
   curl -L git.io/antigen > "$HOME/antigen/antigen.zsh"
 else
   echo "  - Antigen is already installed."
-fi
-
-# Liquidprompt
-if [ ! -d "$HOME/liquidprompt" ]; then
-  echo "  - Liquidprompt not found. Installing..."
-  git clone https://github.com/nojhan/liquidprompt.git "$HOME/liquidprompt"
-else
-  echo "  - Liquidprompt is already installed."
-fi
-
-# Liquidprompt Theme
-if [ ! -f "$HOME/.themes/powerline.theme" ]; then
-    echo "  - Liquidprompt powerline theme not found. Installing..."
-    mkdir -p "$HOME/.themes"
-    curl -fsSL https://raw.githubusercontent.com/nojhan/liquidprompt/master/themes/powerline.theme -o "$HOME/.themes/powerline.theme"
 fi
 
 # fzf (Fuzzy Finder)
