@@ -11,7 +11,10 @@ return {
 						package_uninstalled = " ",
 					},
 				},
-
+                registries = {
+                    'github:crashdummyy/mason-registry',
+                    'github:mason-org/mason-registry',
+                },
 				max_concurrent_installers = 10,
 			})
 		end,
@@ -25,7 +28,6 @@ return {
 		},
 		config = function()
 			require("mason-lspconfig").setup({
-				ensure_installed = require("lsp.lspconfig")
 			})
 		end,
 	},

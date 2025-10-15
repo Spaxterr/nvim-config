@@ -9,9 +9,9 @@ local servers = {
 	"yamlls",
 	"jdtls",
 	"gopls",
-	"omnisharp",
 	"svelte",
 	"tailwindcss",
+    "roslyn",
 }
 
 local global_on_init = function(client, _)
