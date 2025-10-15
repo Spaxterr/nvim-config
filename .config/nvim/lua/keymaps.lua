@@ -120,6 +120,7 @@ map(
     { desc = "Format file", silent = true, noremap = true }
 )
 
+
 map('n', '<Leader>dc', function()
     local diagnostics = vim.diagnostic.get(0, { lnum = vim.fn.line(".") - 1 })
     if #diagnostics > 0 then
@@ -130,3 +131,13 @@ map('n', '<Leader>dc', function()
         vim.notify("No diagnostics on current line", vim.log.levels.INFO)
     end
 end, { desc = "Copy diagnostic to clipboard" })
+
+-- Spectre
+map("n", "<leader>S", '<Cmd>lua require("spectre").toggle()<CR>', { desc = "Toggle spectre", silent = true, noremap = true })
+
+-- Neotest
+map("n", "<Leader>tt", '<Cmd>lua require("neotest").run.run()<CR>', { desc = "Run nearest test", silent = true, noremap = true })
+map("n", "<Leader>tf", '<Cmd>lua require("neotest").run.run(vim.fn.expand("%"))<CR>', { desc = "Run tests in current file", silent = true, noremap = true })
+map("n", "<Leader>tc", '<Cmd>lua require("neotest").run.stop()<CR>', { desc = "Stop running test(s)", silent = true, noremap = true })
+map("n", "<Leader>ts", '<Cmd>lua require("neotest").summary.toggle()<CR>', { desc = "View test summary", silent = true, noremap = true })
+map("n", "<Leader>to", '<Cmd>lua require("neotest").output.open({ enter = true })<CR>', { desc = "View test output", silent = true, noremap = true })
