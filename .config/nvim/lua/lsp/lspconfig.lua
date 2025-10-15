@@ -91,7 +91,7 @@ vim.lsp.config("*", {
 })
 
 for _, server in ipairs(servers) do
-	local status, config = pcall(require, "servers." .. server)
+	local status, config = pcall(require, "lsp.servers." .. server)
 	if not status then
 		config = {}
 	end
