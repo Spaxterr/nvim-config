@@ -44,7 +44,7 @@ fi
 if ! command_exists starship; then
     echo "Starship not found, installing..."
     curl -sS https://starship.rs/install.sh | sh
-exit 1
+fi
 
 if [ ! -d "$HOME/.oh-my-zsh" ]; then
   echo "> Oh My Zsh not found. Installing..."
