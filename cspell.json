@@ -32,6 +32,8 @@
         "lwjgl3",
         "libgdx",
         "sonki",
-        "igdb"
+        "igdb",
+        "zerolog",
+        "luvbot"
     ]
 }

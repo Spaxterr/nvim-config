@@ -14,22 +14,22 @@ map("v", "<Leader>/", "gc", { desc = "Toggle comment", remap = true })
 
 -- Neogen
 map(
-	"n",
-	"<Leader>cdf",
-	":lua require('neogen').generate({ type = 'func' })<CR>",
-	{ noremap = true, silent = true, desc = "Generate function docstring" }
+    "n",
+    "<Leader>cdf",
+    ":lua require('neogen').generate({ type = 'func' })<CR>",
+    { noremap = true, silent = true, desc = "Generate function docstring" }
 )
 map(
-	"n",
-	"<Leader>cdc",
-	":lua require('neogen').generate({ type = 'class' })<CR>",
-	{ noremap = true, silent = true, desc = "Generate class docstring" }
+    "n",
+    "<Leader>cdc",
+    ":lua require('neogen').generate({ type = 'class' })<CR>",
+    { noremap = true, silent = true, desc = "Generate class docstring" }
 )
 map(
-	"n",
-	"<Leader>cdt",
-	":lua require('neogen').generate({ type = 'type' })<CR>",
-	{ noremap = true, silent = true, desc = "Generate type docstring" }
+    "n",
+    "<Leader>cdt",
+    ":lua require('neogen').generate({ type = 'type' })<CR>",
+    { noremap = true, silent = true, desc = "Generate type docstring" }
 )
 
 -- Disable spacebar moving cursor as it is used as leader key
@@ -37,58 +37,58 @@ vim.api.nvim_set_keymap("", "<Space>", "<Nop>", { silent = true, noremap = true 
 
 -- Set '<Space> + c + w' to clear trailing whitespace
 map(
-	{ "v", "n" },
-	"<Leader>cw",
-	[[:<C-u>'<,'>s/\s\+$//<CR>]],
-	{ noremap = true, silent = true, desc = "Remove trailing whitespaces" }
+    { "v", "n" },
+    "<Leader>cw",
+    [[:<C-u>'<,'>s/\s\+$//<CR>]],
+    { noremap = true, silent = true, desc = "Remove trailing whitespaces" }
 )
 
 map({ "v", "n", "x" }, "<leader>e", "<Cmd>NvimTreeToggle<CR>", { noremap = true, silent = true, desc = "View file tree" })
 
 -- Set 'b+c' to close all open tabs/buffers
 vim.keymap.set("n", "<leader>bc", function()
-	local buffers = vim.api.nvim_list_bufs()
-	for _, buf in ipairs(buffers) do
-		if vim.api.nvim_buf_is_valid(buf) and vim.api.nvim_buf_is_loaded(buf) then
-			if not vim.api.nvim_buf_get_option(buf, "modified") then
-				pcall(vim.api.nvim_buf_delete, buf, { force = false })
-			end
-		end
-	end
+    local buffers = vim.api.nvim_list_bufs()
+    for _, buf in ipairs(buffers) do
+        if vim.api.nvim_buf_is_valid(buf) and vim.api.nvim_buf_is_loaded(buf) then
+            if not vim.api.nvim_buf_get_option(buf, "modified") then
+                pcall(vim.api.nvim_buf_delete, buf, { force = false })
+            end
+        end
+    end
 end, { noremap = true, silent = true, desc = "Close all tabs" })
 
 map("n", "dm", "<Cmd>delmarks!<CR>", { noremap = true, silent = true, desc = "Delete all marks" })
 
 -- Fzf Lua
 map(
-	"n",
-	"<leader>fw",
-	'<Cmd>lua require("fzf-lua").live_grep_native()<CR>',
-	{ noremap = true, silent = true, desc = "Live grep" }
+    "n",
+    "<leader>fw",
+    '<Cmd>lua require("fzf-lua").live_grep_native()<CR>',
+    { noremap = true, silent = true, desc = "Live grep" }
 )
 map(
-	"n",
-	"<leader>ff",
-	'<Cmd>lua require("fzf-lua").files()<CR>',
-	{ noremap = true, silent = true, desc = "Find files" }
+    "n",
+    "<leader>ff",
+    '<Cmd>lua require("fzf-lua").files()<CR>',
+    { noremap = true, silent = true, desc = "Find files" }
 )
 map(
-	"n",
-	"<leader>ft",
-	'<Cmd>lua require("fzf-lua").treesitter()<CR>',
-	{ noremap = true, silent = true, desc = "Find symbols" }
+    "n",
+    "<leader>ft",
+    '<Cmd>lua require("fzf-lua").treesitter()<CR>',
+    { noremap = true, silent = true, desc = "Find symbols" }
 )
 map(
-	"n",
-	"<leader>fm",
-	'<Cmd>lua require("fzf-lua").marks()<CR>',
-	{ noremap = true, silent = true, desc = "Find marks" }
+    "n",
+    "<leader>fm",
+    '<Cmd>lua require("fzf-lua").marks()<CR>',
+    { noremap = true, silent = true, desc = "Find marks" }
 )
 map(
-	"n",
-	"<leader>fc",
-	'<Cmd>lua require("fzf-lua").grep({ search="TODO|HACK|PERF|FIX|BUG", no_esc=true })<CR>',
-	{ noremap = true, silent = true, desc = "Find TODO (or similar) comments" }
+    "n",
+    "<leader>fc",
+    '<Cmd>lua require("fzf-lua").grep({ search="TODO|HACK|PERF|FIX|BUG", no_esc=true })<CR>',
+    { noremap = true, silent = true, desc = "Find TODO (or similar) comments" }
 )
 
 -- Barbar bindings
@@ -98,10 +98,10 @@ map("n", "<space>x", "<Cmd>BufferClose<CR>", { noremap = true, silent = true, de
 
 -- Git
 map(
-	"n",
-	"<Space>gb",
-	'<Cmd>lua require("gitsigns").blame_line({full = true})<CR>',
-	{ noremap = true, silent = true, desc = "Git blame current line" }
+    "n",
+    "<Space>gb",
+    '<Cmd>lua require("gitsigns").blame_line({full = true})<CR>',
+    { noremap = true, silent = true, desc = "Git blame current line" }
 )
 map("n", "<Space>gt", "<Cmd>GitBlameToggle<CR>", { noremap = true, silent = true, desc = "Toggle git blame" })
 
@@ -114,8 +114,19 @@ map("n", "<C-k>", "<Cmd>TmuxNavigateUp<CR>", { noremap = true, silent = true, de
 -- Conform
 map("v", "<Leader>ff", "<Cmd>Format<CR>", { desc = "Format selection", silent = true, noremap = true })
 map(
-	"n",
-	"<Leader>cf",
-	':lua require("conform").format({ async = true, lsp_format = "fallback", lsp_fallback = true })<CR>',
-	{ desc = "Format file", silent = true, noremap = true }
+    "n",
+    "<Leader>cf",
+    ':lua require("conform").format({ async = true, lsp_format = "fallback", lsp_fallback = true })<CR>',
+    { desc = "Format file", silent = true, noremap = true }
 )
+
+map('n', '<Leader>dc', function()
+    local diagnostics = vim.diagnostic.get(0, { lnum = vim.fn.line(".") - 1 })
+    if #diagnostics > 0 then
+        local message = diagnostics[1].message
+        vim.fn.setreg("+", message)
+        vim.notify("Copied: " .. message, vim.log.levels.INFO)
+    else
+        vim.notify("No diagnostics on current line", vim.log.levels.INFO)
+    end
+end, { desc = "Copy diagnostic to clipboard" })
