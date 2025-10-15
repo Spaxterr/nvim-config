@@ -112,7 +112,7 @@ map("n", "<C-j>", "<Cmd>TmuxNavigateDown<CR>", { noremap = true, silent = true, 
 map("n", "<C-k>", "<Cmd>TmuxNavigateUp<CR>", { noremap = true, silent = true, desc = "Window Up" })
 
 -- Conform
-map("v", "<Leader>ff", "<Cmd>Format<CR>", { desc = "Format selection", silent = true, noremap = true })
+map("v", "<Leader>ff", "<Cmd>FormatRange<CR>", { desc = "Format selection", silent = true, noremap = true })
 map(
     "n",
     "<Leader>cf",
