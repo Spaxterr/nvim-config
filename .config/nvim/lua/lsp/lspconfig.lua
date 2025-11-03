@@ -1,4 +1,7 @@
 local servers = {
+    "bashls",
+    "nginx_language_server",
+    "angularls",
 	"pyright",
 	"lua_ls",
 	"rust_analyzer",

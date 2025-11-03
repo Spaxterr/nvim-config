@@ -12,6 +12,7 @@ return {
 				python = { "ruff" },
 				java = { "checkstyle" },
 				go = { "golangcilint" },
+                sh = { "shellcheck" },
 			}
 
 			-- Custom ruff configuration
