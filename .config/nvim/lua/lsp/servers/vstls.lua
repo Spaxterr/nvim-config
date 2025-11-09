@@ -132,14 +132,7 @@ return {
                 variableTypes = { enabled = false },
             },
             format = {
-                enable = true,
-                insertSpaceAfterCommaDelimiter = true,
-                insertSpaceAfterSemicolonInForStatements = true,
-                insertSpaceBeforeAndAfterBinaryOperators = true,
-                insertSpaceAfterKeywordsInControlFlowStatements = true,
-                insertSpaceAfterFunctionKeywordForAnonymousFunctions = false,
-                insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces = true,
-                semicolons = "ignore",
+                enable = false, -- Handled by conform
             },
             validate = { enable = true },
         },

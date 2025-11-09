@@ -8,8 +8,12 @@
         "node",
         "python",
         "csharp",
+        "bash",
         "html",
+        "en_US",
         "en-gb",
+        "companies",
+        "misc",
         "filetypes",
         "npm",
         "java",
@@ -35,6 +39,7 @@
         "igdb",
         "zerolog",
         "luvbot",
-        "dahua"
+        "dahua",
+        "hypesquad"
     ]
 }
