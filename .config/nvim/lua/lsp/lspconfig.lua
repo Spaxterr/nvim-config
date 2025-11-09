@@ -96,9 +96,6 @@ vim.lsp.config("*", {
 for _, server in ipairs(servers) do
     local status, config = pcall(require, "lsp.servers." .. server)
     if not status then
-        if server == "eslint" then
-            vim.notify("No server config")
-        end
         config = {}
     end
 
