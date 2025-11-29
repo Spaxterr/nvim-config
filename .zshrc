@@ -167,3 +167,11 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 
 # Launch tmux by default if available
 if [[ -z "$TMUX" && -o interactive ]]; then tmux; fi
+
+# pnpm
+export PNPM_HOME="/home/developer/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end

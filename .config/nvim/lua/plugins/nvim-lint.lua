@@ -5,15 +5,15 @@ return {
         config = function()
             local lint = require("lint")
 
-			lint.linters_by_ft = {
-				javascript = { "eslint" },
-				typescript = { "eslint" },
-				typescriptreact = { "eslint" },
-				python = { "ruff" },
-				java = { "checkstyle" },
-				go = { "golangcilint" },
+            lint.linters_by_ft = {
+                javascript = { "eslint_d" },
+                typescript = { "eslint_d" },
+                typescriptreact = { "eslint_d" },
+                python = { "ruff" },
+                java = { "checkstyle" },
+                go = { "golangcilint" },
                 sh = { "shellcheck" },
-			}
+            }
 
             -- Custom ruff configuration
             lint.linters.ruff.args = {
