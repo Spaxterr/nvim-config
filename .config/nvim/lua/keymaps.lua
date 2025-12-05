@@ -46,16 +46,7 @@ map(
 map({ "v", "n", "x" }, "<leader>e", "<Cmd>NvimTreeToggle<CR>", { noremap = true, silent = true, desc = "View file tree" })
 
 -- Set 'b+c' to close all open tabs/buffers
-vim.keymap.set("n", "<leader>bc", function()
-    local buffers = vim.api.nvim_list_bufs()
-    for _, buf in ipairs(buffers) do
-        if vim.api.nvim_buf_is_valid(buf) and vim.api.nvim_buf_is_loaded(buf) then
-            if not vim.api.nvim_buf_get_option(buf, "modified") then
-                pcall(vim.api.nvim_buf_delete, buf, { force = false })
-            end
-        end
-    end
-end, { noremap = true, silent = true, desc = "Close all tabs" })
+vim.keymap.set("n", "<leader>bc", "<Cmd>%bd|e#<CR>" ,{ noremap = true, silent = true, desc = "Close all tabs" })
 
 map("n", "dm", "<Cmd>delmarks!<CR>", { noremap = true, silent = true, desc = "Delete all marks" })
 
