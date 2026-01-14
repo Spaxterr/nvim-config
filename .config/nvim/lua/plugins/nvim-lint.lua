@@ -10,10 +10,12 @@ return {
                 typescript = { "eslint_d" },
                 typescriptreact = { "eslint_d" },
                 python = { "ruff" },
-                java = { "checkstyle" },
+                java = { "pmd" },
                 go = { "golangcilint" },
                 sh = { "shellcheck" },
             }
+
+            lint.linters.pmd.rulesets = "pmd-rules.xml"
 
             -- Custom ruff configuration
             lint.linters.ruff.args = {

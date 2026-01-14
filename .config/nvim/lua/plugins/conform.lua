@@ -43,7 +43,7 @@ return {
                     python = { "ruff" },
                     cs = { "csharpier" },
                     lua = { "stylua" },
-                    java = { "clang-format" },
+                    java = { "spotless_maven" },
                     rust = { "rustfmt" },
                     go = { "golangci-lint" },
                 },
