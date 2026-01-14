@@ -1,6 +1,7 @@
 return {
 	{
 		"mason-org/mason.nvim",
+        event = "VeryLazy",
 		cmd = { "Mason", "MasonInstall", "MasonUpdate" },
 		config = function()
 			require("mason").setup({
@@ -21,7 +22,7 @@ return {
 	},
 	{
 		"mason-org/mason-lspconfig.nvim",
-        event = "VimEnter",
+        event = "VeryLazy",
 		dependencies = {
 			"mason-org/mason.nvim",
 			"neovim/nvim-lspconfig",

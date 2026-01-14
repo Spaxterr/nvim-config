@@ -2,7 +2,7 @@ return {
     {
         "danymat/neogen",
         config = true,
-        event = "LspAttach",
+        event = "VeryLazy",
         opts = {
             enabled = true,
             input_after_comment = true,

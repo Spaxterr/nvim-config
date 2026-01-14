@@ -13,6 +13,7 @@ return {
         },
         config = function()
             local cmp = require("cmp")
+            local under_comparator = require("cmp-under-comparator")
             cmp.setup({
                 window = {
                     completion = cmp.config.window.bordered(),
@@ -29,7 +30,7 @@ return {
                         cmp.config.compare.offset,
                         cmp.config.compare.exact,
                         cmp.config.compare.score,
-                        require("cmp-under-comparator").under,
+                        under_comparator.under,
                         cmp.config.compare.recently_used,
                         cmp.config.compare.locality,
                         cmp.config.compare.kind,

@@ -1,7 +1,7 @@
 return {
     {
         "mfussenegger/nvim-lint",
-        event = "BufEnter",
+        event = "LspAttach",
         config = function()
             local lint = require("lint")
 

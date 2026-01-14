@@ -1,9 +1,8 @@
 return {
     {
         "romgrk/barbar.nvim",
-        event = "VeryLazy",
+        lazy = false,
         dependencies = {
-            "lewis6991/gitsigns.nvim", -- OPTIONAL: for git status
             "nvim-tree/nvim-web-devicons", -- OPTIONAL: for file icons
         },
         init = function()
@@ -11,7 +10,7 @@ return {
         end,
         config = function()
             require("barbar").setup({
-                animation = false,
+                animation = true,
                 icons = {
                     buffer_index = false,
                     buffer_number = false,
@@ -24,7 +23,6 @@ return {
                     modified = { button = "●" },
                 },
             })
-        end,
-        lazy = false,
+        end
     },
 }

@@ -1,7 +1,7 @@
 return {
     {
         "echasnovski/mini.nvim",
-        event = "VeryLazy",
+        event = "LspAttach",
         config = function()
             require("mini.trailspace").setup({
                 only_in_normal_buffers = true,

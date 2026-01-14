@@ -1,7 +1,7 @@
 return {
 	{
 		"neovim/nvim-lspconfig",
-        event = "VimEnter",
+        event = "VeryLazy",
 		config = function()
             require("lspconfig")
             require("lsp.lspconfig")

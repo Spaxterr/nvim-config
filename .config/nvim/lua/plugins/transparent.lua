@@ -1,7 +1,7 @@
 return {
     {
         "tribela/transparent.nvim",
-        event = "VimEnter",
+        lazy = false,
         config = true,
     },
 }
