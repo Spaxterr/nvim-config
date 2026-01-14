@@ -129,15 +129,18 @@ set -a
 set +a
 
 export TMPDIR="/tmp/"
+export DOTNET_ROOT=$HOME/.dotnet
 
 # PATH management (consolidated, organized, and consistent)
 typeset -U path  # Remove duplicates and keep PATH and path array in sync
+
 
 # Define all paths in your desired order of precedence
 path=(
     "$HOME/.local/bin"
     "$HOME/.bun/bin"
     "$HOME/.dotnet/tools"
+    "$HOME/.dotnet"
     "$HOME/.jenv/bin"
     "$HOME/go/bin"
     "/usr/local/go/bin"
