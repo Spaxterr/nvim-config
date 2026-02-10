@@ -33,13 +33,13 @@ return {
 
             conform.setup({
                 formatters_by_ft = {
-                    javascript = { "prettierd", "eslint_d", stop_after_first = false },
-                    typescript = { "prettierd", "eslint_d", stop_after_first = false },
-                    typescriptreact = { "prettierd", "eslint_d", stop_after_first = false },
-                    svelte = { "prettierd", "eslint_d", stop_after_first = false },
-                    json = { "prettierd", "prettier", stop_after_first = true },
+                    javascript = { "biome", "prettier", "eslint_d", stop_after_first = true },
+                    typescript = { "biome", "prettier", "eslint_d", stop_after_first = true },
+                    typescriptreact = { "biome", "prettier", "eslint_d", stop_after_first = true },
+                    svelte = { "biome", "prettier", "eslint_d", stop_after_first = true },
+                    json = { "biome", "prettier", stop_after_first = true },
                     yaml = { "yamlfmt" },
-                    html = { "prettierd", "prettier", stop_after_first = true },
+                    html = { "prettier", stop_after_first = true },
                     python = { "ruff" },
                     cs = { "csharpier" },
                     lua = { "stylua" },
