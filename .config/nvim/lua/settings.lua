@@ -82,7 +82,7 @@ o.ignorecase = true         -- Ignore case when searching
 o.smartcase = true          -- If capital letters appear in search, enable case sensitivity
 
 o.hlsearch = true           -- Highlight search matches
-o.lazyredraw = true         -- Lazy redrawing
+-- o.lazyredraw = true      -- Disabled: only affects macros, can cause visual glitches
 o.timeoutlen = 2500         -- Show 'whichkey' after 2.5s
 o.ttimeoutlen = 0           -- Keycode timeout
 o.autowrite = false         -- Disable auto-saving of files

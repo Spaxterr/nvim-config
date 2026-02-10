@@ -1,7 +1,7 @@
 return {
     {
         "romgrk/barbar.nvim",
-        lazy = false,
+        event = "BufAdd",
         dependencies = {
             "nvim-tree/nvim-web-devicons", -- OPTIONAL: for file icons
         },
@@ -10,7 +10,7 @@ return {
         end,
         config = function()
             require("barbar").setup({
-                animation = true,
+                animation = false,
                 icons = {
                     buffer_index = false,
                     buffer_number = false,

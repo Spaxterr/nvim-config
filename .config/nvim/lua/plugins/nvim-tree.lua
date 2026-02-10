@@ -4,7 +4,7 @@ return {
         dependencies = {
             "nvim-tree/nvim-web-devicons",
         },
-        event = "VimEnter",
+        cmd = { "NvimTreeToggle", "NvimTreeOpen", "NvimTreeFocus" },
         config = function()
             require("nvim-tree").setup({
                 auto_reload_on_write = true,

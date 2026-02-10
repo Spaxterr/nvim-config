@@ -27,7 +27,8 @@ return {
                 },
                 grep_live = {
                     cmd = "rg",
-                    rg_opts = "--hidden --column --line-number --no-heading --color=always --smart-case --sort=path",
+                    rg_opts =
+                    "--hidden --column --line-number --no-heading --color=always --smart-case --sort=path --glob !package-lock.json",
                     previewer = "builtin",
                     preview_opts = "--style=numbers,changes --color always --highlight-line {2}",
                     grep_highlights = true,
@@ -65,10 +66,10 @@ return {
                     },
                 },
                 performance = {
-                    max_entries = 10000, -- Max number of entries to process
+                    max_entries = 10000,     -- Max number of entries to process
                     file_scan_limit = 50000, -- Max files to scan in dir
-                    path_shorten = 1, -- Min chars displayed for paths
-                    LSP_timeout = 10000, -- LSP request timeout (ms)
+                    path_shorten = 1,        -- Min chars displayed for paths
+                    LSP_timeout = 10000,     -- LSP request timeout (ms)
                 },
             })
 

@@ -4,7 +4,7 @@ return {
 		priority = 1000,
 		---@type snacks.Config
 		opts = {
-			animate = { enabled = 1 },
+			animate = { enabled = false },
 			bigfile = { enabled = true },
 			dashboard = { enabled = true },
 			indent = { enabled = true, hl = "Whitespace" },

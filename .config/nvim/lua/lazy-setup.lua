@@ -25,7 +25,7 @@ require("lazy").setup({
 		{ import = "plugins" },
 	},
 	install = { colorscheme = { "catppuccin" }, missing = true },
-	checker = { enabled = true },
+	checker = { enabled = true, frequency = 86400 },
 	performance = {
 		cache = {
 			enabled = true,

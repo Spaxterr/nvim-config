@@ -1,7 +1,7 @@
 return {
     {
         "mfussenegger/nvim-lint",
-        event = "BufEnter",
+        event = { "BufReadPost", "BufWritePost" },
         config = function()
             local lint = require("lint")
 
@@ -104,7 +104,7 @@ return {
             end
 
             local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
-            vim.api.nvim_create_autocmd({ "BufWritePost", "BufEnter" }, {
+            vim.api.nvim_create_autocmd({ "BufWritePost", "BufReadPost" }, {
                 group = lint_augroup,
                 callback = function()
                     if should_lint() and vim.bo.modifiable then

@@ -27,7 +27,7 @@ return {
 					follow_cursor = true,
 				},
 				discovery = {
-					enabled = true,
+					enabled = false,
 				},
 				floating = {
 					border = "rounded",
