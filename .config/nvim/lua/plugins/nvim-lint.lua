@@ -104,12 +104,28 @@ return {
                 return true
             end
 
+            local function has_biome_config()
+                return vim.fs.find(
+                    { "biome.json", "biome.jsonc" },
+                    { path = vim.fn.expand("%:p:h"), upward = true }
+                )[1] ~= nil
+            end
+
             local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
             vim.api.nvim_create_autocmd({ "BufWritePost", "BufReadPost" }, {
                 group = lint_augroup,
                 callback = function()
                     if should_lint() and vim.bo.modifiable then
-                        lint.try_lint()
+                        local ft = vim.bo.filetype
+                        local linters = lint.linters_by_ft[ft] or {}
+
+                        if not has_biome_config() then
+                            linters = vim.tbl_filter(function(name)
+                                return name ~= "biomejs"
+                            end, linters)
+                        end
+
+                        lint.try_lint(linters)
                         lint.try_lint("cspell")
                     end
                 end,

@@ -48,6 +48,14 @@ return {
                     go = { "golangci-lint" },
                 },
                 formatters = {
+                    biome = {
+                        condition = function(_, ctx)
+                            return vim.fs.find(
+                                { "biome.json", "biome.jsonc" },
+                                { path = ctx.dirname, upward = true }
+                            )[1] ~= nil
+                        end,
+                    },
                     prettierd = {
                         env = {
                             PRETTIERD_DEFAULT_CONFIG = vim.fn.expand("~/.prettierrc"),
