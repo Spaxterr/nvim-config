@@ -83,7 +83,7 @@ o.smartcase = true          -- If capital letters appear in search, enable case 
 
 o.hlsearch = true           -- Highlight search matches
 -- o.lazyredraw = true      -- Disabled: only affects macros, can cause visual glitches
-o.timeoutlen = 2500         -- Show 'whichkey' after 2.5s
+o.timeoutlen = 400          -- Show 'whichkey' after 400ms
 o.ttimeoutlen = 0           -- Keycode timeout
 o.autowrite = false         -- Disable auto-saving of files
 o.visualbell = true         -- Use visual bell instead of OS 'beeping' on error input

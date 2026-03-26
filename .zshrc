@@ -77,12 +77,10 @@ if [[ -f $HOME/antigen/antigen.zsh ]]; then
     antigen apply
 fi
 
+plugins=(fzf)
+
 # Load starship
 eval "$(starship init zsh)"
-
-# Load fzf
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-fzf_config
 
 # Basic configuration
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#555588"
@@ -168,8 +166,8 @@ export PRETTIERD_DEFAULT_CONFIG="$HOME/.prettierrc"
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
-# Launch tmux by default if available
-if [[ -z "$TMUX" && -o interactive ]]; then tmux; fi
+# Launch tmux (and create or restore main session) by default if available
+if [[ -z "$TMUX" && -o interactive ]]; then tmux new-session -A -s main; fi
 
 # pnpm
 export PNPM_HOME="/home/developer/.local/share/pnpm"
@@ -178,3 +176,8 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
+
+# Load fzf
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+fzf_config
+

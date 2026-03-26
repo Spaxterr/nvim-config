@@ -8,21 +8,23 @@ return {
             "hrsh7th/cmp-buffer",
             "hrsh7th/cmp-path",
             "hrsh7th/cmp-nvim-lsp-signature-help",
-            "SirVer/ultisnips",
+            "L3MON4D3/LuaSnip",
+            "saadparwaiz1/cmp_luasnip",
             "lukas-reineke/cmp-under-comparator",
         },
         config = function()
             local cmp = require("cmp")
+            local luasnip = require("luasnip")
             local under_comparator = require("cmp-under-comparator")
             cmp.setup({
+                snippet = {
+                    expand = function(args)
+                        luasnip.lsp_expand(args.body)
+                    end,
+                },
                 window = {
                     completion = cmp.config.window.bordered(),
                     documentation = cmp.config.window.bordered(),
-                    snippet = {
-                        expand = function(args)
-                            require("luasnip").lsp_expand(args.body)
-                        end,
-                    },
                 },
                 sorting = {
                     priority_weight = 1.0,
@@ -41,7 +43,7 @@ return {
                 },
                 sources = {
                     { name = "nvim_lsp",                priority = 5 },
-                    { name = "ultisnips",               priority = 4 },
+                    { name = "luasnip",                 priority = 4 },
                     { name = "nvim_lsp_signature_help", priority = 3 },
                     { name = "path",                    priority = 2 },
                     { name = "buffer",                  priority = 1 },
