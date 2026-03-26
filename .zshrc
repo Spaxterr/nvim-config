@@ -181,3 +181,7 @@ esac
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 fzf_config
 
+source ~/.safe-chain/scripts/init-posix.sh # Safe-chain Zsh initialization script
+
+# Deduplicate PATH
+PATH=$(zsh -fc "typeset -TU P=$PATH p; echo \$P")
