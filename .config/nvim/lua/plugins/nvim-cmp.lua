@@ -1,60 +1,32 @@
 return {
     {
-        "hrsh7th/nvim-cmp",
-        enabled = true,
-        event = { "InsertEnter", "CmdlineEnter" },
+        "saghen/blink.cmp",
+        version = "*",
         dependencies = {
-            "hrsh7th/cmp-nvim-lsp",
-            "hrsh7th/cmp-buffer",
-            "hrsh7th/cmp-path",
-            "hrsh7th/cmp-nvim-lsp-signature-help",
             "L3MON4D3/LuaSnip",
-            "saadparwaiz1/cmp_luasnip",
-            "lukas-reineke/cmp-under-comparator",
         },
-        config = function()
-            local cmp = require("cmp")
-            local luasnip = require("luasnip")
-            local under_comparator = require("cmp-under-comparator")
-            cmp.setup({
-                snippet = {
-                    expand = function(args)
-                        luasnip.lsp_expand(args.body)
-                    end,
+        opts = {
+            keymap = {
+                preset = "none",
+                ["<C-j>"] = { "select_next", "fallback" },
+                ["<C-k>"] = { "select_prev", "fallback" },
+                ["<C-Space>"] = { "show", "fallback" },
+                ["<CR>"] = { "accept", "fallback" },
+            },
+            snippets = { preset = "luasnip" },
+            sources = {
+                default = { "lsp", "path", "snippets", "buffer" },
+            },
+            signature = { enabled = true },
+            completion = {
+                documentation = {
+                    auto_show = true,
+                    window = { border = "rounded" },
                 },
-                window = {
-                    completion = cmp.config.window.bordered(),
-                    documentation = cmp.config.window.bordered(),
+                menu = {
+                    border = "rounded",
                 },
-                sorting = {
-                    priority_weight = 1.0,
-                    comparators = {
-                        cmp.config.compare.offset,
-                        cmp.config.compare.exact,
-                        cmp.config.compare.score,
-                        under_comparator.under,
-                        cmp.config.compare.recently_used,
-                        cmp.config.compare.locality,
-                        cmp.config.compare.kind,
-                        cmp.config.compare.sort_text,
-                        cmp.config.compare.length,
-                        cmp.config.compare.order,
-                    },
-                },
-                sources = {
-                    { name = "nvim_lsp",                priority = 5 },
-                    { name = "luasnip",                 priority = 4 },
-                    { name = "nvim_lsp_signature_help", priority = 3 },
-                    { name = "path",                    priority = 2 },
-                    { name = "buffer",                  priority = 1 },
-                },
-                mapping = {
-                    ["<C-j>"] = cmp.mapping.select_next_item(),
-                    ["<C-k>"] = cmp.mapping.select_prev_item(),
-                    ["<C-Space>"] = cmp.mapping.complete(),
-                    ["<CR>"] = cmp.mapping.confirm({ select = false }),
-                },
-            })
-        end,
+            },
+        },
     },
 }

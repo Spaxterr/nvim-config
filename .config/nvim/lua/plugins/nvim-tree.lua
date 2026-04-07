@@ -19,10 +19,6 @@ return {
                     update_root = false,
                     ignore_list = {},
                 },
-                system_open = {
-                    cmd = nil,
-                    args = {},
-                },
                 diagnostics = {
                     enable = false,
                 },

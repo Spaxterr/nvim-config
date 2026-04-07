@@ -29,6 +29,20 @@ return {
 		},
 		config = function()
 			require("mason-lspconfig").setup({
+				ensure_installed = {
+					"bashls",
+					"pyright",
+					"lua_ls",
+					"rust_analyzer",
+					"vtsls",
+					"html",
+					"cssls",
+					"jsonls",
+					"yamlls",
+					"gopls",
+					"svelte",
+					"tailwindcss",
+				},
 			})
 		end,
 	},
