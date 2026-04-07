@@ -48,7 +48,56 @@ map({ "v", "n", "x" }, "<leader>e", "<Cmd>NvimTreeToggle<CR>", { noremap = true,
 -- Set 'b+c' to close all open tabs/buffers
 vim.keymap.set("n", "<leader>bc", "<Cmd>%bd|e#<CR>" ,{ noremap = true, silent = true, desc = "Close all tabs" })
 
-map("n", "dm", "<Cmd>delmarks!<CR>", { noremap = true, silent = true, desc = "Delete all marks" })
+-- Marks (uppercase for cross-file support)
+map("n", "mm", function()
+    -- Auto-place next available uppercase mark
+    for i = 65, 90 do -- A-Z
+        local letter = string.char(i)
+        local mark = vim.api.nvim_get_mark(letter, {})
+        if mark[1] == 0 then
+            vim.cmd("mark " .. letter)
+            return
+        end
+    end
+    vim.notify("All marks A-Z are used", vim.log.levels.WARN)
+end, { noremap = true, silent = true, desc = "Auto-place next available mark" })
+
+map("n", "md", function()
+    -- Delete mark on current line, or notify if none found
+    local buf = vim.api.nvim_get_current_buf()
+    local cursor_line = vim.fn.line(".")
+    local file = vim.api.nvim_buf_get_name(buf)
+
+    -- Check uppercase marks (cross-file)
+    for i = 65, 90 do
+        local letter = string.char(i)
+        local mark = vim.api.nvim_get_mark(letter, {})
+        if mark[1] == cursor_line and mark[4] == file then
+            vim.cmd("delmarks " .. letter)
+            return
+        end
+    end
+
+    -- Check lowercase marks (buffer-local)
+    for i = 97, 122 do
+        local letter = string.char(i)
+        local pos = vim.api.nvim_buf_get_mark(buf, letter)
+        if pos[1] == cursor_line then
+            vim.cmd("delmarks " .. letter)
+            return
+        end
+    end
+    vim.notify("No mark on current line", vim.log.levels.INFO)
+end, { noremap = true, silent = true, desc = "Delete mark on current line" })
+
+map("n", "dm", "<Cmd>delmarks!<CR><Cmd>delmarks A-Z<CR>", { noremap = true, silent = true, desc = "Delete all marks" })
+
+map("n", "gm", function()
+    local char = vim.fn.getcharstr()
+    if char:match("[a-zA-Z]") then
+        vim.cmd("normal! `" .. char)
+    end
+end, { noremap = true, silent = true, desc = "Go to mark" })
 
 -- Fzf Lua
 map(
