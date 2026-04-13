@@ -17,7 +17,7 @@ return {
                 { "fzf-native", "max-perf" },
                 fzf_opts = {
                     ["--layout"] = "reverse",
-                    ["--border"] = "rounded",
+                    ["--border"] = "sharp",
                     ["--no-exact"] = false,
                     ["--tiebreak"] = "length,begin,index",
                     ["--history"] = vim.fn.stdpath("data") .. "/fzf-lua-history",

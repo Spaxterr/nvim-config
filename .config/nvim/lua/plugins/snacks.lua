@@ -13,7 +13,7 @@ return {
 				icon = "",
 				icon_hl = "Keyword",
 				backdrop = 60,
-				border = "rounded",
+				border = "single",
 				title_pos = "left",
 				relative = "cursor",
 				row = -3,

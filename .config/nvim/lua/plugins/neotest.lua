@@ -30,7 +30,7 @@ return {
 					enabled = false,
 				},
 				floating = {
-					border = "rounded",
+					border = "single",
 					options = {
 					},
 				},

@@ -140,6 +140,7 @@ path=(
     "$HOME/.dotnet/tools"
     "$HOME/.dotnet"
     "$HOME/.jenv/bin"
+    "$HOME/.cargo/bin"
     "$HOME/go/bin"
     "/usr/local/go/bin"
     "/snap/bin"

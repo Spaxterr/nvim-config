@@ -25,7 +25,7 @@ vim.diagnostic.config({
     virtual_text = false,
     float = {
         source = "always",
-        border = "rounded",
+        border = "single",
         header = "",
         prefix = "",
         borderhighlight = "Comment",

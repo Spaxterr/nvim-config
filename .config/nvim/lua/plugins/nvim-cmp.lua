@@ -14,17 +14,23 @@ return {
                 ["<CR>"] = { "accept", "fallback" },
             },
             snippets = { preset = "luasnip" },
+            fuzzy = { use_proximity = false },
             sources = {
-                default = { "lsp", "path", "snippets", "buffer" },
+                default = { "lsp", "snippets", "path" },
+                providers = {
+                    lsp = { score_offset = 150 },
+                    buffer = { score_offset = -100, min_keyword_length = 5 },
+                    path = { score_offset = -50, min_keyword_length = 3 }
+                },
             },
             signature = { enabled = true },
             completion = {
                 documentation = {
                     auto_show = true,
-                    window = { border = "rounded" },
+                    window = { border = "single" },
                 },
                 menu = {
-                    border = "rounded",
+                    border = "single",
                 },
             },
         },
