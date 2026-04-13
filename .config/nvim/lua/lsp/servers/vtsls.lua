@@ -22,7 +22,7 @@ return {
             experimental = {
                 maxInlayHintLength = 30,
                 completion = {
-                    enableServerSideFuzzyMatch = true,
+                    enableServerSideFuzzyMatch = false,
                     -- Enable auto-imports from node_modules
                     includeCompletionsForModuleExports = true,
                 },
