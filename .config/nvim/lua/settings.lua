@@ -19,8 +19,6 @@ vim.opt.fileencoding = "utf-8"
 
 vim.g.svelte_preprocessors = { "typescript" }
 
-vim.uv.os_setenv("JAVA_HOME",  "/usr/lib/jvm/java-21-openjdk-amd64")
-
 vim.diagnostic.config({
     virtual_text = false,
     float = {
