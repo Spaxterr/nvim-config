@@ -8,14 +8,22 @@ return {
 			"hrsh7th/cmp-buffer",
 			"hrsh7th/cmp-path",
 			"hrsh7th/cmp-nvim-lsp-signature-help",
-			"L3MON4D3/LuaSnip",
+			{
+				"L3MON4D3/LuaSnip",
+				dependencies = { "rafamadriz/friendly-snippets" },
+				config = function()
+					require("luasnip.loaders.from_vscode").lazy_load()
+				end,
+			},
 			"saadparwaiz1/cmp_luasnip",
 			"lukas-reineke/cmp-under-comparator",
+			"onsails/lspkind.nvim",
 		},
 		config = function()
 			local cmp = require("cmp")
 			local luasnip = require("luasnip")
 			local under_comparator = require("cmp-under-comparator")
+			local lspkind = require("lspkind")
 			cmp.setup({
 				snippet = {
 					expand = function(args)
@@ -25,6 +33,26 @@ return {
 				window = {
 					completion = cmp.config.window.bordered(),
 					documentation = cmp.config.window.bordered(),
+				},
+				formatting = {
+					fields = { "kind", "abbr", "menu" },
+					expandable_indicator = true,
+					format = lspkind.cmp_format({
+						mode = "symbol_text",
+						maxwidth = 50,
+						ellipsis_char = "…",
+						show_labelDetails = true,
+						menu = {
+							nvim_lsp = "[LSP]",
+							luasnip = "[Snip]",
+							nvim_lsp_signature_help = "[Sig]",
+							path = "[Path]",
+							buffer = "[Buf]",
+						},
+					}),
+				},
+				experimental = {
+					ghost_text = { hl_group = "Comment" },
 				},
 				sorting = {
 					priority_weight = 1.0,

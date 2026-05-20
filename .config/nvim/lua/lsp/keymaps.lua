@@ -6,7 +6,7 @@ local fzf_lua = require("fzf-lua")
 function M.setup_keymaps(client, bufnr)
     -- LSP config mappings
     map("n", "<Leader>cr", vim.lsp.buf.rename, { desc = "Rename symbol", silent = true, buffer = bufnr })
-    map("i", "<C-s>", function() require("blink.cmp").show() end,
+    map("i", "<C-s>", function() require("cmp").complete() end,
         { desc = "Show completions", silent = true, buffer = bufnr })
     map({ "n", "x" }, "gd", fzf_lua.lsp_definitions, { silent = true, desc = "Go to definition", buffer = bufnr })
     map("n", "gy", fzf_lua.lsp_typedefs, { silent = true, desc = "Go to type definition", buffer = bufnr })
