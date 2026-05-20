@@ -10,9 +10,9 @@ vim.opt.completeopt = { "menu", "menuone", "noselect" }
 -- Map leader to '<Space>'
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
-vim.opt.conceallevel = 2
+vim.opt.conceallevel = 0
 vim.opt.list = true
-vim.opt.listchars = { trail = '·', tab = '  ' }
+vim.opt.listchars = { trail = "·", tab = "  " }
 
 vim.opt.encoding = "utf-8"
 vim.opt.fileencoding = "utf-8"

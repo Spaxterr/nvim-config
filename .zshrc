@@ -141,6 +141,7 @@ path=(
     "$HOME/.dotnet"
     "$HOME/.jenv/bin"
     "$HOME/.cargo/bin"
+    "$HOME/.local/share/pnpm"
     "$HOME/go/bin"
     "/usr/local/go/bin"
     "/snap/bin"
@@ -161,7 +162,7 @@ bindkey "^[[4~" end-of-line             # End
 export PRETTIERD_DEFAULT_CONFIG="$HOME/.prettierrc"
 
 # bun completions
-[ -s "/home/developer/.bun/_bun" ] && source "/home/developer/.bun/_bun"
+[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
 
 # bun
 export BUN_INSTALL="$HOME/.bun"
@@ -170,20 +171,12 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 # Launch tmux (and create or restore main session) by default if available
 if [[ -z "$TMUX" && -o interactive ]]; then tmux new-session -A -s main; fi
 
-# pnpm
-export PNPM_HOME="/home/developer/.local/share/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
-# pnpm end
-
 # Load fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 fzf_config
 
 # Load profile-specific options
-[ -f ~/.zsh_profile ] && source ~/.zsh_profile
+[ -f ~/.zprofile ] && source ~/.zprofile
 
 # Deduplicate PATH
 PATH=$(zsh -fc "typeset -TU P=$PATH p; echo \$P")

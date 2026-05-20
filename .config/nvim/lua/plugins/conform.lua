@@ -33,11 +33,11 @@ return {
 
             conform.setup({
                 formatters_by_ft = {
-                    javascript = { "biome", "prettier", "eslint_d", stop_after_first = true },
-                    typescript = { "biome", "prettier", "eslint_d", stop_after_first = true },
-                    typescriptreact = { "biome", "prettier", "eslint_d", stop_after_first = true },
-                    svelte = { "biome", "prettier", "eslint_d", stop_after_first = true },
-                    json = { "biome", "prettier", stop_after_first = true },
+                    javascript = { "biome", "biome-organize-imports", "prettier", stop_after_first = false },
+                    typescript = { "biome", "biome-organize-imports", "prettier", stop_after_first = false },
+                    typescriptreact = {"biome", "biome-organize-imports", "prettier", stop_after_first = false },
+                    svelte = {"biome", "biome-organize-imports", "prettier", stop_after_first = false },
+                    json = {"biome", "biome-organize-imports", "prettier", stop_after_first = false },
                     yaml = { "yamlfmt" },
                     html = { "prettier", stop_after_first = true },
                     python = { "ruff" },
