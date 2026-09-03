@@ -3,6 +3,8 @@
     "language": "en",
     "ignorePaths": ["node_modules", "dist"],
     "dictionaries": [
+        "en_US",
+        "en-gb",
         "softwareTerms",
         "typescript",
         "node",
@@ -10,8 +12,7 @@
         "csharp",
         "bash",
         "html",
-        "en_US",
-        "en-gb",
+        "css",
         "companies",
         "misc",
         "filetypes",
@@ -41,6 +42,7 @@
         "luvbot",
         "dahua",
         "hypesquad",
-        "qwik"
+        "qwik",
+        "cooldown"
     ]
 }

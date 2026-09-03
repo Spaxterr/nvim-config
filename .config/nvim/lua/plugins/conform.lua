@@ -31,13 +31,27 @@ return {
                 return nil
             end
 
+            -- Use Biome when the project has a Biome config, otherwise fall back to Prettier.
+            local function has_biome_config(bufnr)
+                local dir = vim.api.nvim_buf_get_name(bufnr)
+                dir = dir ~= "" and vim.fs.dirname(dir) or vim.fn.getcwd()
+                return vim.fs.find({ "biome.json", "biome.jsonc" }, { path = dir, upward = true })[1] ~= nil
+            end
+
+            local function js_formatters(bufnr)
+                if has_biome_config(bufnr) then
+                    return { "biome", "biome-organize-imports" }
+                end
+                return { "prettier" }
+            end
+
             conform.setup({
                 formatters_by_ft = {
-                    javascript = { "biome", "biome-organize-imports", "prettier", stop_after_first = false },
-                    typescript = { "biome", "biome-organize-imports", "prettier", stop_after_first = false },
-                    typescriptreact = {"biome", "biome-organize-imports", "prettier", stop_after_first = false },
-                    svelte = {"biome", "biome-organize-imports", "prettier", stop_after_first = false },
-                    json = {"biome", "biome-organize-imports", "prettier", stop_after_first = false },
+                    javascript = js_formatters,
+                    typescript = js_formatters,
+                    typescriptreact = js_formatters,
+                    svelte = js_formatters,
+                    json = js_formatters,
                     yaml = { "yamlfmt" },
                     html = { "prettier", stop_after_first = true },
                     python = { "ruff" },
@@ -48,14 +62,6 @@ return {
                     go = { "golangci-lint" },
                 },
                 formatters = {
-                    biome = {
-                        condition = function(_, ctx)
-                            return vim.fs.find(
-                                { "biome.json", "biome.jsonc" },
-                                { path = ctx.dirname, upward = true }
-                            )[1] ~= nil
-                        end,
-                    },
                     prettierd = {
                         env = {
                             PRETTIERD_DEFAULT_CONFIG = vim.fn.expand("~/.prettierrc"),

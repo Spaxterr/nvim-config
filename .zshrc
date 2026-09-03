@@ -10,7 +10,7 @@ nvm() {
 # Lazy load jenv
 jenv() {
     unset -f jenv
-    eval "$(command jenv init -)"
+    eval "$(jenv init -)"
     jenv enable-plugin export
     jenv "$@"
 }

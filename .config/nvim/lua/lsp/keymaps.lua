@@ -36,7 +36,11 @@ function M.setup_keymaps(client, bufnr)
     map(
         { "v", "n", "x" },
         "<leader>cq",
-        fzf_lua.lsp_code_actions,
+        -- ponytail: previewer=false stops fzf-lua pre-resolving every action;
+        -- avoids the TS 6.0.3 codeAction/resolve crash. Drop when TS ships the fix.
+        function()
+            fzf_lua.lsp_code_actions({ previewer = false })
+        end,
         { silent = true, noremap = true, desc = "Show code actions", buffer = bufnr }
     )
 end

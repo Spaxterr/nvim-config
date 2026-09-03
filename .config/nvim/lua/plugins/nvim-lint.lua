@@ -69,16 +69,6 @@ return {
                 end,
             }
 
-            -- Custom checkstyle configuration for Java
-            if lint.linters.checkstyle then
-                lint.linters.checkstyle.args = {
-                    "-c",
-                    "checkstyle.xml",
-                    "-f",
-                    "json",
-                }
-            end
-
             -- Disable linting for specific patterns
             local function should_lint()
                 local bufname = vim.api.nvim_buf_get_name(0)

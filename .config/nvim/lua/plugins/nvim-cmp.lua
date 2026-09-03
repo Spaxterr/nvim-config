@@ -83,6 +83,31 @@ return {
 					["<CR>"] = cmp.mapping.confirm({ select = false }),
 				},
 			})
+
+			-- Roslyn (and some other servers) attach *client-side* commands to
+			-- completion items (e.g. "roslyn.client.completionComplexEdit"), which
+			-- perform the real text insertion. cmp-nvim-lsp blindly forwards the
+			-- item's command to the *server* via workspace/executeCommand, where a
+			-- client command no-ops — so the completion appears to revert to what
+			-- you typed. Run client-registered commands locally on confirm instead.
+			cmp.event:on("confirm_done", function(event)
+				local entry = event.entry
+				if not entry then
+					return
+				end
+				local item = entry:get_completion_item()
+				local command = item and item.command
+				if not command then
+					return
+				end
+				local client = entry.source and entry.source.source and entry.source.source.client
+				if client and client.commands and client.commands[command.command] then
+					client.commands[command.command](command, {
+						client_id = client.id,
+						bufnr = vim.api.nvim_get_current_buf(),
+					})
+				end
+			end)
 		end,
 	},
 }
