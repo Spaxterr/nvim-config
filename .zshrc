@@ -180,3 +180,8 @@ fzf_config
 
 # Deduplicate PATH
 PATH=$(zsh -fc "typeset -TU P=$PATH p; echo \$P")
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/home/spaxter/.lmstudio/bin"
+# End of LM Studio CLI section
+
