@@ -14,9 +14,19 @@ return {
                 java = { "pmd" },
                 go = { "golangcilint" },
                 sh = { "shellcheck" },
+                rust = { "clippy" },
             }
 
             lint.linters.pmd.rulesets = "pmd-rules.xml"
+
+            lint.linters.clippy = vim.tbl_extend("force", lint.linters.clippy, {
+                ignore_exitcode = true,
+                args = {
+                    "clippy",
+                    "--message-format=json",
+                    "--all-targets"
+                }
+            })
 
             -- Custom ruff configuration
             lint.linters.ruff.args = {
