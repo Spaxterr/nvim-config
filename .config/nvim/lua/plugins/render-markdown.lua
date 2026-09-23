@@ -1,7 +1,7 @@
 return {
     {
         'MeanderingProgrammer/render-markdown.nvim',
-        event = "LspAttach",
+        event = "VeryLazy",
         dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.nvim' },
         config = function()
             require("render-markdown").setup({

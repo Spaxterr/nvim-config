@@ -96,7 +96,7 @@ return {
 
                 -- Check file size (1MB limit)
                 local max_filesize = 1000000
-                local ok, stats = pcall(vim.loop.fs_stat, bufname)
+                local ok, stats = pcall(vim.uv.fs_stat, bufname)
                 if ok and stats and stats.size > max_filesize then
                     return false
                 end
