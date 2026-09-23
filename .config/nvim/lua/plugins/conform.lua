@@ -82,7 +82,7 @@ return {
                         args = { "format", "--write-stdout" },
                     },
                 },
-                log_level = vim.log.levels.DEBUG,
+                log_level = vim.log.levels.INFO,
             })
 
             -- Create "Format" command for range formatting

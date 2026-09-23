@@ -1,7 +1,8 @@
 return {
 	{
 		"rmagatti/auto-session",
-        event = "VimEnter",
+        lazy = false,
+        priority = 900,
 		config = function()
 			require("auto-session").setup({
 				enabled = true,
