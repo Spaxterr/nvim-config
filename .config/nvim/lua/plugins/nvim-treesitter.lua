@@ -26,6 +26,7 @@ return {
 				"yaml",
 				"query",
 				"sql",
+                "caddy",
 			}
 			local installed = require("nvim-treesitter.config").get_installed()
 			local missing = vim.iter(ensureInstalled)

@@ -32,34 +32,11 @@ local global_on_init = function(client, _)
     end
 end
 
-local global_on_attach = function(client, bufnr)
-    require("lsp.keymaps").setup_keymaps(client, bufnr)
-end
-
--- Helper function to compose on_init functions
-local function compose_on_init(global_fn, server_fn)
-    return function(client, bufnr)
-        -- Always run the global on_init first
-        if global_fn then
-            global_fn(client, bufnr)
-        end
-        -- Then run the server-specific on_init if it exists
+local function compose_on_init(server_fn)
+    return function(client, init_result)
+        global_on_init(client, init_result)
         if server_fn then
-            server_fn(client, bufnr)
-        end
-    end
-end
-
--- Helper function to compose on_attach functions
-local function compose_on_attach(global_fn, server_fn)
-    return function(client, bufnr)
-        -- Always run the global on_attach first
-        if global_fn then
-            global_fn(client, bufnr)
-        end
-        -- Then run the server-specific on_attach if it exists
-        if server_fn then
-            server_fn(client, bufnr)
+            server_fn(client, init_result)
         end
     end
 end
@@ -97,25 +74,22 @@ for _, server in ipairs(servers) do
         config = {}
     end
 
-    -- Store the original server-specific functions
-    local server_on_init = config.on_init
-    local server_on_attach = config.on_attach
+    config.on_init = compose_on_init(config.on_init)
 
-    -- Compose the functions - global functions run first, then server-specific
-    config.on_init = compose_on_init(global_on_init, server_on_init)
-    config.on_attach = compose_on_attach(global_on_attach, server_on_attach)
-    config.capabilities = capabilities
-
-    -- Setup language server with composed config
     vim.lsp.config(server, config)
     vim.lsp.enable(server)
 end
 
+-- NOTE: roslyn is intentionally NOT in the `servers` list above. roslyn.nvim
+-- ships its own lsp/roslyn.lua (with an on_init *list* that detects the
+-- .sln/.csproj and initializes the workspace) and calls vim.lsp.enable("roslyn")
+-- itself when it loads. Running it through the loop would replace that on_init
+-- and break workspace init. It still inherits `capabilities` from the "*" config,
+-- and keymaps come from the LspAttach autocmd below.
+
 vim.api.nvim_create_autocmd("LspAttach", {
     callback = function(args)
-        -- This will run the global on_attach for any server that attaches
-        -- Note: Individual server on_attach functions are already composed above
-        global_on_attach(_, args.buf)
+        require("lsp.keymaps").setup_keymaps(vim.lsp.get_client_by_id(args.data.client_id), args.buf)
     end,
 })
 

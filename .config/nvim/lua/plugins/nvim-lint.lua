@@ -28,20 +28,6 @@ return {
                 }
             })
 
-            -- Custom ruff configuration
-            lint.linters.ruff.args = {
-                "check",
-                "--config",
-                "./pyproject.toml",
-                "--output-format",
-                "json",
-                "--stdin-filename",
-                function()
-                    return vim.api.nvim_buf_get_name(0)
-                end,
-                "-",
-            }
-
             lint.linters.cspell.args = {
                 "lint",
                 "--no-color",
@@ -50,33 +36,6 @@ return {
                 "--config",
                 vim.fn.expand("~/cspell.json"),
                 function() return 'stdin://' .. vim.api.nvim_buf_get_name(0) end,
-            }
-
-            lint.linters["dotnet-format"] = {
-                name = "dotnet-format",
-                cmd = "dotnet-format",
-                args = {
-                    "--check",
-                    vim.fn.fnameescape(vim.fn.expand("%:p")),
-                },
-                parser = function(output)
-                    local diagnostics = {}
-                    for line in vim.fn.split(output, "\n") do
-                        local match = string.match(line, "([%w%p-_/%.]+)%((%d+),(%d+)%): warning ([%w_]+): (.*)")
-                        if match then
-                            local file, line_nr, col, code, message = match
-                            table.insert(diagnostics, {
-                                filename = file,
-                                lnum = tonumber(line_nr),
-                                col = tonumber(col),
-                                code = code,
-                                message = message,
-                                severity = vim.diagnostic.severity.WARN,
-                            })
-                        end
-                    end
-                    return diagnostics
-                end,
             }
 
             -- Disable linting for specific patterns
@@ -110,10 +69,19 @@ return {
                 callback = function()
                     if should_lint() and vim.bo.modifiable then
                         local ft = vim.bo.filetype
-                        local linters = lint.linters_by_ft[ft] or {}
-
+                        local linters = vim.list_extend({ "cspell" }, lint.linters_by_ft[ft] or {})
+                        linters = vim.tbl_filter(function(name)
+                            local linter = lint.linters[name]
+                            if type(linter) == "function" then
+                                linter = linter()
+                            end
+                            local cmd = linter and linter.cmd
+                            if type(cmd) == "function" then
+                                cmd = cmd()
+                            end
+                            return type(cmd) ~= "string" or vim.fn.executable(cmd) == 1
+                        end, linters)
                         lint.try_lint(linters)
-                        lint.try_lint("cspell")
                     end
                 end,
             })

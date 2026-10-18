@@ -1,7 +1,7 @@
 return {
     {
         "ibhagwan/fzf-lua",
-        run = "make",
+        version = false,
         dependencies = {
             "nvim-tree/nvim-web-devicons",
             {
@@ -16,7 +16,6 @@ return {
                 { "fzf-native", "max-perf" },
                 fzf_opts = {
                     ["--layout"] = "reverse",
-                    ["--border"] = "sharp",
                     ["--no-exact"] = false,
                     ["--tiebreak"] = "length,begin,index",
                     ["--history"] = vim.fn.stdpath("data") .. "/fzf-lua-history",
@@ -46,6 +45,7 @@ return {
                     },
                 },
                 winopts = {
+                    border = "rounded",
                     number = true,
                     cursorline = true,
                     cursorcolumn = false,
@@ -71,8 +71,6 @@ return {
                     LSP_timeout = 10000,     -- LSP request timeout (ms)
                 },
             })
-
-            vim.cmd("FzfLua register_ui_select")
         end,
     },
 }

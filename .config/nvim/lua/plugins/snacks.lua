@@ -14,7 +14,7 @@ return {
 				icon = "",
 				icon_hl = "Keyword",
 				backdrop = 60,
-				border = "single",
+				border = "rounded",
 				title_pos = "left",
 				relative = "cursor",
 				row = -3,

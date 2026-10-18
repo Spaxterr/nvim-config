@@ -29,11 +29,6 @@ return {
 				discovery = {
 					enabled = false,
 				},
-				floating = {
-					border = "single",
-					options = {
-					},
-				},
 				status = {
 					virtual_text = true,
 					enabled = true,

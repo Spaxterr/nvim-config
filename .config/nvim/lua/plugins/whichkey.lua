@@ -14,13 +14,6 @@ return {
                 end,
                 desc = "Buffer Local Keymaps (which-key)",
             },
-            {
-                "q",
-                function()
-                    vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Esc>", true, false, true), "n", false)
-                end,
-                desc = "Close which-key with q",
-            },
         },
     },
 }

@@ -19,20 +19,40 @@ vim.opt.fileencoding = "utf-8"
 
 vim.g.svelte_preprocessors = { "typescript" }
 
+o.winborder = "rounded"
+o.cursorline = true
+o.cursorlineopt = "number"
+o.splitright = true
+o.splitbelow = true
+o.pumheight = 12
+o.smoothscroll = true
+o.showmode = false
+vim.opt.fillchars = { eob = " " }
+
 vim.diagnostic.config({
-    virtual_text = false,
-    source = true,
-    float = {
-        border = "single",
-        header = "",
-        prefix = "",
-        borderhighlight = "Comment",
+    virtual_text = { current_line = true, spacing = 2, prefix = "●" },
+    float = { source = true, header = "", prefix = "" },
+    signs = {
+        text = {
+            [vim.diagnostic.severity.ERROR] = "\u{f057}",
+            [vim.diagnostic.severity.WARN] = "\u{f071}",
+            [vim.diagnostic.severity.INFO] = "\u{f05a}",
+            [vim.diagnostic.severity.HINT] = "󰌵",
+        },
     },
-    signs = true,
     underline = true,
     update_in_insert = false,
     severity_sort = true,
 })
+
+vim.filetype.add {
+    extension = {
+        caddy = 'caddy',
+    },
+    filename = {
+        Caddyfile = 'caddy'
+    },
+}
 
 o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
 

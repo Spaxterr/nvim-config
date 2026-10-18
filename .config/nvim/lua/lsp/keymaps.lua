@@ -28,11 +28,11 @@ function M.setup_keymaps(client, bufnr)
         require('hover').open()
     end, { silent = true, desc = "Show hover doc", buffer = bufnr })
     map("n", "<C-p>", function()
-        require('hover').switch('previous')
-    end)
+        require("hover").switch("previous")
+    end, { silent = true, desc = "Previous hover source", buffer = bufnr })
     map("n", "<C-n>", function()
-        require('hover').switch('next')
-    end)
+        require("hover").switch("next")
+    end, { silent = true, desc = "Next hover source", buffer = bufnr })
     map(
         { "v", "n", "x" },
         "<leader>cq",

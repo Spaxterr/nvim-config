@@ -1,7 +1,7 @@
 return {
     {
         "romgrk/barbar.nvim",
-        event = "BufAdd",
+        event = "VeryLazy",
         dependencies = {
             "nvim-tree/nvim-web-devicons", -- OPTIONAL: for file icons
         },
