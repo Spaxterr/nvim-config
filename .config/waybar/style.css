@@ -112,3 +112,6 @@ tooltip {
 }
 
 #custom-minimized { color: #ca9ee6; padding: 0 10px; }
+
+#mpris { color: #a6d189; padding: 0 10px; }
+#mpris.paused { color: #838ba7; }

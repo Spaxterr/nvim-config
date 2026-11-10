@@ -3,7 +3,7 @@
 -- New machine (Arch/CachyOS):
 --   sudo pacman -S --needed hyprland hyprpaper hyprlock hypridle hyprpolkitagent \
 --     xdg-desktop-portal-hyprland waybar rofi swaync kitty dolphin jq pavucontrol \
---     network-manager-applet blueman brightnessctl playerctl wl-clipboard grim slurp \
+--     network-manager-applet blueman brightnessctl playerctl wl-clipboard grim slurp dex satty \
 --     ttf-jetbrains-mono-nerd qt5-wayland qt6-wayland plasma-integration
 --   Cursor theme (AUR): catppuccin-cursors-frappe
 --   Dolphin/Qt colours come from the Plasma theme (kdeglobals + Kvantum), which is not in this repo.
@@ -28,6 +28,8 @@ hl.env("QT_QPA_PLATFORM", "wayland;xcb")
 hl.env("QT_QPA_PLATFORMTHEME", "kde")
 
 hl.on("hyprland.start", function()
+	-- Same autostart as KDE: ~/.config/autostart + /etc/xdg/autostart (.desktop files; Hidden=true ones are skipped)
+	hl.exec_cmd("dex --autostart --environment Hyprland")
 	hl.exec_cmd("waybar")
 	hl.exec_cmd("swaync")
 	hl.exec_cmd("hypridle")
@@ -118,6 +120,9 @@ hl.animation({ leaf = "fade", enabled = true, speed = 5, bezier = "ease" })
 hl.animation({ leaf = "border", enabled = true, speed = 8, bezier = "default" })
 hl.animation({ leaf = "workspaces", enabled = true, speed = 5, bezier = "ease", style = "slide" })
 hl.animation({ leaf = "layers", enabled = true, speed = 4, bezier = "ease", style = "fade" })
+hl.curve("linear", { type = "bezier", points = { { 0, 0 }, { 1, 1 } } })
+-- Slowly spinning mauve→blue gradient on the focused border (one turn per ~8s)
+hl.animation({ leaf = "borderangle", enabled = true, speed = 80, bezier = "linear", style = "loop" })
 
 -- Glass blur behind the bar, launcher and notifications
 for _, ns in ipairs({ "waybar", "rofi", "swaync-control-center", "swaync-notification-window" }) do
@@ -152,7 +157,10 @@ hl.bind(mod .. " + Tab", hl.dsp.group.next())
 hl.bind(mod .. " + SHIFT + Tab", hl.dsp.group.prev())
 hl.bind(mod .. " + L", hl.dsp.exec_cmd("loginctl lock-session"))
 hl.bind(mod .. " + N", hl.dsp.exec_cmd("swaync-client -t -sw"))
-hl.bind("Print", hl.dsp.exec_cmd('grim -g "$(slurp)" - | wl-copy'))
+local shot = "~/.config/hypr/scripts/screenshot.sh"
+hl.bind("Print", hl.dsp.exec_cmd(shot .. " region"))
+hl.bind("SHIFT + Print", hl.dsp.exec_cmd(shot .. " window"))
+hl.bind(mod .. " + Print", hl.dsp.exec_cmd(shot .. " screen"))
 
 hl.bind(mod .. " + left", hl.dsp.focus({ direction = "left" }))
 hl.bind(mod .. " + right", hl.dsp.focus({ direction = "right" }))
