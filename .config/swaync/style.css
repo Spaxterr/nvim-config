@@ -1,0 +1,32 @@
+@import url("file:///etc/xdg/swaync/style.css");
+
+/* Catppuccin Frappé glass */
+:root {
+  --cc-bg: rgba(48, 52, 70, 0.6);
+  --noti-bg: 48, 52, 70;
+  --noti-bg-alpha: 0.6;
+  --noti-bg-darker: rgb(41, 44, 60);
+  --noti-bg-hover: rgba(65, 69, 89, 0.8);
+  --noti-bg-focus: rgba(81, 87, 109, 0.6);
+  --noti-close-bg: rgb(81, 87, 109);
+  --noti-close-bg-hover: rgb(98, 104, 128);
+  --noti-border-color: rgba(198, 208, 245, 0.12);
+  --text-color: rgb(198, 208, 245);
+  --text-color-disabled: rgb(131, 139, 167);
+  --bg-selected: rgb(202, 158, 230);
+  --border-radius: 14px;
+  --notification-shadow: none;
+}
+
+/* Same mauve→blue edge as the Hyprland window border */
+.notification-row .notification-background .notification,
+.control-center {
+  border: 2px solid;
+  border-color: #ca9ee6 #8caaee #8caaee #ca9ee6;
+}
+
+.notification-row:focus,
+.notification-group:focus {
+  background: rgba(202, 158, 230, 0.08);
+  border-radius: var(--border-radius);
+}
