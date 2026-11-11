@@ -115,3 +115,6 @@ tooltip {
 
 #mpris { color: #a6d189; padding: 0 10px; }
 #mpris.paused { color: #838ba7; }
+
+#pulseaudio.mic { color: #a6d189; }
+#pulseaudio.mic.source-muted { color: #e78284; }

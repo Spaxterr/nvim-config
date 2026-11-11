@@ -32,6 +32,7 @@
     "modules-right": [
         "tray",
         "pulseaudio",
+        "pulseaudio#mic",
         "network",
         "bluetooth",
         "battery",
@@ -67,6 +68,16 @@
     },
     "tray": {
         "spacing": 8
+    },
+    "pulseaudio#mic": {
+        "format": "{format_source}",
+        "format-source": "󰍬",
+        "format-source-muted": "󰍭",
+        "tooltip-format": "{source_desc} ({source_volume}%)\nClick: mute mic · Right-click: input settings · Scroll: mic volume",
+        "on-click": "~/.config/hypr/scripts/mic-toggle.sh",
+        "on-click-right": "pavucontrol -t 4",
+        "on-scroll-up": "wpctl set-volume -l 1 @DEFAULT_AUDIO_SOURCE@ 5%+",
+        "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 5%-"
     },
     "pulseaudio": {
         "format": "{icon} {volume}%",
