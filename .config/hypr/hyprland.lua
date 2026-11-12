@@ -75,11 +75,14 @@ hl.config({
 			brightness = 0.9,
 			vibrancy = 0.2,
 			popups = true,
+			-- Floating windows blur only the wallpaper, not the tiles behind them
+			xray = true,
 		},
 		shadow = {
 			enabled = true,
 			range = 24,
-			render_power = 3,
+			render_power = 4,
+			offset = { 0, 4 },
 			color = "rgba(23263699)",
 		},
 	},
@@ -92,7 +95,7 @@ hl.config({
 			border_inactive = "rgba(51576d80)",
 		},
 		groupbar = {
-			font_family = "JetBrainsMono Nerd Font",
+			font_family = "Inter",
 			font_size = 11,
 			height = 20,
 			gradients = true,
@@ -120,14 +123,18 @@ hl.animation({ leaf = "fade", enabled = true, speed = 5, bezier = "ease" })
 hl.animation({ leaf = "border", enabled = true, speed = 8, bezier = "default" })
 hl.animation({ leaf = "workspaces", enabled = true, speed = 5, bezier = "ease", style = "slide" })
 hl.animation({ leaf = "layers", enabled = true, speed = 4, bezier = "ease", style = "fade" })
-hl.curve("linear", { type = "bezier", points = { { 0, 0 }, { 1, 1 } } })
--- Slowly spinning mauve→blue gradient on the focused border (one turn per ~8s)
-hl.animation({ leaf = "borderangle", enabled = true, speed = 80, bezier = "linear", style = "loop" })
+hl.animation({ leaf = "specialWorkspace", enabled = true, speed = 5, bezier = "ease", style = "slidevert" })
 
 -- Glass blur behind the bar, launcher and notifications
 for _, ns in ipairs({ "waybar", "rofi", "swaync-control-center", "swaync-notification-window" }) do
 	hl.layer_rule({ name = "blur-" .. ns, match = { namespace = "^" .. ns .. "$" }, blur = true, ignore_alpha = 0 })
 end
+hl.layer_rule({ name = "rofi-popin", match = { namespace = "^rofi$" }, animation = "popin 90%" })
+
+-- Pin the everyday workspaces: 1 middle, 2 left, 3 right (Waybar shows them even when empty)
+hl.workspace_rule({ workspace = "1", monitor = "HDMI-A-1", default = true, persistent = true })
+hl.workspace_rule({ workspace = "2", monitor = "DP-1", default = true, persistent = true })
+hl.workspace_rule({ workspace = "3", monitor = "DP-2", default = true, persistent = true })
 
 hl.window_rule({ name = "suppress-maximize", match = { class = ".*" }, suppress_event = "maximize" })
 -- kitty does its own background transparency (crisp text); keep video fully opaque

@@ -1,5 +1,5 @@
 * {
-    font-family: "JetBrainsMono Nerd Font";
+    font-family: "Inter", "JetBrainsMono Nerd Font";
     font-size: 13px;
     border: none;
     min-height: 0;
@@ -28,7 +28,8 @@ button {
 }
 
 #workspaces button {
-    color: #838ba7;
+    color: #a5adce;
+    font-size: 10px;
     padding: 0 8px;
     margin: 3px 1px;
     border-radius: 10px;
@@ -40,9 +41,14 @@ button {
     color: #c6d0f5;
 }
 
+#workspaces button.empty {
+    color: #626880;
+}
+
 #workspaces button.active {
     background: linear-gradient(135deg, #ca9ee6, #8caaee);
     color: #303446;
+    padding: 0 14px;
 }
 
 #taskbar button {
@@ -77,6 +83,7 @@ button {
 }
 
 #clock {
+    font-family: "JetBrainsMono Nerd Font";
     font-weight: bold;
 }
 
@@ -98,6 +105,18 @@ button {
 
 #custom-notification {
     color: #babbf1;
+}
+
+#custom-notification.notification,
+#custom-notification.inhibited-notification {
+    color: #ef9f76;
+}
+
+#custom-notification.dnd-none,
+#custom-notification.dnd-notification,
+#custom-notification.dnd-inhibited-none,
+#custom-notification.dnd-inhibited-notification {
+    color: #838ba7;
 }
 
 #custom-power {

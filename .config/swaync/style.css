@@ -30,3 +30,7 @@
   background: rgba(202, 158, 230, 0.08);
   border-radius: var(--border-radius);
 }
+
+* {
+  font-family: "Inter", "JetBrainsMono Nerd Font";
+}
