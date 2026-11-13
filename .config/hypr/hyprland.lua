@@ -13,12 +13,11 @@ local terminal = "kitty"
 local menu = "rofi -show drun"
 local files = "dolphin"
 
--- MONITORS: any screen not listed below (e.g. on another machine) gets its preferred mode
+-- MONITORS: whatever is plugged in gets its native mode, placed left -> right automatically
 hl.monitor({ output = "", mode = "preferred", position = "auto", scale = "auto" })
--- Desktop-PC, left -> right: MSI, Samsung, AOC
-hl.monitor({ output = "DP-1", mode = "1920x1080@100", position = "0x0", scale = "1" })
-hl.monitor({ output = "HDMI-A-1", mode = "1920x1080@144", position = "1920x0", scale = "1" })
-hl.monitor({ output = "DP-2", mode = "1920x1080@60", position = "3840x0", scale = "1" })
+-- Layouts saved from the GUI (scripts/monitors-gui.sh) override the auto rule, per monitor model
+local saved = os.getenv("HOME") .. "/.config/hypr/monitors.lua"
+if io.open(saved) then dofile(saved) end
 
 hl.env("XCURSOR_THEME", "catppuccin-frappe-mauve-cursors")
 hl.env("XCURSOR_SIZE", "24")
