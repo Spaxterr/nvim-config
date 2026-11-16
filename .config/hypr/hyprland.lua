@@ -66,18 +66,18 @@ hl.config({
 		resize_on_border = true,
 	},
 	decoration = {
-		rounding = 14,
+		rounding = 12,
 		active_opacity = 0.92,
 		inactive_opacity = 0.85,
 		fullscreen_opacity = 1.0,
 		blur = {
 			enabled = true,
-			size = 8,
+			size = 3,
 			passes = 3,
 			new_optimizations = true,
-			noise = 0.02,
-			brightness = 0.9,
-			vibrancy = 0.2,
+			noise = 0.01,
+			brightness = 1.0,
+			vibrancy = 0.55,
 			popups = true,
 			-- Floating windows blur only the wallpaper, not the tiles behind them
 			xray = true,
@@ -131,7 +131,7 @@ hl.animation({ leaf = "specialWorkspace", enabled = true, speed = 5, bezier = "e
 
 -- Glass blur behind the bar, launcher and notifications
 for _, ns in ipairs({ "waybar", "rofi", "swaync-control-center", "swaync-notification-window" }) do
-	hl.layer_rule({ name = "blur-" .. ns, match = { namespace = "^" .. ns .. "$" }, blur = true, ignore_alpha = 0 })
+	hl.layer_rule({ name = "blur-" .. ns, match = { namespace = "^" .. ns .. "$" }, blur = true, blur_popups = true, ignore_alpha = 0 })
 end
 hl.layer_rule({ name = "rofi-popin", match = { namespace = "^rofi$" }, animation = "popin 90%" })
 
@@ -154,6 +154,7 @@ hl.window_rule({ name = "float-polkit", match = { class = "^(.*polkit.*)$" }, fl
 hl.bind(mod .. " + Return", hl.dsp.exec_cmd(terminal))
 hl.bind(mod .. " + R", hl.dsp.exec_cmd(menu))
 hl.bind(mod .. " + W", hl.dsp.exec_cmd("rofi -show window"))
+hl.bind(mod .. " + SHIFT + W", hl.dsp.exec_cmd("~/.config/hypr/scripts/set-wallpaper.sh"))
 hl.bind(mod .. " + E", hl.dsp.exec_cmd(files))
 hl.bind(mod .. " + Q", hl.dsp.window.close())
 hl.bind(mod .. " + V", hl.dsp.window.float({ action = "toggle" }))
@@ -171,6 +172,9 @@ local shot = "~/.config/hypr/scripts/screenshot.sh"
 hl.bind("Print", hl.dsp.exec_cmd(shot .. " region"))
 hl.bind("SHIFT + Print", hl.dsp.exec_cmd(shot .. " window"))
 hl.bind(mod .. " + Print", hl.dsp.exec_cmd(shot .. " screen"))
+
+-- Discord push-to-talk (Wayland apps can't grab keys; Hyprland forwards press/release via the portal)
+hl.bind("mouse:276", hl.dsp.global("discord:discord-push-to-talk"))
 
 hl.bind(mod .. " + left", hl.dsp.focus({ direction = "left" }))
 hl.bind(mod .. " + right", hl.dsp.focus({ direction = "right" }))

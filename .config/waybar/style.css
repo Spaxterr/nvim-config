@@ -13,7 +13,7 @@ window#waybar {
 .modules-left,
 .modules-center,
 .modules-right {
-    background: rgba(48, 52, 70, 0.5);
+    background: linear-gradient(135deg, rgba(198, 208, 245, 0.12), rgba(48, 52, 70, 0.1));
     /* mauve top/left, blue bottom/right: same as the Hyprland window border (GTK can't round a gradient border) */
     border: 2px solid;
     border-color: #ca9ee6 #8caaee #8caaee #ca9ee6;
@@ -124,7 +124,7 @@ button {
 }
 
 tooltip {
-    background: rgba(41, 44, 60, 0.9);
+    background: rgba(41, 44, 60, 0.35);
     border: 2px solid;
     border-color: #ca9ee6 #8caaee #8caaee #ca9ee6;
     border-radius: 10px;
@@ -137,3 +137,27 @@ tooltip {
 
 #pulseaudio.mic { color: #a6d189; }
 #pulseaudio.mic.source-muted { color: #e78284; }
+
+/* Tray dropdowns (nm-applet, blueman...): glass like the bar; Hyprland blurs them via blur_popups */
+menu {
+    background: rgba(41, 44, 60, 0.35);
+    border: 2px solid;
+    border-color: #ca9ee6 #8caaee #8caaee #ca9ee6;
+    border-radius: 10px;
+    padding: 4px;
+}
+menu menuitem {
+    color: #c6d0f5;
+    padding: 4px 10px;
+    border-radius: 6px;
+}
+menu menuitem:hover {
+    background: rgba(202, 158, 230, 0.2);
+}
+menu separator {
+    background: rgba(198, 208, 245, 0.12);
+    min-height: 1px;
+    margin: 3px 6px;
+}
+/* Breeze paints the popup window itself solid; clear it so only the menu's glass shows */
+window.popup, window.popup decoration { background: transparent; box-shadow: none; }

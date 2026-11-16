@@ -15,17 +15,18 @@ configuration {
     border: 0;
 }
 
-/* Gradient frame: the window is painted mauve→blue, the glass panel sits 2px inside it */
+/* Solid mauve frame: rofi can't draw gradient borders, and a gradient fill would sit behind the glass and make it opaque */
 window {
     width: 560px;
-    background-image: linear-gradient(135deg, #ca9ee6, #8caaee);
+    background-color: transparent;
+    border: 2px solid;
+    border-color: #ca9ee6;
     border-radius: 16px;
-    padding: 2px;
 }
-mainbox { background-color: #303446e0; border-radius: 14px; padding: 14px; spacing: 10px; }
+mainbox { background-color: #30344666; border-radius: 14px; padding: 14px; spacing: 10px; }
 inputbar { children: [prompt, entry]; spacing: 10px; padding: 10px 12px; border-radius: 10px; background-color: #41455980; }
 prompt { text-color: #ca9ee6; font: "JetBrainsMono Nerd Font 15"; }
-entry { placeholder-color: #838ba7; }
+entry { text-color: #c6d0f5; placeholder-color: #838ba7; cursor-color: #ca9ee6; }
 listview { lines: 8; spacing: 4px; scrollbar: false; border: 0; }
 element { padding: 8px 10px; border-radius: 10px; spacing: 10px; }
 element normal.normal, element alternate.normal { background-color: transparent; text-color: #c6d0f5; }
