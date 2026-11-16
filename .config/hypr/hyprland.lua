@@ -18,6 +18,11 @@ hl.monitor({ output = "", mode = "preferred", position = "auto", scale = "auto" 
 -- Layouts saved from the GUI (scripts/monitors-gui.sh) override the auto rule, per monitor model
 local saved = os.getenv("HOME") .. "/.config/hypr/monitors.lua"
 if io.open(saved) then dofile(saved) end
+-- Lid closed: turn the laptop screen off. Checked on every config load; the lid switch triggers a reload
+local lid = io.open("/proc/acpi/button/lid/LID/state")
+if lid and lid:read("a"):find("closed") then hl.monitor({ output = "eDP-1", disabled = true }) end
+hl.bind("switch:on:Lid Switch", hl.dsp.reload_config(), { locked = true })
+hl.bind("switch:off:Lid Switch", hl.dsp.reload_config(), { locked = true })
 
 hl.env("XCURSOR_THEME", "catppuccin-frappe-mauve-cursors")
 hl.env("XCURSOR_SIZE", "24")
