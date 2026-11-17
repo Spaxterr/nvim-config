@@ -42,6 +42,7 @@ hl.on("hyprland.start", function()
 	hl.exec_cmd("systemctl --user start hyprpolkitagent")
 	hl.exec_cmd("gsettings set org.gnome.desktop.interface cursor-theme 'catppuccin-frappe-mauve-cursors'")
 	hl.exec_cmd("gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'")
+	hl.exec_cmd("hypr-rdp")
 end)
 
 hl.config({
@@ -53,7 +54,7 @@ hl.config({
 		touchpad = { natural_scroll = true },
 	},
 	-- Hybrid Intel + NVIDIA: hardware cursors leave a ghost cursor on the secondary GPU's output
-	cursor = { no_hardware_cursors = true },
+	cursor = { no_hardware_cursors = true, inactive_timeout = 3, hide_on_key_press = true },
 	general = {
 		gaps_in = 6,
 		gaps_out = 12,
@@ -64,9 +65,12 @@ hl.config({
 		},
 		layout = "dwindle",
 		resize_on_border = true,
+		-- Floating windows snap to edges and each other
+		snap = { enabled = true, respect_gaps = true },
 	},
 	decoration = {
-		rounding = 12,
+		rounding = 14,
+		rounding_power = 4, -- squircle corners
 		active_opacity = 0.92,
 		inactive_opacity = 0.85,
 		fullscreen_opacity = 1.0,
@@ -104,6 +108,7 @@ hl.config({
 			height = 20,
 			gradients = true,
 			rounding = 8,
+			rounding_power = 4,
 			indicator_height = 0,
 			blur = true,
 			col = { active = "rgba(ca9ee6cc)", inactive = "rgba(414559b3)" },
@@ -116,6 +121,8 @@ hl.config({
 		disable_splash_rendering = true,
 		force_default_wallpaper = 0,
 		background_color = "rgb(232634)",
+		animate_manual_resizes = true,
+		focus_on_activate = true,
 	},
 })
 
@@ -125,7 +132,8 @@ hl.animation({ leaf = "windows", enabled = true, speed = 5, bezier = "smooth", s
 hl.animation({ leaf = "windowsOut", enabled = true, speed = 4, bezier = "ease", style = "popin 85%" })
 hl.animation({ leaf = "fade", enabled = true, speed = 5, bezier = "ease" })
 hl.animation({ leaf = "border", enabled = true, speed = 8, bezier = "default" })
-hl.animation({ leaf = "workspaces", enabled = true, speed = 5, bezier = "ease", style = "slide" })
+hl.animation({ leaf = "workspaces", enabled = true, speed = 5, bezier = "ease", style = "slidefade 20%" })
+hl.animation({ leaf = "windowsMove", enabled = true, speed = 5, bezier = "smooth" })
 hl.animation({ leaf = "layers", enabled = true, speed = 4, bezier = "ease", style = "fade" })
 hl.animation({ leaf = "specialWorkspace", enabled = true, speed = 5, bezier = "ease", style = "slidevert" })
 
@@ -142,14 +150,16 @@ hl.workspace_rule({ workspace = "3", monitor = "DP-2", default = true, persisten
 
 hl.window_rule({ name = "suppress-maximize", match = { class = ".*" }, suppress_event = "maximize" })
 -- kitty does its own background transparency (crisp text); keep video fully opaque
-hl.window_rule({ name = "opaque", match = { class = "^(kitty|mpv|vlc)$" }, opacity = "1.0 override 1.0 override" })
+hl.window_rule({ name = "opaque", match = { class = "^(kitty|mpv|vlc|firefox|chromium)$" }, opacity = "1.0 override 1.0 override" })
 hl.window_rule({
 	name = "float-utils",
 	match = { class = "^(pavucontrol|org.pulseaudio.pavucontrol|nm-connection-editor|blueman-manager)$" },
 	float = true,
 	size = "720 540",
 })
-hl.window_rule({ name = "float-polkit", match = { class = "^(.*polkit.*)$" }, float = true, center = true })
+hl.window_rule({ name = "float-polkit", match = { class = "^(.*polkit.*)$" }, float = true, center = true, dim_around = true })
+-- No screen lock while something is fullscreen (video, games)
+hl.window_rule({ name = "idle-fullscreen", match = { class = ".*" }, idle_inhibit = "fullscreen" })
 
 hl.bind(mod .. " + Return", hl.dsp.exec_cmd(terminal))
 hl.bind(mod .. " + R", hl.dsp.exec_cmd(menu))
@@ -199,6 +209,8 @@ hl.bind(mod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
 local media = { locked = true, repeating = true }
 hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"), media)
 hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"), media)
+hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd("brightnessctl s 5%+"), media)
+hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("brightnessctl s 5%-"), media)
 hl.bind("XF86AudioMute", hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"), { locked = true })
 local mic = "~/.config/hypr/scripts/mic-toggle.sh"
 hl.bind("XF86AudioMicMute", hl.dsp.exec_cmd(mic), { locked = true })
