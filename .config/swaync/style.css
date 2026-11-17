@@ -2,11 +2,11 @@
 
 /* Catppuccin Frappé glass */
 :root {
-  --cc-bg: rgba(48, 52, 70, 0.6);
+  --cc-bg: rgba(48, 52, 70, 0.45);
   --noti-bg: 48, 52, 70;
-  --noti-bg-alpha: 0.6;
+  --noti-bg-alpha: 0.45;
   --noti-bg-darker: rgb(41, 44, 60);
-  --noti-bg-hover: rgba(65, 69, 89, 0.8);
+  --noti-bg-hover: rgba(65, 69, 89, 0.6);
   --noti-bg-focus: rgba(81, 87, 109, 0.6);
   --noti-close-bg: rgb(81, 87, 109);
   --noti-close-bg-hover: rgb(98, 104, 128);
@@ -21,7 +21,7 @@
 /* Same mauve→blue edge as the Hyprland window border */
 .notification-row .notification-background .notification,
 .control-center {
-  border: 2px solid;
+  border: 1px solid;
   border-color: #ca9ee6 #8caaee #8caaee #ca9ee6;
 }
 

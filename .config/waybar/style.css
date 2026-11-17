@@ -15,7 +15,7 @@ window#waybar {
 .modules-right {
     background: linear-gradient(135deg, rgba(198, 208, 245, 0.12), rgba(48, 52, 70, 0.1));
     /* mauve top/left, blue bottom/right: same as the Hyprland window border (GTK can't round a gradient border) */
-    border: 2px solid;
+    border: 1px solid;
     border-color: #ca9ee6 #8caaee #8caaee #ca9ee6;
     border-radius: 14px;
     padding: 2px 6px;
@@ -124,8 +124,8 @@ button {
 }
 
 tooltip {
-    background: rgba(41, 44, 60, 0.35);
-    border: 2px solid;
+    background: rgba(41, 44, 60, 0.25);
+    border: 1px solid;
     border-color: #ca9ee6 #8caaee #8caaee #ca9ee6;
     border-radius: 10px;
 }
@@ -140,8 +140,8 @@ tooltip {
 
 /* Tray dropdowns (nm-applet, blueman...): glass like the bar; Hyprland blurs them via blur_popups */
 menu {
-    background: rgba(41, 44, 60, 0.35);
-    border: 2px solid;
+    background: rgba(41, 44, 60, 0.25);
+    border: 1px solid;
     border-color: #ca9ee6 #8caaee #8caaee #ca9ee6;
     border-radius: 10px;
     padding: 4px;

@@ -58,12 +58,12 @@ hl.config({
 	-- Hybrid Intel + NVIDIA: hardware cursors leave a ghost cursor on the secondary GPU's output
 	cursor = { no_hardware_cursors = true, inactive_timeout = 3, hide_on_key_press = true },
 	general = {
-		gaps_in = 6,
-		gaps_out = 12,
-		border_size = 2,
+		gaps_in = 5,
+		gaps_out = 10,
+		border_size = 1,
 		col = {
-			active_border = { colors = { "rgba(ca9ee6ff)", "rgba(8caaeeff)" }, angle = 45 },
-			inactive_border = "rgba(51576d80)",
+			active_border = { colors = { "rgba(ca9ee6dd)", "rgba(8caaeedd)" }, angle = 45 },
+			inactive_border = "rgba(73799440)", -- hairline, barely there
 		},
 		layout = "dwindle",
 		resize_on_border = true,
@@ -71,15 +71,18 @@ hl.config({
 		snap = { enabled = true, respect_gaps = true },
 	},
 	decoration = {
-		rounding = 14,
+		rounding = 12,
 		rounding_power = 4, -- squircle corners
-		active_opacity = 0.92,
-		inactive_opacity = 0.85,
+		active_opacity = 0.88,
+		inactive_opacity = 0.80,
+		-- Thin borders need help marking focus: dim unfocused windows a touch
+		dim_inactive = true,
+		dim_strength = 0.06,
 		fullscreen_opacity = 1.0,
 		blur = {
 			enabled = true,
-			size = 8, -- strong enough that the backdrop turns to soft colour, so text stays readable
-			passes = 3,
+			size = 5, -- lighter frost: backdrop shapes still show through
+			passes = 2,
 			new_optimizations = true,
 			noise = 0.02, -- faint grain = frosted look
 			contrast = 1.0,
@@ -92,17 +95,18 @@ hl.config({
 		-- Inner edge light, like light catching a glass pane; independent of opacity
 		glow = {
 			enabled = true,
-			range = 8,
+			range = 6,
 			render_power = 3,
-			color = "rgba(ca9ee633)",
+			color = "rgba(ca9ee622)",
 			color_inactive = "rgba(c6d0f511)",
 		},
 		shadow = {
 			enabled = true,
-			range = 24,
-			render_power = 4,
-			offset = { 0, 4 },
-			color = "rgba(23263699)",
+			range = 32, -- wide, soft, low-alpha = floating-card depth
+			render_power = 3,
+			offset = { 0, 6 },
+			color = "rgba(1a1b2677)",
+			color_inactive = "rgba(1a1b2644)",
 		},
 	},
 	animations = { enabled = true },
@@ -111,7 +115,7 @@ hl.config({
 	group = {
 		col = {
 			border_active = { colors = { "rgba(ca9ee6ff)", "rgba(8caaeeff)" }, angle = 45 },
-			border_inactive = "rgba(51576d80)",
+			border_inactive = "rgba(73799440)",
 		},
 		groupbar = {
 			font_family = "Inter",

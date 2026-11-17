@@ -19,12 +19,12 @@ configuration {
 window {
     width: 560px;
     background-color: transparent;
-    border: 2px solid;
+    border: 1px solid;
     border-color: #ca9ee6;
     border-radius: 16px;
 }
-mainbox { background-color: #30344666; border-radius: 14px; padding: 14px; spacing: 10px; }
-inputbar { children: [prompt, entry]; spacing: 10px; padding: 10px 12px; border-radius: 10px; background-color: #41455980; }
+mainbox { background-color: #3034464d; border-radius: 14px; padding: 14px; spacing: 10px; }
+inputbar { children: [prompt, entry]; spacing: 10px; padding: 10px 12px; border-radius: 10px; background-color: #41455959; }
 prompt { text-color: #ca9ee6; font: "JetBrainsMono Nerd Font 15"; }
 entry { text-color: #c6d0f5; placeholder-color: #838ba7; cursor-color: #ca9ee6; }
 listview { lines: 8; spacing: 4px; scrollbar: false; border: 0; }
