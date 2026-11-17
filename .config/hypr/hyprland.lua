@@ -168,6 +168,15 @@ hl.window_rule({
 	float = true,
 	size = "720 540",
 })
+-- Screenshot annotator: big centred floating window, fully opaque so colours are true
+hl.window_rule({
+	name = "satty",
+	match = { class = "^com.gabm.satty$" },
+	float = true,
+	center = true,
+	size = "monitor_w*0.8 monitor_h*0.8",
+	opacity = "1.0 override 1.0 override",
+})
 hl.window_rule({ name = "float-polkit", match = { class = "^(.*polkit.*)$" }, float = true, center = true, dim_around = true })
 -- No screen lock while something is fullscreen (video, games)
 hl.window_rule({ name = "idle-fullscreen", match = { class = ".*" }, idle_inhibit = "fullscreen" })
