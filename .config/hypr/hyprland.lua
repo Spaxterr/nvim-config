@@ -30,6 +30,8 @@ hl.env("HYPRCURSOR_SIZE", "24")
 hl.env("QT_QPA_PLATFORM", "wayland;xcb")
 -- Qt apps use your Plasma theme (colours, Kvantum style, icons); Qt only loads it by default in a KDE session
 hl.env("QT_QPA_PLATFORMTHEME", "kde")
+-- Hyprland only: Kvantum style with translucent window backgrounds (~/.config/Kvantum); Plasma keeps its own style
+hl.env("QT_STYLE_OVERRIDE", "kvantum")
 
 hl.on("hyprland.start", function()
 	-- Same autostart as KDE: ~/.config/autostart + /etc/xdg/autostart (.desktop files; Hidden=true ones are skipped)
@@ -76,15 +78,24 @@ hl.config({
 		fullscreen_opacity = 1.0,
 		blur = {
 			enabled = true,
-			size = 3,
+			size = 8, -- strong enough that the backdrop turns to soft colour, so text stays readable
 			passes = 3,
 			new_optimizations = true,
-			noise = 0.01,
+			noise = 0.02, -- faint grain = frosted look
+			contrast = 1.0,
 			brightness = 1.0,
 			vibrancy = 0.55,
 			popups = true,
 			-- Floating windows blur only the wallpaper, not the tiles behind them
 			xray = true,
+		},
+		-- Inner edge light, like light catching a glass pane; independent of opacity
+		glow = {
+			enabled = true,
+			range = 8,
+			render_power = 3,
+			color = "rgba(ca9ee633)",
+			color_inactive = "rgba(c6d0f511)",
 		},
 		shadow = {
 			enabled = true,
@@ -149,8 +160,8 @@ hl.workspace_rule({ workspace = "2", monitor = "DP-1", default = true, persisten
 hl.workspace_rule({ workspace = "3", monitor = "DP-2", default = true, persistent = true })
 
 hl.window_rule({ name = "suppress-maximize", match = { class = ".*" }, suppress_event = "maximize" })
--- kitty does its own background transparency (crisp text); keep video fully opaque
-hl.window_rule({ name = "opaque", match = { class = "^(kitty|mpv|vlc|firefox|chromium)$" }, opacity = "1.0 override 1.0 override" })
+-- kitty and Dolphin (Kvantum) do their own background transparency (crisp text); keep video fully opaque
+hl.window_rule({ name = "opaque", match = { class = "^(kitty|org.kde.dolphin|mpv|vlc|firefox|chromium)$" }, opacity = "1.0 override 1.0 override" })
 hl.window_rule({
 	name = "float-utils",
 	match = { class = "^(pavucontrol|org.pulseaudio.pavucontrol|nm-connection-editor|blueman-manager)$" },
