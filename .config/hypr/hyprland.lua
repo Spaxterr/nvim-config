@@ -193,6 +193,17 @@ hl.bind(mod .. " + J", hl.dsp.layout("togglesplit"))
 -- Minimize = park the window on a hidden special workspace; Super+U (or the bar counter) restores it
 hl.bind(mod .. " + M", hl.dsp.window.move({ workspace = "special:minimized", follow = false }))
 hl.bind(mod .. " + U", hl.dsp.exec_cmd("~/.config/hypr/scripts/restore.sh"))
+-- Anything that focuses a minimized window (e.g. clicking its notification) restores it to the current workspace
+-- instead of opening special:minimized
+hl.on("window.active", function(w)
+	if not (w and w.workspace and w.workspace.name == "special:minimized") then return end
+	local mon = hl.get_active_monitor()
+	local ws = mon and mon.active_workspace
+	if not ws then return end
+	local win = "address:" .. w.address
+	hl.dispatch(hl.dsp.window.move({ workspace = tostring(ws.id), window = win }))
+	hl.dispatch(hl.dsp.focus({ window = win }))
+end)
 hl.bind(mod .. " + G", hl.dsp.group.toggle())
 hl.bind(mod .. " + Tab", hl.dsp.group.next())
 hl.bind(mod .. " + SHIFT + Tab", hl.dsp.group.prev())
