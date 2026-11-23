@@ -45,6 +45,7 @@ hl.on("hyprland.start", function()
 	hl.exec_cmd("gsettings set org.gnome.desktop.interface cursor-theme 'catppuccin-frappe-mauve-cursors'")
 	hl.exec_cmd("gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'")
 	hl.exec_cmd("hypr-rdp")
+	hl.exec_cmd("merkuro-calendar") -- preloaded hidden on special:calendar so the clock popup opens instantly
 end)
 
 hl.config({
@@ -180,6 +181,15 @@ hl.window_rule({
 	center = true,
 	size = "monitor_w*0.8 monitor_h*0.8",
 	opacity = "1.0 override 1.0 override",
+})
+-- Calendar popup from the Waybar clock: lives on a hidden special workspace the clock toggles; floats just under the bar, centred like the clock
+hl.window_rule({
+	name = "calendar-popup",
+	match = { class = "^org.kde.merkuro.calendar$" },
+	workspace = "special:calendar silent",
+	float = true,
+	size = "1000 680",
+	move = "(monitor_w-window_w)/2 46",
 })
 hl.window_rule({ name = "float-polkit", match = { class = "^(.*polkit.*)$" }, float = true, center = true, dim_around = true })
 -- No screen lock while something is fullscreen (video, games)

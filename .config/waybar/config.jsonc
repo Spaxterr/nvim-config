@@ -68,7 +68,9 @@
     },
     "clock": {
         "format": "{:%a %d %b  %H:%M}",
-        "tooltip-format": "<tt>{calendar}</tt>"
+        "tooltip": false,
+        // Click shows/hides the calendar, kept running for instant open (placed under the bar by the "calendar-popup" Hyprland rule)
+        "on-click": "pgrep -x merkuro-calenda >/dev/null || merkuro-calendar & hyprctl dispatch 'hl.dsp.workspace.toggle_special(\"calendar\")'"
     },
     "tray": {
         "spacing": 8

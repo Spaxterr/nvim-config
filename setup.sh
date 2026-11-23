@@ -220,6 +220,13 @@ else
   echo "  - FiraCode Nerd Font is already installed."
 fi
 
+# --- 8. Desktop Apps (Hyprland) ---
+# Merkuro: the calendar the Waybar clock toggles (see the "calendar-popup" rule in hyprland.lua)
+if [ "$PKG_MANAGER" = "pacman" ] && ! command_exists merkuro-calendar; then
+  echo "> Installing Merkuro calendar..."
+  sudo pacman -S --noconfirm merkuro
+fi
+
 
 # --- Final Instructions ---
 echo ""
