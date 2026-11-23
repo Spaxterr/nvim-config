@@ -1,3 +1,6 @@
+[Editor]
+lastUsedEventCollection=9
+
 [General]
 lastOpenedView=MonthView
 
@@ -7,6 +10,3 @@ holidayRegions=se_sv,se_sv_nameday
 [MonthView]
 showWeekNumbers=true
 weekdayLabelLength=Abbreviated
-
-[TaskView]
-pastEventsTransparencyLevel=0.1
