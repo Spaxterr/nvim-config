@@ -13,6 +13,7 @@ local servers = {
 	"gopls",
 	"svelte",
 	"tailwindcss",
+	"tsp_server",
 }
 
 local global_on_init = function(client, _)

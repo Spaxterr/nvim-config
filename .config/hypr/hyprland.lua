@@ -165,7 +165,7 @@ hl.workspace_rule({ workspace = "3", monitor = "DP-2", default = true, persisten
 
 hl.window_rule({ name = "suppress-maximize", match = { class = ".*" }, suppress_event = "maximize" })
 -- kitty and Dolphin (Kvantum) do their own background transparency (crisp text); keep video fully opaque
-hl.window_rule({ name = "opaque", match = { class = "^(kitty|org.kde.dolphin|mpv|vlc|firefox|chromium)$" }, opacity = "1.0 override 1.0 override" })
+hl.window_rule({ name = "opaque", match = { class = "^(kitty|org.kde.dolphin|mpv|vlc|firefox|librewolf|chromium)$" }, opacity = "1.0 override 1.0 override" })
 hl.window_rule({
 	name = "float-utils",
 	match = { class = "^(pavucontrol|org.pulseaudio.pavucontrol|nm-connection-editor|blueman-manager)$" },

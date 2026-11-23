@@ -1,7 +1,11 @@
 {
+    "$schema": "https://raw.githubusercontent.com/streetsidesoftware/cspell/main/cspell.schema.json",
     "version": "0.2",
     "language": "en",
-    "ignorePaths": ["node_modules", "dist"],
+    "ignorePaths": [
+        "node_modules",
+        "dist"
+    ],
     "dictionaries": [
         "en_US",
         "en-gb",
@@ -19,7 +23,9 @@
         "npm",
         "java",
         "fonts",
-        "go"
+        "svelte",
+        "go",
+        "sql"
     ],
     "words": [
         "bukkit",
@@ -43,6 +49,9 @@
         "dahua",
         "hypesquad",
         "qwik",
-        "cooldown"
+        "cooldown",
+        "npgsql",
+        "timestamptz",
+        "trgm"
     ]
 }
