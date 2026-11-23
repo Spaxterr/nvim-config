@@ -68,7 +68,9 @@
     },
     "clock": {
         "format": "{:%a %d %b  %H:%M}",
-        "tooltip-format": "<tt>{calendar}</tt>"
+        "tooltip": false,
+        // Click shows/hides the calendar, kept running for instant open (placed under the bar by the "calendar-popup" Hyprland rule)
+        "on-click": "pgrep -x merkuro-calenda >/dev/null || merkuro-calendar & hyprctl dispatch 'hl.dsp.workspace.toggle_special(\"calendar\")'"
     },
     "tray": {
         "spacing": 8
@@ -80,8 +82,8 @@
         "tooltip-format": "{source_desc} ({source_volume}%)\nClick: mute mic · Right-click: input settings · Scroll: mic volume",
         "on-click": "~/.config/hypr/scripts/mic-toggle.sh",
         "on-click-right": "pavucontrol -t 4",
-        "on-scroll-up": "wpctl set-volume -l 1 @DEFAULT_AUDIO_SOURCE@ 5%+",
-        "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 5%-"
+        "on-scroll-up": "pactl set-source-volume @DEFAULT_SOURCE@ +5%",
+        "on-scroll-down": "pactl set-source-volume @DEFAULT_SOURCE@ -5%"
     },
     "pulseaudio": {
         "format": "{icon} {volume}%",
@@ -94,7 +96,7 @@
             ]
         },
         "on-click": "pavucontrol",
-        "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+        "on-click-right": "pactl set-sink-mute @DEFAULT_SINK@ toggle"
     },
     "network": {
         "format-wifi": "󰤨 {essid}",

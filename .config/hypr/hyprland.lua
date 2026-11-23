@@ -45,6 +45,7 @@ hl.on("hyprland.start", function()
 	hl.exec_cmd("gsettings set org.gnome.desktop.interface cursor-theme 'catppuccin-frappe-mauve-cursors'")
 	hl.exec_cmd("gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'")
 	hl.exec_cmd("hypr-rdp")
+	hl.exec_cmd("merkuro-calendar") -- preloaded hidden on special:calendar so the clock popup opens instantly
 end)
 
 hl.config({
@@ -181,6 +182,15 @@ hl.window_rule({
 	size = "monitor_w*0.8 monitor_h*0.8",
 	opacity = "1.0 override 1.0 override",
 })
+-- Calendar popup from the Waybar clock: lives on a hidden special workspace the clock toggles; floats just under the bar, centred like the clock
+hl.window_rule({
+	name = "calendar-popup",
+	match = { class = "^org.kde.merkuro.calendar$" },
+	workspace = "special:calendar silent",
+	float = true,
+	size = "1000 680",
+	move = "(monitor_w-window_w)/2 46",
+})
 hl.window_rule({ name = "float-polkit", match = { class = "^(.*polkit.*)$" }, float = true, center = true, dim_around = true })
 -- No screen lock while something is fullscreen (video, games)
 hl.window_rule({ name = "idle-fullscreen", match = { class = ".*" }, idle_inhibit = "fullscreen" })
@@ -242,11 +252,11 @@ hl.bind(mod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true })
 hl.bind(mod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
 
 local media = { locked = true, repeating = true }
-hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"), media)
-hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"), media)
+hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("sh -c '[ \"$(pactl get-sink-volume @DEFAULT_SINK@ | grep -o \"[0-9]*%\" | head -1 | tr -d %)\" -lt 100 ] && pactl set-sink-volume @DEFAULT_SINK@ +5%'"), media)
+hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("pactl set-sink-volume @DEFAULT_SINK@ -5%"), media)
 hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd("brightnessctl s 5%+"), media)
 hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("brightnessctl s 5%-"), media)
-hl.bind("XF86AudioMute", hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"), { locked = true })
+hl.bind("XF86AudioMute", hl.dsp.exec_cmd("pactl set-sink-mute @DEFAULT_SINK@ toggle"), { locked = true })
 local mic = "~/.config/hypr/scripts/mic-toggle.sh"
 hl.bind("XF86AudioMicMute", hl.dsp.exec_cmd(mic), { locked = true })
 hl.bind(mod .. " + SHIFT + A", hl.dsp.exec_cmd(mic))
