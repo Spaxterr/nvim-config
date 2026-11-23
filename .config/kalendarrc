@@ -1,0 +1,12 @@
+[General]
+lastOpenedView=MonthView
+
+[GeneralView]
+holidayRegions=se_sv,se_sv_nameday
+
+[MonthView]
+showWeekNumbers=true
+weekdayLabelLength=Abbreviated
+
+[TaskView]
+pastEventsTransparencyLevel=0.1

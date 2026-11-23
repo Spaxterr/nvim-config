@@ -227,6 +227,21 @@ if [ "$PKG_MANAGER" = "pacman" ] && ! command_exists merkuro-calendar; then
   sudo pacman -S --noconfirm merkuro
 fi
 
+# Local "Vacation" calendar for Merkuro (all-day events in it mark days off)
+if command_exists merkuro-calendar && ! grep -qs '^DisplayName=Vacation$' "$HOME"/.config/akonadi_ical_resource_*rc; then
+  echo "> Creating the Vacation calendar..."
+  akonadictl start && sleep 5
+  agents="qdbus6 org.freedesktop.Akonadi.Control /AgentManager org.freedesktop.Akonadi.AgentManager"
+  id=$($agents.createAgentInstance akonadi_ical_resource) && sleep 3
+  settings="qdbus6 org.freedesktop.Akonadi.Resource.$id /Settings org.kde.Akonadi.ICal.Settings"
+  mkdir -p "$HOME/.local/share/calendars"
+  $settings.setPath "$HOME/.local/share/calendars/vacation.ics"
+  $settings.setDisplayName "Vacation"
+  $settings.save
+  $agents.setAgentInstanceName "$id" "Vacation"
+  qdbus6 "org.freedesktop.Akonadi.Resource.$id" / org.freedesktop.Akonadi.Agent.Control.reconfigure
+fi
+
 
 # --- Final Instructions ---
 echo ""
@@ -236,4 +251,4 @@ echo "--- IMPORTANT NEXT STEPS ---"
 echo "1. Restart your terminal or log out and log back in for all changes to take effect."
 echo "2. Open your terminal emulator's settings and change the font to 'FiraCode Nerd Font'."
 echo "3. Run 'tmux' and press 'Prefix + I' (usually Ctrl+b + I) to install the TPM plugins from your .tmux.conf."
-echo ""```
+echo ""
