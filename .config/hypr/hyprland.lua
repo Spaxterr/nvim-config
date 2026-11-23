@@ -252,11 +252,11 @@ hl.bind(mod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true })
 hl.bind(mod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
 
 local media = { locked = true, repeating = true }
-hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"), media)
-hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"), media)
+hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("sh -c '[ \"$(pactl get-sink-volume @DEFAULT_SINK@ | grep -o \"[0-9]*%\" | head -1 | tr -d %)\" -lt 100 ] && pactl set-sink-volume @DEFAULT_SINK@ +5%'"), media)
+hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("pactl set-sink-volume @DEFAULT_SINK@ -5%"), media)
 hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd("brightnessctl s 5%+"), media)
 hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("brightnessctl s 5%-"), media)
-hl.bind("XF86AudioMute", hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"), { locked = true })
+hl.bind("XF86AudioMute", hl.dsp.exec_cmd("pactl set-sink-mute @DEFAULT_SINK@ toggle"), { locked = true })
 local mic = "~/.config/hypr/scripts/mic-toggle.sh"
 hl.bind("XF86AudioMicMute", hl.dsp.exec_cmd(mic), { locked = true })
 hl.bind(mod .. " + SHIFT + A", hl.dsp.exec_cmd(mic))
