@@ -223,6 +223,7 @@ hl.bind(mod .. " + Tab", hl.dsp.group.next())
 hl.bind(mod .. " + SHIFT + Tab", hl.dsp.group.prev())
 hl.bind(mod .. " + L", hl.dsp.exec_cmd("loginctl lock-session"))
 hl.bind(mod .. " + N", hl.dsp.exec_cmd("swaync-client -t -sw"))
+hl.bind(mod .. " + C", hl.dsp.exec_cmd("~/.config/hypr/scripts/cursor-lock.sh"))
 local shot = "~/.config/hypr/scripts/screenshot.sh"
 hl.bind("Print", hl.dsp.exec_cmd(shot .. " region"))
 hl.bind("SHIFT + Print", hl.dsp.exec_cmd(shot .. " window"))
