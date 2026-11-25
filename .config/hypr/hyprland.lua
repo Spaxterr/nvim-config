@@ -163,6 +163,14 @@ hl.layer_rule({ name = "rofi-popin", match = { namespace = "^rofi$" }, animation
 hl.workspace_rule({ workspace = "1", monitor = "HDMI-A-1", default = true, persistent = true })
 hl.workspace_rule({ workspace = "2", monitor = "DP-1", default = true, persistent = true })
 hl.workspace_rule({ workspace = "3", monitor = "DP-2", default = true, persistent = true })
+-- Undocking drops orphaned workspaces on the invisible headless hypr-rdp output; pull them onto the laptop screen
+hl.on("monitor.removed", function()
+	for _, ws in ipairs(hl.get_workspaces()) do
+		if ws.monitor and ws.monitor.name == "hypr-rdp" and ws.windows > 0 then
+			hl.dispatch(hl.dsp.workspace.move({ workspace = tostring(ws.id), monitor = "eDP-1" }))
+		end
+	end
+end)
 
 hl.window_rule({ name = "suppress-maximize", match = { class = ".*" }, suppress_event = "maximize" })
 -- kitty and Dolphin (Kvantum) do their own background transparency (crisp text); keep video fully opaque
