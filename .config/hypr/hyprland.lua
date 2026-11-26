@@ -163,14 +163,22 @@ hl.layer_rule({ name = "rofi-popin", match = { namespace = "^rofi$" }, animation
 hl.workspace_rule({ workspace = "1", monitor = "HDMI-A-1", default = true, persistent = true })
 hl.workspace_rule({ workspace = "2", monitor = "DP-1", default = true, persistent = true })
 hl.workspace_rule({ workspace = "3", monitor = "DP-2", default = true, persistent = true })
--- Undocking drops orphaned workspaces on the invisible headless hypr-rdp output; pull them onto the laptop screen
-hl.on("monitor.removed", function()
+-- Docking, undocking and closing the lid can strand workspaces on the invisible headless hypr-rdp output;
+-- pull the ones with windows onto a real screen
+local function rescue_workspaces(removed)
+	local screen
+	for _, m in ipairs(hl.get_monitors()) do
+		if m.name ~= "hypr-rdp" and m.name ~= removed then screen = screen or m.name end
+	end
+	if not screen then return end
 	for _, ws in ipairs(hl.get_workspaces()) do
-		if ws.monitor and ws.monitor.name == "hypr-rdp" and ws.windows > 0 then
-			hl.dispatch(hl.dsp.workspace.move({ workspace = tostring(ws.id), monitor = "eDP-1" }))
+		if ws.monitor and ws.monitor.name == "hypr-rdp" and ws.windows > 0 and not ws.special then
+			hl.dispatch(hl.dsp.workspace.move({ workspace = tostring(ws.id), monitor = screen }))
 		end
 	end
-end)
+end
+hl.on("monitor.added", function() rescue_workspaces() end)
+hl.on("monitor.removed", function(m) rescue_workspaces(m and m.name) end)
 
 hl.window_rule({ name = "suppress-maximize", match = { class = ".*" }, suppress_event = "maximize" })
 -- kitty and Dolphin (Kvantum) do their own background transparency (crisp text); keep video fully opaque
